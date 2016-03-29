@@ -1,0 +1,18 @@
+	<footer class="mainfoot">
+		<div class="container">
+			<p class="mainfoot--list">
+				<span class="mainfoot--link">All pages</span> 
+				{% for page in site.pages %}
+				<a href="{{ site.baseurl}}{{ page.permalink }}" class="mainfoot--link">{{ page.title }}</a> 
+				{% endfor %}
+			</p>
+			<p class="mainfoot--copyright">&copy;2016 Oomph, Inc.</p>
+		</div>
+	</footer>
+	<div id="body-overlay"></div>
+
+	<div id="size"></div>
+
+	<script src="//code.jquery.com/jquery-1.12.2.min.js"></script>
+    <script src="{{ site.baseurl}}/assets/js/plugins.js"></script>
+    <script src="{{ site.baseurl}}/assets/js/main.js"></script>
