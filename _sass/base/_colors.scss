@@ -1,0 +1,62 @@
+// @file colors.scss
+
+
+// Getter function for color palettes using SASS maps
+// Link: http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/
+// Usage: color: palette(brand,tan);
+@function palette( $palette, $tone:base ) {
+
+	@if not index(map-keys($palettes), $palette) {
+		@error "Palette `#{$palette}` does not exist.";
+	}
+	@if not index(map-keys(map-get($palettes, $palette)), $tone) {
+		@error "There is no `#{$tone}` defined in your `#{$palette}` color map however, its being called in your theme.";
+	}
+	@return map-deep-get( $palettes, $palette, $tone );
+}
+
+
+// Color palettes using SASS maps
+// Link: http://chir.ag/projects/name-that-color/
+
+$palettes: (
+	// We NEED to define a "base" for each, so that we can use pallette(brand) without throwing an error
+	// Brand should contain this project's specific color scheme
+	brand: (
+		base: #ed1941,
+		dark: #bd1534, // 20% less brightness via HSB
+		green: #61a143
+	),
+	
+	// Default color scheme, edit values in relation to the numeric representation
+	// In other words, keep high values dark and low values light
+	mono: (
+		black: #131313,
+		90: #303030,
+		75: #4f4f4f,
+		66: #666,
+		base: #888,
+		33: #999,
+		25: #ccc,
+		10: #f2f2f2,
+		white: #fff
+	),
+	
+	// Default color scheme, if we need it
+	drupal: (
+		base: #0077c0, //blue
+		light: #81ceff,
+		dark: #00598e
+	),
+	
+	// Default color scheme, if we need it
+	wordpress: (
+		base: #21759b, // blue
+		orange: #d54e21,
+		grey: #464646
+	)
+);
+
+$html-bg-color: palette(mono, 90);
+$body-bg-color: palette(mono, white);
+$border-color: palette(mono, 25);

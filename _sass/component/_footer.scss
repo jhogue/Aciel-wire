@@ -1,0 +1,24 @@
+.mainfoot {
+	background-color: $html-bg-color;
+	clear: both;
+	color: palette(mono, 25);
+	padding: $vert-line-height 0;
+
+	p { margin-bottom: $vert-line-height; }
+
+	&--list {}
+
+	&--link {
+		display: inline-block;
+		color: palette(mono, 25);
+		margin-right: .75em;
+		
+		@include touch-hover() {
+			color: palette(brand);
+		}
+	}
+
+	&--copyright {
+		@extend .micro;
+	}
+}

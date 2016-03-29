@@ -1,0 +1,103 @@
+// @file Global Styles
+
+// Type Sizes
+$base-type-size: 1em;
+
+//
+// Root Elements
+//
+html {
+	background-color: $html-bg-color;
+	font-size: $base-type-size;
+	-webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+	min-height: 100%;
+}
+
+body {
+	overflow-x: visible;
+	position: relative;
+	z-index: map-get($zindex, body);
+}
+
+//
+// Media Elements
+//
+img,
+video,
+object {
+	display: block;
+	height: auto;
+	max-width: 100%;
+}
+
+//
+// Reset lists when used as navigational elements
+//
+nav ul,  
+ul.menu, 
+ol.menu {
+    @include list-reset();
+    
+    // More often than not, we want anchors in menus to display block
+    a { display: block; }
+}
+
+//
+// Show nested back up text or an unicode element when fontface is not supported
+//
+.fa {
+	
+	& > span {
+		display: none;
+		visibility: hidden;
+		
+		.no-fontface & {
+			display: inline;
+			visibility: visible;
+		}
+	}
+}
+
+//
+// Javascript enabled elements. Apply the bare minimum styles to these elements. 
+//
+.js {
+
+	// Slide toggle effect
+	.js-accordion-wrap { display: none; }
+}
+
+#body-overlay {
+	display: none;
+	background: rgba(#000, .5);
+	opacity: 0;
+	visibility: hidden;
+	@include transition( opacity 250ms ease, visibility 250ms ease );
+
+	body.js-overlay-active & {
+		display: block;
+		opacity: 1;
+		position: absolute;
+			top: 0; left: 0; right: 0; bottom: 0;
+		visibility: visible;
+		z-index: map-get($zindex, overlay);
+		-webkit-backdrop-filter: blur(8px);
+	}
+}
+
+
+// Development only
+#size {
+	display: none;
+	
+	background-color: palette(brand);
+	color: palette(mono, white);
+	line-height: 1;
+	padding: .25em;
+	position: absolute;
+		top: 33%; right: 0;
+}

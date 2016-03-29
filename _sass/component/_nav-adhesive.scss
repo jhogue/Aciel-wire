@@ -1,0 +1,179 @@
+/*<nav class="stickynav js-sticky">
+	<div class="stickynav--brand">
+		<a href="." title="Back Home"><img src="{{ "/files/Leica-Geosystems.png" | prepend: site.baseurl }}" alt="Leica Geosystems"></a>
+	</div>
+	<ul class="stickynav">
+		<li>
+			<a href="#" class="stickynav--mainlink">Disto</a>
+			<ul class="stickynav--list stickynav--subnav">
+				<li>
+					<ul class="stickynav--list">
+						<li><a href="#" class="stickynav--link">Compare</a></li>
+					</ul>
+				</li>
+				<li>
+					<ul class="stickynav--grid">
+						<li class="overlay--card">
+							<div class="overlay--card--title">
+								<h4>Product name</h4>
+							</div>
+							<div class="overlay--card--img">
+								<img src="http://placehold.it/640x480" alt="">
+							</div>
+							<div class="overlay--card--price">
+								<p>Product price</p>
+							</div>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	<div class="stickynav--search-n-cart">
+		<div class="mainnav--search">
+			<a href="#searchform" class="mainnav--button js-accordion"><span class="fa fa-search" aria-hidden="true"><span>Search</span></span></a>
+		</div>
+		<div class="mainnav--cart">
+			<a href="#" id="shop-cart"  class="mainnav--button"><span class="fa fa-shopping-cart" aria-hidden="true"><span>Cart</span></span></a>
+		</div>
+	</div>*/
+.stickynav {
+	background-color: palette(mono, 10);
+	clear: both;
+	position: relative;
+		top: 0;
+	width: 100%;
+	@include clearfix();
+
+	&.stuck { box-shadow: 0 2px 4px rgba(#000, .2); }
+
+	& > &--list {
+		display: block;
+		margin: 0 auto;
+		padding: 0 15%;
+		position: relative;
+		text-align: center;
+		
+		& > li { display: inline-block; }
+		
+		& > li:hover .stickynav--subnav {
+			opacity: 1;
+				left: 0; right: 0;
+			@include transition-delay( 250ms );
+		}
+		
+		& > li:hover .stickynav--mainlink {
+			background-color: palette(brand);
+			color: palette(mono, white);
+		}
+	}
+
+	&--mainlink {
+		color: palette(mono, 90);
+		font-size: 1.25em;
+		padding: .625em 1em .5em;
+		text-transform: uppercase;
+		
+		@include touch-hover() {
+			background-color: palette(brand);
+			color: palette(mono, white);
+		}
+	}
+	
+	&--link {
+		padding: .5em .75em .325em;
+	}
+
+	&--subnav {
+		background-color: palette(brand);
+		opacity: 0;
+		padding: .5em;
+		position: absolute; 
+			top: 100%; left: -999em;
+		z-index: map-get($zindex, sticky-subnav);
+		@include transition( opacity 250ms ease );
+	}
+	
+	// The first group of text buttons
+	&--subnav &--list {
+		background-color: palette(mono, 10);
+
+		& > li { display: inline-block; } 
+	}
+
+	&--grid {
+		background-color: palette(brand);
+		margin-top: 1em;
+
+		.overlay--card { 
+			@include span-columns(3);
+		}
+
+		// We use nth-child now, but it may be best to rely on classes when in development
+		.overlay--card:nth-child(1),
+		.overlay--card:nth-child(2) { @include span-columns(6); }
+
+		.overlay--card:nth-child(2) { @include omega(); }
+	}
+
+	&--brand,
+	&--search-n-cart {
+		opacity: 0;
+		position: absolute;
+			bottom: 0;
+		@include transition( opacity 500ms ease );
+		
+		.stuck & { opacity: 1; }
+	}
+
+	&--brand {
+		left: 0;
+		padding: .25em .5em .5em;
+
+		a { display: block; }
+
+		img { height: 2.75em; }
+	}
+
+	&--search-n-cart {
+		right: 0;
+		@include clearfix;
+
+		.mainnav--button { padding: .125em .5em .125em; }
+	}
+	
+	&--search,
+	&--cart { float: left; }
+
+
+	// Media
+	@include media($large-up) {
+
+		& > &--list { padding: 0 10%; }
+	}
+}
+
+
+// Need the "stuck" classs and the "sticky-wrapper" for Waypoints to work
+.sticky-wrapper,
+.stickynav {
+	display: none;
+	visibility: hidden;
+}
+
+@include media($small-up) {
+
+	.sticky-wrapper,
+	.stickynav {
+		display: block;
+		visibility: visible;
+	}
+
+	.js .stuck {
+		position: fixed;
+			top: 0;
+		z-index: map-get($zindex, sticky);
+	}
+
+	.js .sticky-wrapper { background-color: $body-bg-color; }
+}

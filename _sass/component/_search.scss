@@ -1,0 +1,5 @@
+// @file search.scss
+
+input[type="search"] {
+	@include appearance(textfield);
+}

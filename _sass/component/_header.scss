@@ -1,0 +1,32 @@
+/*<div class="mainsearch">
+	<div class="container">
+		<form id="searchform" class="form form--global-search mainnav--searchform">
+			<div class="form--position-wrap">
+				<input type="search" class="form--input" placeholder="Search the site&hellip;">
+				<button class="form--position--element"><span class="fa fa-search" aria-hidden="true"><span>Search</span></span></button>
+			</div>
+		</form>
+	</div>
+</div>*/
+.mainsearch {
+	background-color: palette(mono, 10);
+	padding: .5em 0;
+	@include clearfix();
+
+	button {
+		background-color: transparent;
+		border: none;
+		color: palette(mono, 33);
+		font-size: 1.25em;
+		@include appearance(none);
+
+		@include touch-hover() { color: palette(mono, 75); }
+	}
+
+	input:focus + button { color: palette(brand); }
+}
+
+.mainhead {
+	background-color: palette(mono, 25);
+	clear: both;
+}

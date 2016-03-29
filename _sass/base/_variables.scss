@@ -1,0 +1,32 @@
+// Variables throughout the project
+// Most variables are localized at the top of the file from which they are first used
+
+// Global font declarations
+$font-sans: $helvetica;
+$font-serif: $georgia;
+$font-mono: $monospace;
+
+// Defaults
+$default-border-radius: 4px;
+
+// Tables
+$table-border-collapse: true;
+$table-border-color: palette(mono,10);
+$table-cell-padding: .5em;
+
+// God damn Z-indices
+// https://www.smashingmagazine.com/2009/09/the-z-index-css-property-a-comprehensive-look/
+$zindex: (
+	body: 1,
+	rwd-table-pinned: 2,
+	rwd-table-wrapper: 3,
+	rwd-table-content: 4,
+	overlay: 100,
+	mainnav: 101,
+	searchform: 102,
+	ul-subnav: 500,
+	li-subnav: 501,
+	subnav: 503,
+	sticky: 998,
+	sticky-subnav: 999,
+);

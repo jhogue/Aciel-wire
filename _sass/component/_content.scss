@@ -1,0 +1,41 @@
+.content {
+	background-color: palette(mono, white);
+	clear: both;
+	padding: $vert-line-height 0;
+
+	&--title {
+		@extend .mega;
+		color: palette(brand);
+		margin-bottom: .75em;
+	}
+
+	&--main {
+
+		p,
+		ul,
+		ol,
+		dl,
+		address,
+		form,
+		table {
+			margin-bottom: $vert-line-height;
+		}
+	}
+}
+
+
+// Responsive table styles
+.table {
+
+	&--compare {
+		font-size: em(14);
+		
+		.fa { font-size: em(16, 14); }
+		
+		.fa-check-circle { color: palette(brand, green); }
+		
+		@include media($small-up) {
+			font-size: 1em;
+		}
+	}
+}

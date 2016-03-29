@@ -1,0 +1,314 @@
+$overlay-default-color: palette(mono, 90);
+$overlay-default-text-color: palette(mono, white);
+$overlay-active-color: palette(brand);
+$overlay-active-text-color: palette(mono, white);
+
+.mainnav {
+	background-color: $body-bg-color;
+	border-bottom: 1px solid $border-color;
+	clear: both;
+	position: relative;
+	z-index: map-get($zindex, mainnav);
+
+	.container { padding: 0; }
+
+	&--search {
+
+		.js & { display: none; }
+	}
+
+	&--wrapper {
+		width: 100%;
+		@include clearfix();
+	}
+
+	// Navigation lists & buttons
+	&--list {
+
+		&__overlay {}
+	}
+
+	&--button {
+		color: palette(brand);
+		display: block;
+		font-size: 2em;
+		padding: .25em .5em;
+
+		@include touch-hover() { color: palette(brand, dark); }
+	}
+	
+	&--link {
+		padding: .25em .5em .125em;
+	}
+
+	// The hamburger button
+	&--list__overlay &--button {
+		background-color: palette(mono, 10);
+
+		@include touch-hover() {
+			background-color: $overlay-default-color;
+			color: $overlay-default-text-color;
+		}
+
+		&.js-toggle-active {
+			background-color: $overlay-default-color;
+			color: $overlay-default-text-color;
+		}
+	}
+
+	// Logo
+	&--brand {
+		padding: .5em 1.5em;
+
+		img {
+			height: 3em;
+			margin: 0 auto;
+		}
+	}
+
+	// Wrapper around search and cart elements
+	&--search-n-cart { @include clearfix(); }
+
+	&--search-button,
+	&--cart-button { float: left; }
+
+	&--search-button {}
+
+	&--cart-button {}
+
+	&--user-options {
+		display: none;
+		float: right;
+		text-align: right; 
+		width: 78%;
+		@include clearfix();
+
+		li {
+			position: relative;
+			z-index: map-get($zindex, li-subnav);
+
+			&:hover > .with-dropdown { background-color: palette(mono, 10); }
+
+			&:hover > .mainnav--subnav {
+				opacity: 1;
+				top: 100%;
+			}
+		}
+	}
+
+	&--user-options &--list li {
+		display: inline-block;
+	}
+
+	&--subnav {
+		background-color: palette(mono, 10);
+		box-shadow: 0 2px .5em rgba(#000,.25);
+		opacity: 0;
+		position: absolute;
+			top: -999em; right: 0;
+		z-index: map-get($zindex, subnav);
+		@include transition( opacity 250ms ease );
+
+		li { white-space: nowrap; }
+	}
+
+
+	// Layout
+	&--list__overlay,
+	&--brand {
+		display: block;
+		float: left;
+	}
+
+	&--search-n-cart {
+		display: block;
+		float: right;
+	}
+
+
+	// Media
+	@include media($xsmall-up) {
+
+		.js &--search {
+			background-color: transparent;
+			display: block !important; // I hate this, but we have JS adding an inline style
+			padding: 0;
+		}
+
+		&--searchform {
+			float: left;
+			position: absolute;
+				top: .75em; left: 50%;
+			margin-left: -15%;
+			width: 50%;
+			z-index: map-get($zindex, searchform);
+		}
+
+		&--search-button { display: none; } // the little icon
+	}
+
+	@include media($small-up) {
+		z-index: auto;
+
+		&--searchform {
+			top: 2.5em;
+			margin-left: -20%;
+		}
+
+		&__mobile {
+			display: none;
+			visibility: visible;
+		}
+		
+		&--brand {
+			padding-left: .875em;
+			padding-right: 1em;
+			
+			img { height: 5em; }
+		}
+
+		&--user-options { display: block; }
+	}
+
+	@include media(min-width 940px) {
+
+		&--user-options { width: 80%; }
+	}
+
+	@include media(min-width 1020px) {
+
+		&--user-options { width: 85%; }
+	}
+
+	@include media(min-width 1400px) {
+
+		&--user-options { width: 88%; }
+	}
+}
+
+/*<ul class="mainnav--list mainnav--list__overlay overlay">
+	<li>
+		<a href="#overlay" class="mainnav--button js-overlay"><span class="fa fa-bars" aria-hidden="true"><span>&equiv;</span></span></a>
+		<ul id="overlay" class="mainnav--list overlay">
+			<li class="overlay--parent">
+				<a href="#disto" class="overlay--parent--link js-accordion">Disto <span class="fa fa-caret-down" aria-hidden="true"></span></a>
+				<ul id="disto" class="overlay--grid js-accordion-wrap">
+					<li></li>
+				</ul>
+				<ul class="overlay--list">
+					<li><a href="#" class="overlay--link">Compare</a></li>
+				</ul>
+			</li>
+	</li>
+</ul>*/
+.overlay {
+	background-color: $overlay-default-color;
+	padding: .5em;
+	position: absolute;
+		top: 100%; left: 0;
+	width: $min-width;
+
+	&--parent {
+		background-color: palette(mono, white);
+		display: block;
+		width: 100%;
+
+		&--link {
+			border-top: 1px solid $border-color;
+			border-bottom: 1px solid $border-color;
+			color: $overlay-default-color;
+			font-weight: 700;
+			padding: .5em .5em .25em;
+			text-transform: uppercase;
+
+			@include touch-hover() {
+				color: palette(mono, 75);
+			}
+
+			&.js-toggle-active {
+				background-color: $overlay-active-color;
+				border-top-color: darken($overlay-active-color, 8%);
+				border-bottom-color: darken($overlay-active-color, 8%);
+				color: $overlay-active-text-color;
+
+				@include touch-hover() { color: $overlay-active-text-color; }
+			}
+
+			.fa {
+				float: right;
+				font-size: 1.25em;
+				padding: 0 .5em;
+				@include transition( transform 250ms ease );
+			}
+			
+			&.js-toggle-active .fa { @include transform( rotate(180deg) ); }
+		}
+	}
+
+	&--grid {
+		background-color: $overlay-active-color;
+		padding: .5em;
+	}
+
+	/*<li class="overlay--card">
+		<div class="overlay--card--title">
+			<h4>Product name</h4>
+		</div>
+		<div class="overlay--card--img">
+			<img src="http://placehold.it/640x480" alt="">
+		</div>
+		<div class="overlay--card--price">
+			<p>Product price</p>
+		</div>
+	</li>*/
+	&--card {
+		padding-bottom: 1em;
+		
+		&--title,
+		&--price {
+			background-color: palette(brand, dark);
+			color: palette(mono, white);
+			padding: .5em;
+			text-align: center;
+		}
+	}
+
+	&--list {}
+
+	&--user-options {
+		
+		.button {
+			display: inline-block;
+			width: 49%;
+		}
+	}
+
+	&--user-options &--list {
+		background-color: palette(mono, white);
+		margin-bottom: .5em;
+	}
+
+	&--link {
+		padding: .25em .5em .125em;
+	}
+	
+	
+	// Breakpoints
+	@include media($xsmall-up) {
+		width: 40%;
+
+		&--parent { position: relative; }
+
+		&--parent--link .fa { @include transform( rotate(-90deg) ); }
+		
+		&--parent--link.js-toggle-active .fa { @include transform( rotate(90deg) ); }
+		
+		&--grid {
+			position: absolute;
+				top: -.5em; left: calc(100% + .5em);
+			width: 161%;
+		}
+	}
+}
+
+.js-toggle-active .fa-search:before { content: '\f057'; }

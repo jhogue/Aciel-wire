@@ -1,0 +1,49 @@
+// @file buttons.scss
+
+$form-button-background: palette(brand);
+$form-button-border: false;
+$form-button-border-color: palette(brand, dark);
+$form-button-border-width: 1px;
+$form-button-border-radius: $default-border-radius;
+$form-button-padding: .5em 1em .325em;
+
+// Default button style. Classes must be chained to change colors, i.e. class="button button--primary"
+button,
+button.button,
+input.button {
+	cursor: pointer;
+	@include appearance(button);
+}
+
+a.button { margin-bottom: .5em; }
+
+// Additional button styles must be chained, i.e. class="button button--primary"
+.button {
+	background-color: palette(mono, 25);
+	@if $form-button-border {
+		border: $form-button-border-width solid $form-button-border-color;
+	} @else {
+		border: none;
+	}
+	border-radius: $form-button-border-radius;
+	color: palette(mono, 66);
+	cursor: pointer;
+	padding: $form-button-padding;
+	text-align: center;
+	
+	@include touch-hover() {
+		background-color: palette(mono, 10);
+		color: palette(mono, 75);
+	}
+
+	&--primary,
+	.js-toggle-active {
+		background: palette(brand);
+		color: palette(mono, white);
+
+		@include touch-hover() {
+			background: palette(brand, dark);
+			color: palette(mono, white);
+		}
+	}
+}
