@@ -6,7 +6,7 @@ $line-height: 1.5;
 
 // establishing some vertical rhythm for no type elements
 // use this on margin bottom etc.
-$vert-line-height: $line-height + em;
+$vert-line-height: $line-height * 1em;
 
 @font-face {
 	font-family: 'FontAwesome';
@@ -59,15 +59,6 @@ a {
 
 
 // Headings
-h1, .alpha,
-h2, .bravo,
-h3, .charlie,
-h4, .delta,
-h5, .echo,
-h6, .foxtrot {
-	clear: both;
-}
-
 h1,
 .alpha {
 	@include one-element-size(h1);

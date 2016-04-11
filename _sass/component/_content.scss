@@ -11,15 +11,20 @@
 
 	&--main {
 
+		/*h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 { clear: both; }*/
+
 		p,
 		ul,
 		ol,
 		dl,
 		address,
 		form,
-		table {
-			margin-bottom: $vert-line-height;
-		}
+		table { margin-bottom: $vert-line-height; }
 	}
 }
 
@@ -38,4 +43,42 @@
 			font-size: 1em;
 		}
 	}
+}
+
+
+/* ! ===== RWD embed support for 3rd-party videos ===== */
+/* Force videos to be part of the flow instead of on top for IE8 with '?wmode=transparent' appended to the URL if possible
+<div class="embed-container ">
+	<iframe width="560" height="315" src="//www.youtube.com/embed/TdwT5JlH8gM?wmode=transparent" frameborder="0" allowfullscreen></iframe>
+</div>*/
+.js .embed-container { 
+	@include proportional-container( 16 9 );
+
+	iframe, 
+	object, 
+	embed,
+	& > div { 
+		position: absolute;
+			top: 0; left: 0;
+		width: 100% !important;
+		height: 100% !important;
+	}
+}
+
+.no-js .embed-container {
+	padding: 1em;
+	background-color: palette(mono, 66);
+	text-align: center;
+
+	&:before {
+		@extend .charlie;
+		content: 'Sorry, embedded video players need javascript.';
+		width: 100%;
+		color: palette(mono, 10);
+	}
+
+	iframe, 
+	object, 
+	embed,
+	& > div { @include hide(); }
 }
