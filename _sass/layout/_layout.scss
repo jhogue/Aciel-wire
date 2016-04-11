@@ -28,18 +28,62 @@
 */
 
 .container {
+	@include outer-container();
 	padding: 0 1em;
 	min-width: $min-width;
-	@include outer-container();
 }
 
+.grid {
+	@include clearfix;
 
-// Highlight the pieces
-.mainhead,
-.mainnav,
-.content--main,
-.mainfoot {
-	border-width: 2px;
-	border-style: solid;
-	border-color: green;
+	&--item {}
+
+	/*<div class="grid grid--rightrail">
+		<div class="grid--column grid--column--main">
+			[ ... ]
+		</div>
+		<aside class="grid--column grid--column--rail">
+			[ ... ]
+		</aside>
+	</div>*/
+	&--rightrail {}
+
+	@include media($small) {
+
+		&--rightrail &--column--main { @include span-columns(7); }
+
+		&--rightrail &--column--rail {
+			@include span-columns(5);
+			@include omega();
+		}
+	}
+	
+	@include media($medium-up) {
+
+		&--rightrail &--column--main { @include span-columns(8); }
+
+		&--rightrail &--column--rail {
+			@include span-columns(4);
+			@include omega();
+		}
+	}
+
+	// This one grows from a single col to a two to a three and stops at four
+	&__quadratic &--item {
+
+		@include media($smallish) {
+			@include span-columns(6);
+			@include omega(2n);
+		}
+
+		@include media($medium) {
+			@include span-columns(4);
+			@include omega(3n);
+		}
+
+		@include media($large-up) {
+			@include span-columns(3);
+			@include omega(4n);
+		}
+	}
 }
