@@ -5,12 +5,15 @@ $overlay-active-text-color: palette(mono, white);
 
 .mainnav {
 	background-color: $body-bg-color;
-	border-bottom: 1px solid $border-color;
+	border-bottom: 1px solid $color-borders;
 	clear: both;
 	position: relative;
 	z-index: map-get($zindex, mainnav);
 
-	.container { padding: 0; }
+	.container {
+		max-width: none;
+		padding: 0;
+	}
 
 	&--search {
 
@@ -104,6 +107,7 @@ $overlay-active-text-color: palette(mono, white);
 		background-color: palette(mono, 10);
 		box-shadow: 0 2px .5em rgba(#000,.25);
 		opacity: 0;
+		overflow-x: auto;
 		position: absolute;
 			top: -999em; right: 0;
 		z-index: map-get($zindex, subnav);
@@ -174,6 +178,13 @@ $overlay-active-text-color: palette(mono, white);
 
 		&--user-options { width: 80%; }
 	}
+	
+	@include media($medium-up) {
+
+		&--searchform { top: 3em; }
+
+		&--cart-button &--button { font-size: 2.5em; }
+	}
 
 	@include media(min-width 1020px) {
 
@@ -214,8 +225,8 @@ $overlay-active-text-color: palette(mono, white);
 		width: 100%;
 
 		&--link {
-			border-top: 1px solid $border-color;
-			border-bottom: 1px solid $border-color;
+			border-top: 1px solid $color-borders;
+			border-bottom: 1px solid $color-borders;
 			color: $overlay-default-color;
 			font-weight: 700;
 			padding: .5em .5em .25em;
@@ -289,7 +300,11 @@ $overlay-active-text-color: palette(mono, white);
 	}
 
 	&--link {
-		padding: .25em .5em .125em;
+		padding: .375em .5em .25em;
+
+		@include touch-hover() {
+			background-color: palette(mono, 10);
+		}
 	}
 	
 	

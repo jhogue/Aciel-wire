@@ -80,10 +80,6 @@
 		}
 	}
 	
-	&--link {
-		padding: .5em .75em .325em;
-	}
-
 	&--subnav {
 		background-color: palette(brand);
 		opacity: 0;
@@ -99,6 +95,15 @@
 		background-color: palette(mono, 10);
 
 		& > li { display: inline-block; } 
+	}
+	
+	&--list .overlay--link {
+		@extend %base-rwd-size;
+		padding: 1em .75em .875em;
+
+		@include touch-hover() {
+			background-color: palette(mono, white);
+		}
 	}
 
 	&--grid {
@@ -116,30 +121,55 @@
 		.overlay--card:nth-child(2) { @include omega(); }
 	}
 
+	// <a href="." class="stickynav--brand--logo"title="Back Home"><img src="{{ "/files/Leica-Geosystems.png" | prepend: site.baseurl }}" alt="Leica Geosystems"></a>
 	&--brand,
 	&--search-n-cart {
-		opacity: 0;
 		position: absolute;
 			bottom: 0;
-		@include transition( opacity 500ms ease );
+	}
+
+	&--brand--logo,
+	&--search-n-cart {
+		opacity: 0;
+		@include transition( all 500ms ease );
 		
 		.stuck & { opacity: 1; }
 	}
 
 	&--brand {
+		@include clearfix;
 		left: 0;
-		padding: .25em .5em .5em;
 
-		a { display: block; }
+		a {
+			display: block;
+			float: left;
+		}
 
-		img { height: 2.75em; }
+		&--logo {
+			padding: .25em .5em .5em;
+			max-width: 0;
+
+			.stuck & { max-width: none; }
+			
+			img { height: 2.75em; }
+		}
+	}
+
+	// <a href="." class="stickynav--product-line">Lasers</a>
+	&--product-line {
+		@extend %base-rwd-size;
+		background-color: palette(brand);
+		color: palette(mono, white);
+		padding: .9375em 1.25em .875em;
+		min-width: 124px;
+		text-align: center;
 	}
 
 	&--search-n-cart {
 		right: 0;
 		@include clearfix;
 
-		.mainnav--button { padding: .125em .5em .125em; }
+		.mainnav--button { padding: .125em .5em; }
 	}
 	
 	&--search,
@@ -147,6 +177,16 @@
 
 
 	// Media
+	@include media($medium-up) {
+
+		&--searchform { top: 3em; }
+
+		&--cart .mainnav--button {
+			font-size: 2.5em;
+			padding: 0 .5em;
+		}
+	}
+	
 	@include media($large-up) {
 
 		& > &--list { padding: 0 10%; }
