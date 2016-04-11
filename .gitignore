@@ -3,3 +3,6 @@ _site/
 .jekyll-metadata
 .DS_Store
 */.DS_Store
+_sass/libraries/bourbon/*
+_sass/libraries/neat/*
+assets/css/*
