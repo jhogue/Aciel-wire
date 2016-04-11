@@ -11,7 +11,7 @@ $default-border-radius: 4px;
 
 // Tables
 $table-border-collapse: true;
-$table-border-color: palette(mono,10);
+$table-border-color: $color-borders;
 $table-cell-padding: .5em;
 
 // God damn Z-indices

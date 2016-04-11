@@ -1,0 +1,107 @@
+/*<div class="video grid grid__quadratic">
+	<h3 class="video--category"><a href="#filtered" class="video--link">Video Category</a> <span class="video--count">4</span></h3>
+	<div class="video--collection">
+		<div class="video--item grid--item">
+			<div class="embed-container">
+				<iframe src="https://www.youtube.com/embed/Pt25kesVGIU?list=PL0td7rOVk_IVyFTHSh1uplkVZ2RoVQi8b" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<h4 class="video--title"><a href="#single" class="video--title--link">Video Title</a></h4>
+		</div>*/
+.video {
+
+	&--category {
+		font-weight: 700;
+		padding-bottom: .5em;
+		
+		&__count {}
+	}
+
+	&--link {}
+
+	&--count {
+		color: palette(mono);
+		font-size: 75%;
+		font-weight: 700;
+		margin-left: .5em;
+	}
+
+	&--collection {
+		@include clearfix;
+		border-bottom: 2px solid palette(brand);
+		margin-bottom: $vert-line-height;
+	}
+
+	&--item {}
+
+	&--title {
+		padding: .25em 0 $vert-line-height;
+
+		&--link {}
+	}
+
+	/*<div class="video--single">
+		<div class="video--media">
+			<h2 class="video--title">How to use the DISTO&trade D2 endpiece</h2>
+			<div class="embed-container">
+				<iframe src="https://www.youtube.com/embed/KA-ucNMYJ_w?list=PL0td7rOVk_IVyFTHSh1uplkVZ2RoVQi8b" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
+		<div class="video--description">
+			[ ... ]
+		</div>
+		<div class="video--comments">
+			<h3 class="video--comment--title">Comments • 73</h3>
+			[ ... ]
+		</div>
+	</div>*/
+	&--single {}
+
+	&--media { padding-bottom: $vert-line-height; }
+
+	&--description {
+		border-top: 1px solid $color-borders;
+		padding: $vert-line-height 0;
+	}
+
+	&--comments { padding-bottom: $vert-line-height; }
+
+	/*<aside class="video--sidebar--wrapper grid--column grid--column--rail">
+		<div class="video--sidebar">
+			<h4 class="video--sidebar--title">More *Category* Videos</h4>
+			<div class="video--sidebar--item">
+				<div class="video--media">
+					<div class="embed-container">
+						<iframe src="https://www.youtube.com/embed/Pt25kesVGIU?list=PL0td7rOVk_IVyFTHSh1uplkVZ2RoVQi8b&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+					</div>
+				</div>
+				<h5 class="video--title"><a href="{{ '/video-single' | prepend: site.baseurl }}" class="video--title--link">New Leica DISTO&trade; D2 &ndash; the compact laser distance meter with 100 m measuring range and Bluetooth&reg; Sma</a></h5>
+			</div>*/
+	&--sidebar {}
+
+	&--sidebar--wrapper {
+		background-color: palette(mono, 10);
+		padding: 1em;
+	}
+
+	&--sidebar--title { padding-bottom: $vert-line-height/2; }
+
+	&--sidebar--item {
+		@include clearfix;
+		padding-bottom: $vert-line-height/2;
+	}
+
+	&--sidebar &--media,
+	&--sidebar &--title {
+		float: left;
+		width: 48.5%;
+	}
+
+	&--sidebar &--media { padding-bottom: 0; }
+
+	&--sidebar &--title {
+		font-size: 87.5%;
+		margin-left: 2%;
+	}
+}
+
+.single-video .content--title { @include hide; }
