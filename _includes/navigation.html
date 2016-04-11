@@ -1,60 +1,3 @@
-<div id="top"></div>
-<div id="searchform" class="mainsearch mainnav--search">
-	<div class="container">
-		<form class="form form--global-search mainnav--searchform">
-			<div class="form--position-wrap">
-				<input type="search" class="form--input" placeholder="Search the site&hellip;">
-				<button class="form--position--element"><span class="fa fa-search" aria-hidden="true"><span>Search</span></span></button>
-			</div>
-		</form>
-	</div>
-</div>
-<div class="mainnav">
-	<div class="container">
-		<nav class="mainnav--wrapper">
-			
-			{% include partials/menu-mobile.html %}
-			
-			<div class="mainnav--brand">
-				<a href="." title="Back Home"><img src="{{ "/files/Leica-Geosystems.png" | prepend: site.baseurl }}" alt="Leica Geosystems"></a>
-			</div>
-			<div class="mainnav--user-options">
-				<ul class="mainnav--list">
-					<li>
-						<a href="#langauge" class="mainnav--link with-dropdown">Country <span class="fa fa-caret-down" aria-hidden="true"><span>v</span></span></a>
-						<ul id="langauge" class="mainnav--list mainnav--subnav">
-							<li><a href="#" class="mainnav--link">EN: North America</a></li>
-							<li><a href="#" class="mainnav--link">EN: Canada</a></li>
-							<li><a href="#" class="mainnav--link">EN: France</a></li>
-							<li><a href="#" class="mainnav--link">EN: India</a></li>
-							<li><a href="#" class="mainnav--link">EN: Britain</a></li>
-							<li><a href="#" class="mainnav--link">EN: Global</a></li>
-						</ul>
-					</li>
-					<li><a href="#" class="mainnav--link">Support</a></li>
-					<li><a href="#" class="mainnav--link">Contact</a></li>
-					<li><a href="#" class="mainnav--link">Blog</a></li>
-					<li>
-						<a href="#signin" class="mainnav--link with-dropdown">Sign In <span class="fa fa-caret-down" aria-hidden="true"><span>v</span></span></a>
-						
-						<ul id="signin" class="mainnav--list mainnav--subnav">
-							<li><a href="#" class="overlay--link">Sign In Form</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-			<div class="mainnav--search-n-cart">
-				<div class="mainnav--search-button">
-					<a href="#searchform" class="mainnav--button js-search-trigger"><span class="fa fa-search" aria-hidden="true"><span>Search</span></span></a>
-				</div>
-				<div class="mainnav--cart-button">
-					<a href="#" id="shop-cart"  class="mainnav--button"><span class="fa fa-shopping-cart" aria-hidden="true"><span>Cart</span></span></a>
-				</div>
-			</div>
-		</nav>
-	</div>
-</div>
-
 <!-- Tablet and larger -->
 <nav id="stickynav" class="stickynav js-sticky">
 	<div id="stickysearch" class="mainsearch js-accordion-wrap">
@@ -68,7 +11,8 @@
 		</div>
 	</div>
 	<div class="stickynav--brand">
-		<a href="." title="Back Home"><img src="{{ "/files/Leica-Geosystems.png" | prepend: site.baseurl }}" alt="Leica Geosystems"></a>
+		<a href="." class="stickynav--brand--logo"title="Back Home"><img src="{{ "/files/Leica-Geosystems.png" | prepend: site.baseurl }}" alt="Leica Geosystems"></a>
+		<a href="." class="stickynav--product-line">Lasers</a>
 	</div>
 	<ul class="stickynav--list">
 		<li>
@@ -76,12 +20,7 @@
 			<ul class="stickynav--list stickynav--subnav">
 				<li>
 					<ul class="stickynav--list">
-						<li><a href="#" class="stickynav--link">Compare</a></li>
-						<li><a href="#" class="stickynav--link">Apps</a></li>
-						<li><a href="#" class="stickynav--link">Pro Packs</a></li>
-						<li><a href="#" class="stickynav--link">Full Line</a></li>
-						<li><a href="#" class="stickynav--link">Accessories</a></li>
-						<li><a href="#" class="stickynav--link">Parts</a></li>
+{% include partials/overlay-list.html %}
 					</ul>
 				</li>
 				<li>
@@ -96,12 +35,7 @@
 			<ul class="stickynav--list stickynav--subnav">
 				<li>
 					<ul class="stickynav--list">
-						<li><a href="#" class="stickynav--link">Compare</a></li>
-						<li><a href="#" class="stickynav--link">Apps</a></li>
-						<li><a href="#" class="stickynav--link">Pro Packs</a></li>
-						<li><a href="#" class="stickynav--link">Full Line</a></li>
-						<li><a href="#" class="stickynav--link">Accessories</a></li>
-						<li><a href="#" class="stickynav--link">Parts</a></li>
+{% include partials/overlay-list.html %}
 					</ul>
 				</li>
 				<li>
@@ -116,12 +50,7 @@
 			<ul class="stickynav--list stickynav--subnav">
 				<li>
 					<ul class="stickynav--list">
-						<li><a href="#" class="stickynav--link">Compare</a></li>
-						<li><a href="#" class="stickynav--link">Apps</a></li>
-						<li><a href="#" class="stickynav--link">Pro Packs</a></li>
-						<li><a href="#" class="stickynav--link">Full Line</a></li>
-						<li><a href="#" class="stickynav--link">Accessories</a></li>
-						<li><a href="#" class="stickynav--link">Parts</a></li>
+{% include partials/overlay-list.html %}
 					</ul>
 				</li>
 				<li>
