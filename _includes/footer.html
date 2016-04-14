@@ -1,12 +1,12 @@
 	<footer class="mainfoot">
 		<div class="container">
 			<p class="mainfoot--list">
-				<span class="mainfoot--link">All pages</span> 
-				{% for page in site.pages %}
-				<a href="{{ site.baseurl}}{{ page.permalink }}" class="mainfoot--link">{{ page.title }}</a> 
-				{% endfor %}
+				<span class="mainfoot--link">All pages: </span> 
+				<a href="{{ '/compare' | prepend: site.baseurl }}" class="mainfoot--link">Compare</a> 
+				<a href="{{ '/apps' | prepend: site.baseurl }}" class="mainfoot--link">Apps</a> 
+				<a href="{{ '/videos' | prepend: site.baseurl }}" class="mainfoot--link">Videos</a> 
 			</p>
-			<p class="mainfoot--copyright">&copy;2016 Oomph, Inc.</p>
+			<p class="mainfoot--copyright">&copy;{{ 'now' | date: '%Y' }} Oomph, Inc.</p>
 		</div>
 	</footer>
 	<div id="body-overlay"></div>

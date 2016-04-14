@@ -1,7 +1,7 @@
 ---
-layout: page
+layout: markdown
+navtitle: Home
 title: Read Me
-permalink: readme/
 ---
 
 Grey Matter
