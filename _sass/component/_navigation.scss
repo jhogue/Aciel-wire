@@ -131,6 +131,15 @@ $overlay-active-text-color: palette(mono, white);
 
 
 	// Media
+	@media (max-width: em(bppx(small) - 1px) ) {
+		// Stick the nav for small screens
+		position: fixed;
+			top: 0; left: 0;
+		width: 100%;
+
+		@at-root { .page { padding-top: em(64); } }
+	}
+
 	@include media($xsmall-up) {
 
 		.js &--search {

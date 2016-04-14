@@ -6,7 +6,19 @@ permalink: videos-category/
 
 <!-- We are in .content-/-main -->
 
-<div class="video grid grid__quadratic">
+<div class="breadcrumb">
+	<a href="." class="breadcrumb--link">Home</a>
+	<span class="breadcrumb--sep">|</span>
+	<a href="{{ '/videos' | prepend: site.baseurl }}" class="breadcrumb--link">Videos</a>
+	<span class="breadcrumb--sep">|</span>
+	<span class="breadcrumb--current">Video Category</span>
+</div>
+
+<header class="content--header">
+	<h1 class="content--title">{{ page.title }}</h1>
+</header>
+
+<div class="video grid grid__quartet">
 	<h3 class="video--category video--category__count">5 “Video Category” videos</h3>
 	<div class="video--collection">
 		<div class="video--item grid--item">

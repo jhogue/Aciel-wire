@@ -8,24 +8,24 @@
 		color: palette(brand);
 		margin-bottom: .75em;
 	}
+}
 
-	&--main {
+.typography {
 
-		/*h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6 { clear: both; }*/
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 { clear: both; }
 
-		p,
-		ul,
-		ol,
-		dl,
-		address,
-		form,
-		table { margin-bottom: $vert-line-height; }
-	}
+	p,
+	ul,
+	ol,
+	dl,
+	address,
+	form,
+	table { margin-bottom: $vert-line-height; }
 }
 
 
@@ -43,6 +43,27 @@
 			font-size: 1em;
 		}
 	}
+}
+
+
+/*<div class="breadcrumb">
+	<a href="." class="breadcrumb--link">Home</a>
+	<span class="breadcrumb--sep">|</span>
+	<a href="{{ '/videos' | prepend: site.baseurl }}" class="breadcrumb--link">Videos</a>
+	<span class="breadcrumb--sep">|</span>
+	<span class="breadcrumb--current">Video Category</span>
+</div>*/
+.breadcrumb {
+	padding-bottom: $vert-line-height;
+
+	& > span,
+	& > a { display: inline-block; }
+
+	&--link {}
+
+	&--sep { margin: 0 .5em; }
+
+	&--current {}
 }
 
 

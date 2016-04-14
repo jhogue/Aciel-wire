@@ -6,7 +6,11 @@ permalink: videos/
 
 <!-- We are in .content-/-main -->
 
-<div class="video grid grid__quadratic">
+<header class="content--header">
+	<h1 class="content--title">{{ page.title }}</h1>
+</header>
+
+<div class="video grid grid__quartet">
 	<h3 class="video--category">Recent Videos <span class="video--count">4 videos</span></h3>
 	<div class="video--collection">
 		<div class="video--item grid--item">
@@ -35,7 +39,7 @@ permalink: videos/
 		</div>
 	</div>
 	
-	<h3 class="video--category"><a href="{{ '/videos-category' | prepend: site.baseurl }}" class="video--link">Video Category</a> <span class="video--count">5 videos</span></h3>
+	<h3 class="video--category"><a href="{{ '/videos-category' | prepend: site.baseurl }}" class="video--category--link">Video Category</a> <span class="video--count">5 videos</span></h3>
 	<div class="video--collection">
 		<div class="video--item grid--item">
 			<div class="embed-container">
@@ -69,7 +73,7 @@ permalink: videos/
 		</div>
 	</div>
 	
-	<h3 class="video--category"><a href="{{ '/videos-category' | prepend: site.baseurl }}" class="video--link">Video Category</a> <span class="video--count">7 videos</span></h3>
+	<h3 class="video--category"><a href="{{ '/videos-category' | prepend: site.baseurl }}" class="video--category--link">Video Category</a> <span class="video--count">7 videos</span></h3>
 	<div class="video--collection">
 		<div class="video--item grid--item">
 			<div class="embed-container">

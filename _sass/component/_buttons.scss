@@ -19,6 +19,7 @@ a.button { margin-bottom: .5em; }
 
 // Additional button styles must be chained, i.e. class="button button--primary"
 .button {
+	@extend %base-rwd-size;
 	background-color: palette(mono, 25);
 	@if $form-button-border {
 		border: $form-button-border-width solid $form-button-border-color;
