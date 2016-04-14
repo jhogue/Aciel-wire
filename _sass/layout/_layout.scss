@@ -25,6 +25,16 @@
 <footer class="mainfoot">
 	<p class="mainfoot--copyright">©2016 Oomph, Inc.</p>
 </footer>
+
+1. solo 
+2. duo 
+3. trio 
+4. quartet 
+5. quint 
+6. sextet 
+7. septet 
+8. octet 
+9. nonet
 */
 
 .container {
@@ -68,8 +78,31 @@
 		}
 	}
 
+	// This one grows from a single col to two
+	&__duo &--item {
+
+		@include media($medium-up) {
+			@include span-columns(6);
+			@include omega(2n);
+		}
+	}
+
+	// This one grows from a single col to a two and stops at three
+	&__trio &--item {
+
+		@include media($smallish) {
+			@include span-columns(6);
+			@include omega(2n);
+		}
+
+		@include media($large-up) {
+			@include span-columns(4);
+			@include omega(3n);
+		}
+	}
+
 	// This one grows from a single col to a two to a three and stops at four
-	&__quadratic &--item {
+	&__quartet &--item {
 
 		@include media($smallish) {
 			@include span-columns(6);

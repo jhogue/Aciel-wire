@@ -1,5 +1,5 @@
 /*<div class="video grid grid__quadratic">
-	<h3 class="video--category"><a href="#filtered" class="video--link">Video Category</a> <span class="video--count">4</span></h3>
+	<h3 class="video--category"><a href="#filtered" class="video--category--link">Video Category</a> <span class="video--count">4</span></h3>
 	<div class="video--collection">
 		<div class="video--item grid--item">
 			<div class="embed-container">
@@ -14,6 +14,8 @@
 		padding-bottom: .5em;
 		
 		&__count {}
+
+		&--link {}
 	}
 
 	&--link {}
@@ -103,5 +105,3 @@
 		margin-left: 2%;
 	}
 }
-
-.single-video .content--title { @include hide; }
