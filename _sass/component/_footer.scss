@@ -1,7 +1,7 @@
 .mainfoot {
 	background-color: $html-bg-color;
 	clear: both;
-	color: palette(mono, 25);
+	color: palette(mono);
 	padding: $vert-line-height 0;
 
 	p { margin-bottom: $vert-line-height; }
@@ -10,7 +10,7 @@
 
 	&--link {
 		display: inline-block;
-		color: palette(mono, 25);
+		color: palette(mono, 66);
 		margin-right: .75em;
 		
 		@include touch-hover() {

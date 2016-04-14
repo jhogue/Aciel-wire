@@ -91,21 +91,21 @@
 
 // Apply as a typical container mixin
 @mixin proportional-container( $ratio: 1 1 ) {
-	position: relative; 
-	overflow: hidden; 
-	z-index: 1; 
-	@include maintain-ratio( $ratio ); 
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
+	@include maintain-ratio( $ratio );
 }
 
 @mixin proportional-element( $min: true ) {
-	position: absolute; 
-		top: 0; left:0; 
-	z-index: 2; 
+	position: absolute;
+		top: 0; left:0;
+	z-index: 2;
 	@if ($min) {
-		min-width: 100% !important; 
-		min-height: 100% !important; 
+		min-width: 100% !important;
+		min-height: 100% !important;
 	} @else {
-		width: 100% !important; 
-		height: 100% !important; 
+		width: 100% !important;
+		height: 100% !important;
 	}
 }

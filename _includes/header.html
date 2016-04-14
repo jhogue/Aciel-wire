@@ -1,4 +1,9 @@
 <div id="top"></div>
+
+<div class="skip-link screen-reader-text">
+	<a href="#main" title="Skip to content">Skip to content</a>
+</div>
+
 <div id="searchform" class="mainsearch mainnav--search">
 	<div class="container">
 		<form class="form form--global-search mainnav--searchform">
@@ -16,7 +21,7 @@
 			{% include partials/menu-mobile.html %}
 			
 			<div class="mainnav--brand">
-				<a href="." title="Back Home"><img src="{{ "/files/Leica-Geosystems.png" | prepend: site.baseurl }}" alt="Leica Geosystems"></a>
+				<a href="{{ "/" | prepend: site.baseurl }}" title="Back Home"><img src="{{ "/files/Leica-Geosystems.png" | prepend: site.baseurl }}" alt="Leica Geosystems"></a>
 			</div>
 			<div class="mainnav--user-options">
 				<ul class="mainnav--list">

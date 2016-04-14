@@ -44,6 +44,23 @@
 }
 
 
+// Bourbon Neat helper function
+// Returns a percentage value of a column width
+// Can then be used as margin or padding on any element
+// @requires: Bourbon Neat's container-shift(), flex-grid() and flex-gutter() functions
+// @usage: padding: 1em columns(1);
+// @jhogue
+@function column($shift: $columns of $container-columns) {
+	$n-columns: nth($shift, 1);
+	$parent-columns: container-shift($shift) !global;
+
+	@return $n-columns * flex-grid(1, $parent-columns) + $n-columns * flex-gutter($parent-columns);
+
+	// Reset nesting context
+	$parent-columns: $grid-columns !global;
+}
+
+
 // Emulate the way Adobe Illustrator allows percentages of defined global colors 
 // @accepts: color as Hex, RGB or HSL. Percent as numeric
 // Optional: Background color for mixing function
