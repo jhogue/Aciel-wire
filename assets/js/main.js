@@ -35,7 +35,8 @@ $(document).ready(function() {
 		//	$(this).slideUp(250);
 		//});
 	});
-	
+
+
 	//<a href="#searchform" class="mainnav--button"><span class="fa fa-search" aria-hidden="true"><span>Search</span></span></a>
 	$('.js-search-trigger').on('click', function(s) {
 		s.preventDefault();
@@ -50,6 +51,31 @@ $(document).ready(function() {
 			element: $('.js-sticky')[0],
 		});
 	}
+
+
+	// Inititiate the vertical "App Store" slide carousel
+	$(document).ready(function() {
+		$('.js-vertgallery').royalSlider({
+			fullscreen: {
+				enabled: true,
+				nativeFS: true
+			},
+			controlNavigation: 'thumbnails',
+			thumbs: {
+				orientation: 'vertical',
+				paddingBottom: 0,
+				appendSpan: true
+			},
+			transitionType:'fade',
+			// Sets the aspect ratio of the slider. Imgs fit inside vert or horiz
+			autoScaleSlider: true, 
+			autoScaleSliderWidth: 800,     
+			autoScaleSliderHeight: 293, // account for the thumbnail column. 21:9 ratio minus 50px
+			loop: true,
+			arrowsNav: false,
+			keyboardNavEnabled: true
+		});
+	});
 
 
 	/* 
