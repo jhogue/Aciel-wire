@@ -1,0 +1,189 @@
+/*<div class="apps grid grid--rightrail">
+	<div class="grid--column grid--column--main">
+		
+		<div class="apps--gallery--wrapper">
+			<div class="apps--gallery royalSlider rsUni js-vertgallery">
+				<a class="rsImg" data-rsBigImg="http://placehold.it/800x400" href="http://placehold.it/800x343" data-rsw="800" data-rsh="343">Sample image 1 <img class="rsTmb" src="http://placehold.it/140x60" alt="21:9 Aspect Ratio" />
+				</a>
+			</div>
+		</div>
+		<h3 class="apps--category">App Category <span class="apps--count">5 apps</span></h3>
+		<div class="apps--collection">
+			<div class="apps--item grid--item">
+				<a href="{{ '/apps-single' | prepend: site.baseurl }}" class="apps--item--link">
+					<div class="apps--item--thumbnail">
+						<img src="http://placehold.it/525x225" alt="21:9 Aspect Ratio" />
+					</div>
+					<h5 class="apps--item--title">App Title <span class="apps--item--availability">iOs &amp; Android</span></h5>
+				</a>
+			</div>
+		</div>
+	</div>
+	<aside class="grid--column grid--column--rail">
+		<div class="apps--sidebar">
+			<div class="apps--widget">
+				<h3 class="apps--widget--title">Categories</h3>
+				<ul class="apps--sidebar--list">
+					<li><a href="#apps-category" class="apps--sidebar--link">Estimating</a></li>
+				</ul>
+			</div>
+		</div>
+	</aside>
+</div>*/
+
+.apps {
+
+	&--gallery {
+		background-color: palette(mono, 90);
+		-webkit-user-select: none;
+		-moz-user-select: none;  
+		user-select: none;
+		width: 100%;
+
+		* { -webkit-backface-visibility: initial; }
+
+		&--wrapper { padding-bottom: $vert-line-height*2; }
+	}
+
+	&--category {
+		@extend .video--category;
+
+		&--link {}
+	}
+
+	&--count { @extend .video--count; }
+
+	&--collection { @extend .video--collection; }
+
+	&--item {
+
+		&--link {
+			
+			@include touch-hover() {
+
+				.apps--item--thumbnail { opacity: .5; }
+			}
+		}
+
+		&--link &--thumbnail { @include transition( opacity 250ms ease ); }
+
+		&--thumbnail {}
+
+		&--title {
+			@extend .video--title;
+			position: relative;
+		}
+
+		// <span class="apps--item--availability">iOs &amp; Android</span>
+		&--availability {
+			color: palette(brand);
+			font-size: 87.5%;
+			float: right;
+		}
+	}
+
+	// Sidebar
+	&--sidebar {
+
+		&--list {}
+
+		&--link {}
+	}
+
+
+	/*<div class="apps apps__single">
+		<header class="apps--header">
+			<h1 class="apps--title content--title">{{ page.title }}</h1>
+		</header>
+		<article class="apps--content">
+			<div class="apps--icon">
+				<img src="{{ '/files/app/measure-mobile-3.jpg' | prepend: site.baseurl }}" alt="">
+			</div>
+			<div class="apps--description">
+				<p>[ ... ]</p>
+			</div>
+			<div class="apps--stores">
+				<p><img class="apple-store" src="{{ '/files/apple-store.svg' | prepend: site.baseurl }}" width="172" alt="Available in the App Store">
+				<img class="google-store" src="{{ '/files/googleapp.png' | prepend: site.baseurl }}" width="172" alt="Available in Google Play"></p>
+			</div>
+		</article>
+	</div>*/
+	&__single { padding-bottom: $vert-line-height; }
+
+	&--header {}
+
+	&--title {}
+
+	&--content {}
+
+	&--icon {
+		float: left;
+		margin: 0 1em 1em 0;
+		max-width: 33%;
+	}
+
+	&--description {}
+
+	&--stores {}
+
+	/*<div class="apps--screens--wrapper">
+		<div class="apps--screens">
+			<img src="{{ '/files/app/screen322x572.jpg' | prepend: site.baseurl }}" alt="">
+		</div>*/
+	&--screens {
+		@include clearfix;
+		background-color: palette(mono, 10);
+		overflow-y: scroll;
+		padding: 1em;
+		white-space: nowrap;
+		width: 100%;
+
+		&--wrapper {
+			clear: both;
+			padding: $vert-line-height 0 $vert-line-height*2;
+			position: relative;
+
+			&:after {
+				@include background-image( linear-gradient(left, rgba(#000,0) 0%,rgba(#000,.2) 100%) );
+				content: '';
+				display: block;
+				position: absolute;
+					top: $vert-line-height; right: 0; bottom: $vert-line-height;
+				width: 15%;
+			}
+		}
+
+		img {
+			display: inline-block;
+			padding-right: 1em;
+
+			&:last-child { padding-right: 4em; }
+		}
+	}
+
+	// Media container for Use Case videos
+	/*<div class="apps--media--description grid--item">
+		<h2 class="apps--media--title">E7500i Introduction</h2>
+		<p>ToolSelect.com may be gone, but all of their tool reviews still live on the <a href="https://www.youtube.com/user/toolselectTV" rel="no-follow" target="_blank">ToolSelect YouTube channel</a>.</p>
+		<p>Here, we introduced Barnaby to the E7500i.</p>
+	</div>*/
+	&--media {
+		@include clearfix;
+		padding-bottom: $vert-line-height;
+
+		&--title { color: palette(brand); }
+	}
+
+
+	// Media
+	// In certain contexts, when these elements are inside grid--column--main, float some stuff
+	@include media($medium-up) {
+
+		.grid--column--main &--description { @include span-columns(6 of 8); }
+
+		.grid--column--main &--stores {
+			@include span-columns(2 of 8);
+			@include omega();
+		}
+	}
+}

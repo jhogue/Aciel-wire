@@ -1,0 +1,88 @@
+---
+layout: page
+title: App Category
+permalink: apps-category/
+---
+
+<!-- We are in .content-/-main -->
+
+<div class="breadcrumb">
+	<a href="." class="breadcrumb--link">Home</a>
+	<span class="breadcrumb--sep">|</span>
+	<a href="{{ '/apps' | prepend: site.baseurl }}" class="breadcrumb--link">Apps</a>
+	<span class="breadcrumb--sep">|</span>
+	<span class="breadcrumb--current">Apps Category</span>
+</div>
+
+<header class="content--header">
+	<h1 class="content--title">{{ page.title }}</h1>
+</header>
+
+<div class="apps grid grid--rightrail">
+	<div class="grid--column grid--column--main">
+		
+		<div class="apps--grid grid grid__duo">
+			<h3 class="apps--category">App Category <span class="apps--count">5 apps</span></h3>
+			<div class="apps--collection">
+				<div class="apps--item grid--item">
+					<a href="{{ '/apps-single' | prepend: site.baseurl }}" class="apps--item--link">
+						<div class="apps--item--thumbnail">
+							<img src="http://placehold.it/525x225" alt="21:9 Aspect Ratio" />
+						</div>
+						<h5 class="apps--item--title">App Title <span class="apps--item--availability">iOs &amp; Android</span></h5>
+					</a>
+				</div>
+				<div class="apps--item grid--item">
+					<a href="{{ '/apps-single' | prepend: site.baseurl }}" class="apps--item--link">
+						<div class="apps--item--thumbnail">
+							<img src="http://placehold.it/525x225" alt="21:9 Aspect Ratio" />
+						</div>
+						<h5 class="apps--item--title">App Title <span class="apps--item--availability">iOs &amp; Android</span></h5>
+					</a>
+				</div>
+				<div class="apps--item grid--item">
+					<a href="{{ '/apps-single' | prepend: site.baseurl }}" class="apps--item--link">
+						<div class="apps--item--thumbnail">
+							<img src="http://placehold.it/525x225" alt="21:9 Aspect Ratio" />
+						</div>
+						<h5 class="apps--item--title">App Title <span class="apps--item--availability">iOs only</span></h5>
+					</a>
+				</div>
+				<div class="apps--item grid--item">
+					<a href="{{ '/apps-single' | prepend: site.baseurl }}" class="apps--item--link">
+						<div class="apps--item--thumbnail">
+							<img src="http://placehold.it/525x225" alt="21:9 Aspect Ratio" />
+						</div>
+						<h5 class="apps--item--title">App Title <span class="apps--item--availability">iOs only</span></h5>
+					</a>
+				</div>
+				<div class="apps--item grid--item">
+					<a href="{{ '/apps-single' | prepend: site.baseurl }}" class="apps--item--link">
+						<div class="apps--item--thumbnail">
+							<img src="http://placehold.it/525x225" alt="21:9 Aspect Ratio" />
+						</div>
+						<h5 class="apps--item--title">App Title <span class="apps--item--availability">iOs &amp; Android</span></h5>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<aside class="grid--column grid--column--rail" role="menubar">
+		<div class="apps--sidebar">
+			<div class="widget widget__apps">
+				<h3 class="widget--title apps--widget--title">Categories</h3>
+				<ul class="widget--list apps--sidebar--list menu" role="menu">
+					<li role="menuitem"><a href="#apps-category" class="widget--link">Estimating</a></li>
+					<li role="menuitem"><a href="#apps-category" class="widget--link">Real Estate</a></li>
+					<li role="menuitem"><a href="#apps-category" class="widget--link">Floor Planning and Layout</a></li>
+					<li role="menuitem"><a href="#apps-category" class="widget--link">Leica DISTO</a></li>
+				</ul>
+			</div>
+			<div class="widget widget__apps">
+				<h3 class="widget--title">Developers</h3>
+				<p class="widget--description">Sign up with the Geosystems Developer Network to access the DISTO API and support forum. <a href="#">Join the GDN</a></p>
+			</div>
+		</div>
+	</aside>
+</div>

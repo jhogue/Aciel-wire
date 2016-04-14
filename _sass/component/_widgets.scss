@@ -1,0 +1,27 @@
+/*<div class="widget widget__apps">
+	<h3 class="widget--title apps--widget--title">Categories</h3>
+	<ul class="widget--list apps--sidebar--list menu" role="menu">
+		<li role="menuitem"><a href="#apps-category" class="widget--link">Estimating</a></li>
+	</ul>
+</div>
+<div class="widget widget__apps">
+	<h3 class="widget--title">Developers</h3>
+	<p class="widget--description">Sign up with the Geosystems Developer Network to access the DISTO API and support forum. <a href="#">Join the GDN</a></p>
+</div>*/
+.widget {
+	margin: $vert-line-height/2 0 $vert-line-height;
+
+	&:first-child { margin-top: 0; }
+
+	&--title { padding-bottom: $vert-line-height/2; }
+
+	&--list {}
+
+	&--link {}
+
+	&--description {}
+
+
+	// Specific widgets
+	&__apps {}
+}

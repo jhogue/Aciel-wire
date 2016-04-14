@@ -1,0 +1,75 @@
+/*<div class="product--card">
+	<a href="#product" class="product--card--link">
+		<div class="product--card--image"><img src="http://lasers.leica-geosystems.com/sites/default/files/styles/large_square/public/product_images/d810-touch-promo.jpg?itok=Zug6l8Kt" alt=""></div>
+		<div class="product--card--meta">
+			<h3 class="product--card--title">Product Name</h3>
+			<p class="product--card--price">$849.00</p>
+			<div class="product--card--action"><button class="button button--primary">Add to Cart</button></div>
+		</div>
+	</a>
+</div>*/
+.product {
+
+	&--card {
+		background-color: palette(mono, 15);
+		margin-bottom: 1em;
+		padding: .75em .75em 0;
+
+		&--link {
+			@include clearfix;
+			display: block;
+
+			@include touch-hover() { 
+
+				.product--card--image { opacity: .5; }
+
+				.button { background: palette(brand, dark); }
+			}
+		}
+
+		&--link &--image { @include transition( opacity 250ms ease ); }
+
+		&--image { opacity: 1; }
+
+		&--meta { @include clearfix; }
+
+		&--title,
+		&--price {
+			float: left;
+			width: 50%;
+		}
+
+		&--title {}
+
+		&--price {}
+
+		&--action {
+			float: right;
+			padding-top: .75em;
+			text-align: right;
+			width: 50%;
+		}
+	}
+
+
+	// Media
+	@include media($large-up) {
+
+		.widget__compatible-apps &--card { padding-bottom: .75em; }
+
+		.widget__compatible-apps &--card--image { @include span-columns(2 of 4); }
+
+		.widget__compatible-apps &--card--meta {
+			@include span-columns(2 of 4);
+			@include omega();
+		}
+		
+		.widget__compatible-apps &--card--title,
+		.widget__compatible-apps &--card--price,
+		.widget__compatible-apps &--card--action {
+			float: none;
+			text-align: left;
+			width: auto;
+		}
+	}
+}
