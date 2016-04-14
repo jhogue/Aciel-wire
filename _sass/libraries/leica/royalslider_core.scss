@@ -2,8 +2,8 @@
 // Core RS CSS file. 95% of time you shouldn't change anything here.
 // http://dimsemenov.com/plugins/royal-slider/royalslider/royalslider.css
 .royalSlider {
-	width: 600px;
-	height: 400px;
+	min-width: 600px;
+	min-height: 400px;
 	position: relative;
 	direction: ltr;
 }
@@ -37,7 +37,6 @@
 	position: absolute;
 	left: 0;
 	top: 0;
-
 }
 .rsContainer {
 	position: relative;
@@ -74,8 +73,6 @@
 	-o-transition:visibility 0s linear 0.3s,opacity 0.3s linear;
 	transition:visibility 0s linear 0.3s,opacity 0.3s linear;
 }
-
-
 .rsGCaption {
 	width: 100%;
 	float: left;
@@ -111,7 +108,6 @@
 	top: 0;
 	display: block;
 	overflow: hidden;
-	
 	height: 100%;
 	width: 100%;
 }
@@ -211,7 +207,6 @@
 	top: 0;
 	position: absolute;
 	z-index: 15;
-	
 }
 
 img.rsImg {

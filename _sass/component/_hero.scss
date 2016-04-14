@@ -1,0 +1,66 @@
+/*<div class="hero-carousel" role="banner">
+	<div class="hero-carousel--item--bg" style="background-image: url({{ '/files/hero/bg-1.jpg' | prepend: site.baseurl }})">
+		<div class="hero-carousel--item">
+			<div class="hero-carousel--fore"><img src="{{ '/files/hero/bg-1.jpg' | prepend: site.baseurl }}" alt=""></div>
+			<div class="hero-carousel--text">
+				<h2 class="hero-carousel--title">Hero Headline is so Cool</h2>
+				<p class="hero-carousel--blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+				<p class="hero-carousel--cta"><a href="#" class="button button--primary hero-carousel--link">Click CTA Here</a></p>
+			</div>
+		</div>
+	</div>
+</div>*/
+
+.hero-carousel {
+	// default RoyalSlider styles take care of position relative and overflow, stuff like that. 
+	// Move into here if you want to remove the core and theme SASSS files
+	background-color: $body-bg-color;
+	min-height: 640px;
+
+	&--item {
+		@include clearfix;
+		margin: 0 auto;
+		max-width: $max-width;
+		min-width: $min-width;
+		padding: 6% 1em;
+		position: relative;
+		overflow: visible;
+		z-index: 1;
+
+		&--bg {
+			background-attachment: fixed;
+			background-color: transparent;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			box-shadow: 0 0 8em rgba(#000,.33) inset;
+		}
+	}
+
+	&--fore {
+		@include span-columns(6);
+		box-shadow: 0 0 8em rgba(#000,.33);
+	}
+
+	&--text {
+		@include span-columns(6);
+		@include omega();
+		padding: 6% column(1) 0;
+	}
+
+	&--title {
+		@include one-element-size(h1);
+		color: palette(mono, white);
+		font-weight: 700;
+		padding-bottom: $vert-line-height/2;
+		text-shadow: 0 0 1em rgba(#000, .5);
+	}
+
+	&--blurb {
+		color: palette(mono, white);
+		padding-bottom: $vert-line-height;
+		text-shadow: 0 0 .5em rgba(#000, .5);
+	}
+
+	&--cta { text-align: center; }
+}

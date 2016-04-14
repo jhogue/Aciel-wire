@@ -31,7 +31,10 @@
 
 		&--image { opacity: 1; }
 
-		&--meta { @include clearfix; }
+		&--meta {
+			@include clearfix;
+			position: relative;
+		}
 
 		&--title,
 		&--price {
@@ -49,6 +52,21 @@
 			text-align: right;
 			width: 50%;
 		}
+	}
+
+
+	// Overrides
+	&__home &--card--title { @include one-element-size(h4); }
+
+	&__home &--card--title,
+	&__home &--card--price {
+		display: inline-block;
+		float: none;
+	}
+	
+	&__home &--card--action {
+		position: absolute;
+			top: 0; right: 0;
 	}
 
 

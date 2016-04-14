@@ -54,29 +54,97 @@ $(document).ready(function() {
 
 
 	// Inititiate the vertical "App Store" slide carousel
-	$(document).ready(function() {
-		$('.js-vertgallery').royalSlider({
-			fullscreen: {
-				enabled: true,
-				nativeFS: true
-			},
-			controlNavigation: 'thumbnails',
-			thumbs: {
-				orientation: 'vertical',
-				paddingBottom: 0,
-				appendSpan: true
-			},
-			transitionType:'fade',
-			// Sets the aspect ratio of the slider. Imgs fit inside vert or horiz
-			autoScaleSlider: true, 
-			autoScaleSliderWidth: 800,     
-			autoScaleSliderHeight: 293, // account for the thumbnail column. 21:9 ratio minus 50px
-			loop: true,
-			arrowsNav: false,
-			keyboardNavEnabled: true
-		});
-	});
-
+	var vertslider = $('.js-vertgallery').royalSlider({
+		autoHeight: false, 
+		arrowsNav: false,
+		arrowsNavAutoHide: true,
+		arrowsNavHideOnTouch: true,
+		autoPlay: {
+			enabled: false,
+			pauseOnHover: true,
+			delay: 5000
+		},
+		// Sets the aspect ratio of the slider. Imgs fit inside vert or horiz
+		autoScaleSlider: true, 
+		autoScaleSliderWidth: 800,     
+		autoScaleSliderHeight: 293, // account for the thumbnail column. 21:9 ratio minus 50px
+		controlsInside: false,
+		controlNavigation: 'thumbnails', // thumbnails, tabs, bullets
+		controlNavigationSpacing: 0,
+		fadeinLoadedSlide: false,
+		fullscreen: {
+			enabled: false,
+			nativeFS: false
+		},
+		globalCaption: true,
+		imageAlignCenter: false,
+		imageScaleMode: 'fill', // fill, none
+		loop: false,
+		loopRewind: false,
+		keyboardNavEnabled: true,
+		navigateByClick: false,
+		numImagesToPreload: 2,
+		slidesSpacing: 0,
+		startSlideId: 0,
+		thumbs: {
+			orientation: 'vertical',
+			paddingBottom: 0,
+			appendSpan: true
+		},
+		thumbsFitInViewport: false,
+		transitionSpeed: 500,
+		transitionType:'fade',
+		video: {
+			autoHideControlNav: true,
+			autoHideBlocks: true
+		}
+	}).data('royalSlider');
+	
+	// Inititiate the horizontal homepage slide carousel
+	var vertslider = $('.js-horizgallery').royalSlider({
+		autoHeight: false, 
+		arrowsNav: true,
+		arrowsNavAutoHide: true,
+		arrowsNavHideOnTouch: false,
+		autoPlay: {
+			enabled: true,
+			pauseOnHover: true,
+			delay: 7000
+		},
+		// Sets the aspect ratio of the slider. Imgs fit inside vert or horiz
+		autoScaleSlider: false, 
+		controlsInside: true,
+		controlNavigation: 'none', // thumbnails, tabs, bullets, none
+		controlNavigationSpacing: 0,
+		fadeinLoadedSlide: false,
+		fullscreen: {
+			enabled: false,
+			nativeFS: false
+		},
+		globalCaption: false,
+		imageAlignCenter: false,
+		imageScaleMode: 'none', // fill, none
+		loop: true,
+		loopRewind: false,
+		keyboardNavEnabled: true,
+		navigateByClick: false,
+		numImagesToPreload: 4,
+		slidesSpacing: 0,
+		startSlideId: 0,
+		thumbs: {
+			orientation: 'vertical',
+			paddingBottom: 0,
+			appendSpan: true
+		},
+		thumbsFitInViewport: false,
+		transitionSpeed: 500,
+		transitionType: 'fade',
+		video: {
+			autoHideControlNav: true,
+			autoHideBlocks: true
+		}
+	}).data('royalSlider');
+    
 
 	/* 
      * Animate some scrolling for smoother transitions 

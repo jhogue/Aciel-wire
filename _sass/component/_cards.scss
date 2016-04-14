@@ -1,0 +1,88 @@
+/*<div class="card--grid">
+	<a class="card--item card--item__main">
+		<div class="card--item--wrapper" style="background-image: url({{ '/files/hero/bg-3.jpg' | prepend: site.baseurl }})">
+			<div class="card--item--inner">
+				<h2 class="card--item--title">Card One Main</h2>
+			</div>
+		</div>
+	</a>
+	<a class="card--item card--item__secondary">
+		<div class="card--item--wrapper" style="background-image: url({{ '/files/hero/bg-4.jpg' | prepend: site.baseurl }})">
+			<div class="card--item--inner">
+				<h2 class="card--item--title">Card Two Secondary</h2>
+			</div>
+		</div>
+	</a>
+	<a class="card--item card--item__terciary">
+		<div class="card--item--wrapper" style="background-image: url({{ '/files/hero/bg-1.jpg' | prepend: site.baseurl }})">
+			<div class="card--item--inner">
+				<h2 class="card--item--title">Card Three Terciary</h2>
+			</div>
+		</div>
+	</a>
+</div>*/
+.card {
+
+	&--grid {
+		@include clearfix;
+		margin: 0 -.5em;
+		padding: $vert-line-height 0;
+	}
+
+	&--item {
+		display: block;
+		float: left;
+		overflow: hidden;
+
+		&--wrapper {
+			@include transition( background-size 250ms ease );
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			border: .5em solid palette(mono, white);
+			position: relative;
+			overflow: hidden;
+			z-index: 1;
+		}
+
+		&--inner {
+			position: absolute;
+				bottom: 0; left: 0;
+			width: 100%;
+			z-index: 2;
+		}
+
+		&__main,
+		&__secondary { width: 50%; }
+
+		&__terciary { width: 25%; }
+
+		&__main &--wrapper,
+		&__terciary &--wrapper { @include maintain-ratio(4 3); }
+
+		&__main &--wrapper { padding-top: 1em; }
+
+		&__secondary &--wrapper { @include maintain-ratio(8 3); }
+
+		&__terciary {
+
+			label { @include hide; }
+		}
+
+		&--title {
+			@include transition( background-color 250ms ease );
+			background-color: rgba(#000, .5);
+			color: palette(mono, white);
+			margin: .75em;
+			padding: .25em;
+			text-align: center;
+		}
+
+		@include touch-hover() {
+
+			.card--item--wrapper { background-size: 104% 104%; }
+
+			.card--item--title { background-color: rgba(#000, .85); }
+		}
+	}
+}
