@@ -1,6 +1,35 @@
 //Insert awesome js here!
 
-//Primary Navigation Menu js
+
+/*
+ * "Watch" the body:after { content } to find out how wide the viewport is.
+ * Thanks to http://adactio.com/journal/5429/ for details about this method
+ */
+function mqtag() {
+    return window.getComputedStyle(document.body,':after').getPropertyValue('content');
+}
+var mq_tag = mqtag();
+//console.log( "mq_tag=" + mq_tag );
+
+
+/* 
+ * Load progressive content. 
+ * It is safe to put ALL resize or onLoad events in here
+ */
+function on_resize_orientationchange() {
+
+
+	// Check again on resize/orientation change
+	var mq_tag = mqtag();
+	//console.log( "Resized! mq_tag is now " + mq_tag );
+	// if ( mq_tag.indexOf("set-widths") !=-1 )  {
+	
+	
+	// A drop down menu from a fixed menu bar will not scroll
+	// This little ditty sets the max-height to the height of the window
+	$(".stickynav--subnav").css({ maxHeight: $(window).height() - $(".stickynav > .stickynav--list").height() + "px" });
+};
+
 
 $(document).ready(function() {
 
@@ -53,6 +82,51 @@ $(document).ready(function() {
 	}
 
 
+	// Inititiate the horizontal homepage slide carousel
+	var vertslider = $('.js-horizgallery').royalSlider({
+		autoHeight: true, 
+		arrowsNav: true,
+		arrowsNavAutoHide: true,
+		arrowsNavHideOnTouch: false,
+		autoPlay: {
+			enabled: true,
+			pauseOnHover: true,
+			delay: 7000
+		},
+		autoScaleSlider: true, 
+		controlsInside: true,
+		controlNavigation: 'none', // thumbnails, tabs, bullets, none
+		controlNavigationSpacing: 0,
+		fadeinLoadedSlide: false,
+		fullscreen: {
+			enabled: false,
+			nativeFS: false
+		},
+		globalCaption: false,
+		imageAlignCenter: false,
+		imageScaleMode: 'none', // fill, none
+		loop: true,
+		loopRewind: false,
+		keyboardNavEnabled: true,
+		navigateByClick: false,
+		numImagesToPreload: 4,
+		slidesSpacing: 0,
+		startSlideId: 0,
+		thumbs: {
+			orientation: 'vertical',
+			paddingBottom: 0,
+			appendSpan: true
+		},
+		thumbsFitInViewport: false,
+		transitionSpeed: 500,
+		transitionType: 'fade',
+		video: {
+			autoHideControlNav: true,
+			autoHideBlocks: true
+		}
+	}).data('royalSlider');
+
+
 	// Inititiate the vertical "App Store" slide carousel
 	var vertslider = $('.js-vertgallery').royalSlider({
 		autoHeight: false, 
@@ -99,51 +173,6 @@ $(document).ready(function() {
 			autoHideBlocks: true
 		}
 	}).data('royalSlider');
-	
-	// Inititiate the horizontal homepage slide carousel
-	var vertslider = $('.js-horizgallery').royalSlider({
-		autoHeight: false, 
-		arrowsNav: true,
-		arrowsNavAutoHide: true,
-		arrowsNavHideOnTouch: false,
-		autoPlay: {
-			enabled: true,
-			pauseOnHover: true,
-			delay: 7000
-		},
-		// Sets the aspect ratio of the slider. Imgs fit inside vert or horiz
-		autoScaleSlider: false, 
-		controlsInside: true,
-		controlNavigation: 'none', // thumbnails, tabs, bullets, none
-		controlNavigationSpacing: 0,
-		fadeinLoadedSlide: false,
-		fullscreen: {
-			enabled: false,
-			nativeFS: false
-		},
-		globalCaption: false,
-		imageAlignCenter: false,
-		imageScaleMode: 'none', // fill, none
-		loop: true,
-		loopRewind: false,
-		keyboardNavEnabled: true,
-		navigateByClick: false,
-		numImagesToPreload: 4,
-		slidesSpacing: 0,
-		startSlideId: 0,
-		thumbs: {
-			orientation: 'vertical',
-			paddingBottom: 0,
-			appendSpan: true
-		},
-		thumbsFitInViewport: false,
-		transitionSpeed: 500,
-		transitionType: 'fade',
-		video: {
-			autoHideControlNav: true,
-			autoHideBlocks: true
-		}
-	}).data('royalSlider');
     
 
 	/* 
@@ -175,3 +204,24 @@ $(document).ready(function() {
 		$('#size').html( $(window).width() + ' x ' + $(window).height());
 	}
 });
+
+
+// Keep this at the bottom
+/*
+ * Load, Resize and Orientation change methods
+ * http://css-tricks.com/forums/discussion/16123/reload-jquery-functions-on-ipad-orientation-change/p1 */
+//initial load
+$(window).load( function() { on_resize_orientationchange(); });
+//bind to resize
+var resizeTimer;
+$(window).resize(function () {
+    if (resizeTimer) { clearTimeout(resizeTimer); }
+    // set new timer
+    resizeTimer = setTimeout(function() {
+        resizeTimer = null;
+        // put your resize logic here and it will only be called when there's been a pause in resize events
+        on_resize_orientationchange();
+    }, 350);
+});
+//check for the orientation event and bind accordingly
+if (window.DeviceOrientationEvent) { window.addEventListener('orientationchange', on_resize_orientationchange, false); }
