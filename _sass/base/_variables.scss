@@ -6,6 +6,12 @@ $font-sans: $helvetica;
 $font-serif: $georgia;
 $font-mono: $monospace;
 
+// Fonts
+$font-custom: 'Akkurat', $font-sans;
+$font-custom-light: 100;
+$font-custom-normal: normal;
+$font-custom-bold: bold;
+
 // Defaults
 $default-border-radius: 4px;
 
@@ -29,4 +35,5 @@ $zindex: (
 	subnav: 503,
 	sticky: 998,
 	sticky-subnav: 999,
+	size-tag: 2147483647
 );
