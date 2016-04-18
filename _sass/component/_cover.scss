@@ -1,0 +1,168 @@
+/*<div class="cover--grid">
+	<a class="cover--item cover--item__main">
+		<div class="cover--item--wrapper" style="background-image: url({{ '/files/hero/bg-3.jpg' | prepend: site.baseurl }})">
+			<div class="cover--item--inner">
+				<h2 class="cover--item--title">cover One Main</h2>
+			</div>
+		</div>
+	</a>
+	[ ... ]
+</div>*/
+.cover {
+
+	&--grid {
+		@include clearfix;
+		padding: $vert-line-height 0;
+	}
+
+	&--item {
+		display: block;
+		overflow: hidden;
+
+		&--wrapper {
+			@include transition( background-size 250ms ease );
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			position: relative;
+			overflow: hidden;
+			z-index: 1;
+		}
+
+		&--inner {
+			position: absolute;
+				bottom: 0; left: 0;
+			width: 100%;
+			z-index: 2;
+		}
+
+		&__main,
+		&__secondary {}
+
+		&__terciary {}
+
+		&__main &--wrapper,
+		&__terciary &--wrapper,
+		&__secondary &--wrapper { @include maintain-ratio(4 3); }
+
+		&__secondary &--wrapper {}
+
+		&__terciary {
+
+			label { @include hide; }
+
+			.form--input__first,
+			.form--input__last { width: 50%; }
+		}
+
+		&--title {
+			@include transition( background-color 250ms ease );
+			background-color: rgba(#000, .5);
+			color: palette(mono, white);
+			margin: .75em;
+			padding: .25em;
+			text-align: center;
+		}
+
+		@include touch-hover() {
+
+			.cover--item--wrapper { background-size: 104% 104%; }
+
+			.cover--item--title { background-color: rgba(#000, .85); }
+		}
+
+		/*<div class="cover--item cover--item__terciary cover--item__signup">
+			<div class="cover--item--wrapper">
+				<div class="cover--item--inner">
+					<h2 class="cover--item--title">Join our Email List</h2>
+					<p>Weekly specials, subscriber deals and discounts</p>
+					<form class="cover--form">
+						<label for="su-first">First name</label><input id="su-first" type="text" class="form--input form--input__first" placeholder="First name"><label for="su-last">Last name</label><input id="su-last" type="text" class="form--input form--input__last" placeholder="Last name">
+						<div class="form--singleline">
+							<button class="button button--primary">Sign Up</button>
+							<span class="form--overflow"><label for="su-email">Email</label><input id="su-email" type="email" class="form--input" placeholder="you@example.com"></span>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>*/
+		&__signup {
+			background-color: palette(brand);
+
+			p {
+				color: palette(mono, white);
+				padding-bottom: $vert-line-height/2;
+			}
+
+			.form--input {
+				background-color: palette(brand);
+				border-color: palette(brand, dark);
+				color: percent-color( palette(brand), 40% );
+
+				@include placeholder { color: percent-color( palette(brand), 40% ); }
+
+				&:focus {
+					background-color: palette(brand, dark);
+					border-color: percent-color( palette(brand), 40% );
+					color: palette(mono, white);
+				}
+			}
+			
+			.button {
+				background-color: palette(brand, dark);
+
+				@include touch-hover() { background-color: palette(mono, 75); }
+			}
+		}
+
+		&__signup &--inner { bottom: 1em; left: 1em; right: 1em; width: auto; }
+
+		&__signup &--title { background-color: transparent; }
+	} // end &--item
+
+
+	// Media
+	@include media( $xsmall-up ) {
+		
+		&--grid { margin: 0 -.5em; }
+		
+		&--item {
+			float: left;
+			width: 50%;
+
+			&--wrapper { border: .5em solid palette(mono, white); }
+		}
+	}
+
+	@include media( $small-up ) {
+
+		&--item {
+			width: 33.3333%;
+
+			&__main { width: 100%; }
+		}
+	}
+
+	@include media( $small ) {
+
+		&--item {
+
+			&__main &--wrapper { @include maintain-ratio(8 3); }
+		}
+	}
+
+	@include media( $medium-up ) {
+
+		&--item {
+
+			&__main,
+			&__secondary { width: 50%; }
+
+			&__terciary { width: 25%; }
+
+			&__main &--wrapper { padding-top: 1em; }
+
+			&__secondary &--wrapper { @include maintain-ratio(8 3); }
+		}
+	}
+}

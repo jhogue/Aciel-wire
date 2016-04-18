@@ -4,41 +4,39 @@ title: Home
 ---
 
 <!-- Cards -->
-<div class="card--grid">
-	<a class="card--item card--item__main" href="#">
-		<div class="card--item--wrapper" style="background-image: url({{ '/files/hero/bg-3.jpg' | prepend: site.baseurl }})">
-			<div class="card--item--inner">
-				<h2 class="card--item--title">Card One Main</h2>
+<div class="cover--grid">
+	<a class="cover--item cover--item__main" href="#">
+		<div class="cover--item--wrapper" style="background-image: url({{ '/files/hero/bg-3.jpg' | prepend: site.baseurl }})">
+			<div class="cover--item--inner">
+				<h2 class="cover--item--title">Card One Main</h2>
 			</div>
 		</div>
 	</a>
-	<a class="card--item card--item__secondary" href="#">
-		<div class="card--item--wrapper" style="background-image: url({{ '/files/hero/bg-4.jpg' | prepend: site.baseurl }})">
-			<div class="card--item--inner">
-				<h2 class="card--item--title">Card Two Secondary</h2>
+	<a class="cover--item cover--item__secondary" href="#">
+		<div class="cover--item--wrapper" style="background-image: url({{ '/files/hero/bg-4.jpg' | prepend: site.baseurl }})">
+			<div class="cover--item--inner">
+				<h2 class="cover--item--title">Card Two Secondary</h2>
 			</div>
 		</div>
 	</a>
-	<a class="card--item card--item__terciary" href="#">
-		<div class="card--item--wrapper" style="background-image: url({{ '/files/hero/bg-1.jpg' | prepend: site.baseurl }})">
-			<div class="card--item--inner">
-				<h2 class="card--item--title">Card Three Terciary</h2>
+	<a class="cover--item cover--item__terciary" href="#">
+		<div class="cover--item--wrapper" style="background-image: url({{ '/files/hero/bg-1.jpg' | prepend: site.baseurl }})">
+			<div class="cover--item--inner">
+				<h2 class="cover--item--title">Card Three Terciary</h2>
 			</div>
 		</div>
 	</a>
-	<div class="card--item card--item__terciary card--item__signup">
-		<div class="card--item--wrapper">
-			<div class="card--item--inner">
-				<h2 class="card--item--title">Join our Email List</h2>
+	<div class="cover--item cover--item__terciary cover--item__signup">
+		<div class="cover--item--wrapper">
+			<div class="cover--item--inner">
+				<h2 class="cover--item--title">Join our Email List</h2>
 				<p>Weekly specials, subscriber deals and discounts</p>
-				<form>
-					<label for="su-first">First name</label>
-					<input id="su-first" type="text" class="form--input" placeholder="First name">
-					<label for="su-last">Last name</label>
-					<input id="su-last" type="text" class="form--input" placeholder="Last name">
-					<label for="su-email">Email</label>
-					<input id="su-email" type="email" class="form--input" placeholder="you@example.com">
-					<button class="button button--primary">Sign Up</button>
+				<form class="cover--form">
+					<label for="su-first">First name</label><input id="su-first" type="text" class="form--input form--input__first" placeholder="First name"><label for="su-last">Last name</label><input id="su-last" type="text" class="form--input form--input__last" placeholder="Last name">
+					<div class="form--singleline">
+						<button class="button button--primary">Sign Up</button>
+						<span class="form--overflow"><label for="su-email">Email</label><input id="su-email" type="email" class="form--input" placeholder="you@example.com"></span>
+					</div>
 				</form>
 			</div>
 		</div>
