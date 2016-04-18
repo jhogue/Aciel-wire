@@ -58,6 +58,13 @@ $palettes: (
 	)
 );
 
-$html-bg-color: palette(mono, 90);
+$html-bg-color: palette(mono, 10);
 $body-bg-color: palette(mono, white);
 $color-borders: palette(mono, 25);
+
+// Navigation
+$overlay-bg-color: palette(mono, 75);
+$overlay-text-color: palette(mono, white);
+$overlay-active-color: palette(brand);
+$overlay-active-color-dark: palette(brand, dark);
+$overlay-active-text-color: palette(mono, white);

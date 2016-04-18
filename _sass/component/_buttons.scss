@@ -5,7 +5,7 @@ $form-button-border: false;
 $form-button-border-color: palette(brand, dark);
 $form-button-border-width: 1px;
 $form-button-border-radius: $default-border-radius;
-$form-button-padding: .5em 1em .325em;
+$form-button-padding: .325em 1em .25em;
 
 // Default button style. Classes must be chained to change colors, i.e. class="button button--primary"
 button,
