@@ -15,7 +15,7 @@
 	// default RoyalSlider styles take care of position relative and overflow, stuff like that. 
 	// Move into here if you want to remove the core and theme SASSS files
 	background-color: $body-bg-color;
-	min-height: 640px;
+	//min-height: 640px;
 
 	&--item {
 		@include clearfix;

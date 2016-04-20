@@ -96,6 +96,7 @@ ol.menu {
 	color: palette(mono, white);
 	line-height: 1;
 	padding: .25em;
-	position: absolute;
-		top: 33%; right: 0;
+	position: fixed;
+		bottom: 10%; right: 0;
+	z-index: map-get($zindex, size-tag);
 }

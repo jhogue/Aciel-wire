@@ -63,8 +63,8 @@
 		}
 		
 		& > li:hover .stickynav--mainlink {
-			background-color: palette(brand);
-			color: palette(mono, white);
+			background-color: $overlay-active-color;
+			color: $overlay-active-text-color;
 		}
 	}
 
@@ -75,19 +75,27 @@
 		text-transform: uppercase;
 		
 		@include touch-hover() {
-			background-color: palette(brand);
-			color: palette(mono, white);
+			background-color: $overlay-active-color;
+			color: $overlay-active-text-color;
+			text-decoration: none;
 		}
 	}
 	
 	&--subnav {
-		background-color: palette(brand);
+		background-color: $overlay-active-color;
+		@include background-image(linear-gradient(top, $overlay-active-color 5%, $overlay-active-color-dark 95%));
 		opacity: 0;
+		overflow-x: hidden;
 		padding: .5em;
 		position: absolute; 
 			top: 100%; left: -999em;
 		z-index: map-get($zindex, sticky-subnav);
 		@include transition( opacity 250ms ease );
+
+		> li {
+			margin: 0 auto;
+			max-width: $max-width;
+		}
 	}
 	
 	// The first group of text buttons
@@ -98,27 +106,39 @@
 	}
 	
 	&--list .overlay--link {
-		@extend %base-rwd-size;
+		@include one-element-size(h4);
+		font-weight: $font-custom-bold;
 		padding: 1em .75em .875em;
 
 		@include touch-hover() {
 			background-color: palette(mono, white);
+			text-decoration: none;
 		}
 	}
 
+	/*<li class="overlay--card overlay--card__main">
+		<div class="overlay--card--title">
+			<h4>DISTO Selector</h4>
+		</div>
+		<div class="overlay--card--img">
+			<img src="/leica/files/guy-holding.png" alt="">
+		</div>
+		<div class="overlay--card--price">
+			<p>Choose the right DISTO <a href="/leica/compare" class="button button--primary">Let's Begin</a></p>
+		</div>
+	</li>*/
 	&--grid {
-		background-color: palette(brand);
-		margin-top: 1em;
+		@include clearfix;
+		background-color: palette(mono, 10);
+		padding: 1em;
 
 		.overlay--card { 
 			@include span-columns(3);
+
+			&__main { @include span-columns(6); }
+
+			&__main:nth-child(2) { @include omega(); }
 		}
-
-		// We use nth-child now, but it may be best to rely on classes when in development
-		.overlay--card:nth-child(1),
-		.overlay--card:nth-child(2) { @include span-columns(6); }
-
-		.overlay--card:nth-child(2) { @include omega(); }
 	}
 
 	// <a href="." class="stickynav--brand--logo"title="Back Home"><img src="{{ "/files/Leica-Geosystems.png" | prepend: site.baseurl }}" alt="Leica Geosystems"></a>
@@ -132,7 +152,7 @@
 	&--search-n-cart {
 		opacity: 0;
 		@include transition( all 500ms ease );
-		
+
 		.stuck & { opacity: 1; }
 	}
 
@@ -149,9 +169,9 @@
 			padding: .25em .5em .5em;
 			max-width: 0;
 
-			.stuck & { max-width: none; }
+			.stuck & { max-width: em(100); }
 			
-			img { height: 2.75em; }
+			img { height: em(44); }
 		}
 	}
 

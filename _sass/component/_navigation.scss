@@ -1,8 +1,3 @@
-$overlay-default-color: palette(mono, 90);
-$overlay-default-text-color: palette(mono, white);
-$overlay-active-color: palette(brand);
-$overlay-active-text-color: palette(mono, white);
-
 .mainnav {
 	background-color: $body-bg-color;
 	border-bottom: 1px solid $color-borders;
@@ -49,13 +44,13 @@ $overlay-active-text-color: palette(mono, white);
 		background-color: palette(mono, 10);
 
 		@include touch-hover() {
-			background-color: $overlay-default-color;
-			color: $overlay-default-text-color;
+			background-color: $overlay-bg-color;
+			color: $overlay-text-color;
 		}
 
 		&.js-toggle-active {
-			background-color: $overlay-default-color;
-			color: $overlay-default-text-color;
+			background-color: $overlay-bg-color;
+			color: $overlay-text-color;
 		}
 	}
 
@@ -222,7 +217,7 @@ $overlay-active-text-color: palette(mono, white);
 	</li>
 </ul>*/
 .overlay {
-	background-color: $overlay-default-color;
+	background-color: $overlay-bg-color;
 	padding: .5em;
 	position: absolute;
 		top: 100%; left: 0;
@@ -231,12 +226,12 @@ $overlay-active-text-color: palette(mono, white);
 	&--parent {
 		background-color: palette(mono, white);
 		display: block;
-		width: 100%;
+		width: 100%;	
 
 		&--link {
 			border-top: 1px solid $color-borders;
 			border-bottom: 1px solid $color-borders;
-			color: $overlay-default-color;
+			color: $overlay-bg-color;
 			font-weight: 700;
 			padding: .5em .5em .25em;
 			text-transform: uppercase;
@@ -270,15 +265,15 @@ $overlay-active-text-color: palette(mono, white);
 		padding: .5em;
 	}
 
-	/*<li class="overlay--card">
+	/*<li class="overlay--card overlay--card__main">
 		<div class="overlay--card--title">
-			<h4>Product name</h4>
+			<h4>DISTO Selector</h4>
 		</div>
 		<div class="overlay--card--img">
-			<img src="http://placehold.it/640x480" alt="">
+			<img src="/leica/files/guy-holding.png" alt="">
 		</div>
 		<div class="overlay--card--price">
-			<p>Product price</p>
+			<p>Choose the right DISTO <a href="/leica/compare" class="button button--primary">Let's Begin</a></p>
 		</div>
 	</li>*/
 	&--card {
@@ -286,7 +281,7 @@ $overlay-active-text-color: palette(mono, white);
 		
 		&--title,
 		&--price {
-			background-color: palette(brand, dark);
+			background-color: palette(mono, 75);
 			color: palette(mono, white);
 			padding: .5em;
 			text-align: center;
@@ -316,6 +311,39 @@ $overlay-active-text-color: palette(mono, white);
 		}
 	}
 	
+	// Special layout for the main card
+	&--card { 
+
+		&__main {
+			position: relative;
+			z-index: 1;
+		}
+		
+		&__main  &--title,
+		&__main  &--price {
+			background-color: transparent;
+			position: absolute;
+				left: 0;
+			width: 100%;
+			z-index: 10;
+		}
+
+		&__main  &--title { top: 0; }
+
+		&__main  &--price { bottom: 0; }
+
+		&__main &--img {
+			@include proportional-container(16 9);
+	
+			> img { @include proportional-element(true); }
+		}
+		
+		@include media($medium-up) {
+
+			&__main &--img { @include maintain-ratio(21 9); }
+		}
+	}
+
 	
 	// Breakpoints
 	@include media($xsmall-up) {
