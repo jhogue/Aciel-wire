@@ -27,17 +27,21 @@
 	}
 
 	&--button {
-		color: palette(brand);
+		@include relative-container(); 
+		color: palette(mono);
 		display: block;
 		font-size: 2em;
 		padding: .25em .5em;
 
-		@include touch-hover() { color: palette(brand, dark); }
+		@include touch-hover() { color: palette(brand); }
+
+		&__cart {
+
+			.fa:before { font-size: 1.25em; }
+		}
 	}
 	
-	&--link {
-		padding: .25em .5em .125em;
-	}
+	&--link { padding: .25em .5em .125em; }
 
 	// The hamburger button
 	&--list__overlay &--button {
@@ -45,7 +49,7 @@
 
 		@include touch-hover() {
 			background-color: $overlay-bg-color;
-			color: $overlay-text-color;
+			color: palette(mono, white);
 		}
 
 		&.js-toggle-active {
@@ -68,11 +72,31 @@
 	&--search-n-cart { @include clearfix(); }
 
 	&--search-button,
-	&--cart-button { float: left; }
+	&--cart--button { float: left; }
 
-	&--search-button {}
+	/*<div class="mainnav--cart--button">
+		<a href="#" id="shop-cart"  class="mainnav--button mainnav--button__cart">
+			<span class="fa fa-shopping-cart" aria-hidden="true"><span>Cart</span></span>
+			<span class="mainnav--cart--items">2</span>
+		</a>
+	</div>*/
+	&--cart {
 
-	&--cart-button {}
+		&--button {}
+
+		&--items {
+			color: palette(mono, white);
+			font-size: 37%; // about 14px
+			font-weight: bold;
+			padding-top: 1.875em;
+			position: absolute;
+				top: 0; left: 0;
+			text-align: center;
+			text-shadow: 0 0 2px rgba(#000, .75);
+			width: 100%;
+			z-index: 2;
+		}
+	}
 
 	&--user-options {
 		display: none;
@@ -94,8 +118,13 @@
 		}
 	}
 
-	&--user-options &--list li {
+	&--user-options li {
 		display: inline-block;
+		font-size: 1rem;
+	}
+
+	&--user-options li > &--link {
+		padding: .5em .75em .375em;
 	}
 
 	&--subnav {
@@ -145,8 +174,8 @@
 
 		&--searchform {
 			float: left;
-			position: absolute;
-				top: .75em; left: 50%;
+			position: fixed;
+				top: .875em; left: 50%;
 			margin-left: -15%;
 			width: 50%;
 			z-index: map-get($zindex, searchform);
@@ -159,7 +188,8 @@
 		z-index: auto;
 
 		&--searchform {
-			top: 2.5em;
+			position: absolute;
+				top: 2.5em;
 			margin-left: -20%;
 		}
 
@@ -187,7 +217,7 @@
 
 		&--searchform { top: 3em; }
 
-		&--cart-button &--button { font-size: 2.5em; }
+		&--button__cart { font-size: 2.5em; }
 	}
 
 	@include media(min-width 1020px) {

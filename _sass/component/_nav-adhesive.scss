@@ -56,12 +56,14 @@
 		
 		& > li { display: inline-block; }
 		
-		& > li:hover .stickynav--subnav {
+		//& > li.js-active .stickynav--subnav--wrapper {
+		& > li:hover .stickynav--subnav--wrapper {
+			@include transition-delay( 500ms );
 			opacity: 1;
 				left: 0; right: 0;
-			@include transition-delay( 250ms );
 		}
 		
+		//& > li.js-active .stickynav--mainlink {
 		& > li:hover .stickynav--mainlink {
 			background-color: $overlay-active-color;
 			color: $overlay-active-text-color;
@@ -82,19 +84,22 @@
 	}
 	
 	&--subnav {
-		background-color: $overlay-active-color;
-		@include background-image(linear-gradient(top, $overlay-active-color 5%, $overlay-active-color-dark 95%));
-		opacity: 0;
-		overflow-x: hidden;
 		padding: .5em;
-		position: absolute; 
-			top: 100%; left: -999em;
-		z-index: map-get($zindex, sticky-subnav);
-		@include transition( opacity 250ms ease );
 
 		> li {
 			margin: 0 auto;
 			max-width: $max-width;
+		}
+		
+		&--wrapper {
+			@include transition( opacity 250ms ease );
+			background-color: $overlay-active-color;
+			@include background-image(linear-gradient(top, $overlay-active-color 5%, $overlay-active-color-dark 95%));
+			opacity: 0;
+			overflow-x: scroll;
+			position: absolute; 
+				top: 100%; left: -999em;
+			z-index: map-get($zindex, sticky-subnav);
 		}
 	}
 	
@@ -130,7 +135,7 @@
 	&--grid {
 		@include clearfix;
 		background-color: palette(mono, 10);
-		padding: 1em;
+		padding: 0 1em 1em;
 
 		.overlay--card { 
 			@include span-columns(3);
@@ -145,7 +150,8 @@
 	&--brand,
 	&--search-n-cart {
 		position: absolute;
-			bottom: 0;
+			bottom: -3px;
+		z-index: map-get($zindex, adhesive-brand);
 	}
 
 	&--brand--logo,
@@ -183,17 +189,26 @@
 		padding: .9375em 1.25em .875em;
 		min-width: 124px;
 		text-align: center;
+
+		@include touch-hover() {
+			background-color: palette(mono, 25);
+			color: palette(mono, 75);
+		}
 	}
 
 	&--search-n-cart {
 		right: 0;
 		@include clearfix;
-
-		.mainnav--button { padding: .125em .5em; }
 	}
 	
 	&--search,
 	&--cart { float: left; }
+
+	&--search {
+		margin-top: 4px; 
+
+		.mainnav--button { padding-top: .125em; }
+	}
 
 
 	// Media
@@ -201,13 +216,17 @@
 
 		&--searchform { top: 3em; }
 
-		&--cart .mainnav--button {
-			font-size: 2.5em;
-			padding: 0 .5em;
+		&--cart .mainnav--button__cart {
+			padding: .0625em .5em;
+
+			.mainnav--cart--items { padding-top: 1.375em; }
 		}
 	}
 	
 	@include media($large-up) {
+
+		&--brand,
+		&--search-n-cart { bottom: 0; }
 
 		& > &--list { padding: 0 10%; }
 	}

@@ -11,54 +11,60 @@
 		</div>
 	</div>
 	<div class="stickynav--brand">
-		<a href="." class="stickynav--brand--logo"title="Back Home"><img src="{{ "/files/Leica-Geosystems.png" | prepend: site.baseurl }}" alt="Leica Geosystems"></a>
+		<a href="{{ '/' | prepend: site.baseurl }}" class="stickynav--brand--logo"title="Back Home"><img src="{{ "/files/Leica-Geosystems.png" | prepend: site.baseurl }}" alt="Leica Geosystems"></a>
 		<a href="." class="stickynav--product-line">Lasers</a>
 	</div>
 	<ul class="stickynav--list">
 		<li>
-			<a href="#" class="stickynav--mainlink">Disto</a>
-			<ul class="stickynav--list stickynav--subnav">
-				<li>
-					<ul class="stickynav--list">
+			<a href="#" class="stickynav--mainlink js-mainlink">Disto</a>
+			<div class="stickynav--subnav--wrapper">
+				<ul class="stickynav--list stickynav--subnav">
+					<li>
+						<ul class="stickynav--list">
 {% include partials/overlay-list.html %}
-					</ul>
-				</li>
-				<li>
-					<ul class="stickynav--grid">
+						</ul>
+					</li>
+					<li>
+						<ul class="stickynav--grid">
 {% include partials/overlay-grid.html %}
-					</ul>
-				</li>
-			</ul>
+						</ul>
+					</li>
+				</ul>
+			</div>
 		</li>
 		<li>
-			<a href="#" class="stickynav--mainlink">3D Disto</a>
-			<ul class="stickynav--list stickynav--subnav">
-				<li>
-					<ul class="stickynav--list">
+			<a href="#" class="stickynav--mainlink js-mainlink">3D Disto</a>
+			<div class="stickynav--subnav--wrapper">
+				<ul class="stickynav--list stickynav--subnav">
+					<li>
+						<ul class="stickynav--list">
 {% include partials/overlay-list.html %}
-					</ul>
-				</li>
-				<li>
-					<ul class="stickynav--grid">
+						</ul>
+					</li>
+					<li>
+						<ul class="stickynav--grid">
 {% include partials/overlay-grid.html %}
-					</ul>
-				</li>
-			</ul>
+						</ul>
+					</li>
+				</ul>
+			</div>
 		</li>
 		<li>
-			<a href="#" class="stickynav--mainlink">Lino</a>
-			<ul class="stickynav--list stickynav--subnav">
-				<li>
-					<ul class="stickynav--list">
+			<a href="#" class="stickynav--mainlink js-mainlink">Lino</a>
+			<div class="stickynav--subnav--wrapper">
+				<ul class="stickynav--list stickynav--subnav">
+					<li>
+						<ul class="stickynav--list">
 {% include partials/overlay-list.html %}
-					</ul>
-				</li>
-				<li>
-					<ul class="stickynav--grid">
+						</ul>
+					</li>
+					<li>
+						<ul class="stickynav--grid">
 {% include partials/overlay-grid.html %}
-					</ul>
-				</li>
-			</ul>
+						</ul>
+					</li>
+				</ul>
+			</div>
 		</li>
 	</ul>
 	<div class="stickynav--search-n-cart">
@@ -66,7 +72,10 @@
 			<a href="#stickysearch" class="mainnav--button js-accordion"><span class="fa fa-search" aria-hidden="true"><span>Search</span></span></a>
 		</div>
 		<div class="stickynav--cart">
-			<a href="#" id="shop-cart"  class="mainnav--button"><span class="fa fa-shopping-cart" aria-hidden="true"><span>Cart</span></span></a>
+			<a href="#" id="shop-cart"  class="mainnav--button mainnav--button__cart">
+				<span class="fa fa-shopping-cart" aria-hidden="true"><span>Cart</span></span>
+				<span class="mainnav--cart--items">2</span>
+			</a>
 		</div>
 	</div>
 </nav>
