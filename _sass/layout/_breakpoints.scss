@@ -27,7 +27,8 @@ $xsmall: new-breakpoint( min-width ( bppx(base) ) max-width ( (bppx(small)-1px) 
 $small-up: new-breakpoint( min-width bppx(small) );
 $small: new-breakpoint( min-width ( bppx(small) ) max-width ( bppx(medium)-1px ) );
 
-$smallish: new-breakpoint( min-width ( em(640) ) max-width ( bppx(medium)-1px ) );
+$smallish-to-medium: new-breakpoint( min-width ( em(600) ) max-width ( bppx(medium)-1px ) );
+$smallish-to-large: new-breakpoint( min-width ( em(600) ) max-width ( bppx(large)-1px ) );
 
 $medium-up: new-breakpoint( min-width bppx(medium) );
 $medium: new-breakpoint( min-width ( bppx(medium) ) max-width (bppx(large)-1px) );

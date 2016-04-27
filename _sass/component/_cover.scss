@@ -113,6 +113,11 @@
 
 				@include touch-hover() { background-color: palette(mono, 75); }
 			}
+			
+			@include touch-hover() {
+
+				.cover--item--title { background-color: transparent; }
+			}
 		}
 
 		&__signup &--inner { bottom: 1em; left: 1em; right: 1em; width: auto; }

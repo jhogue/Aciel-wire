@@ -82,9 +82,9 @@ a {
 
 	@include touch-hover() {
 		color: palette(brand);
-		text-decoration: underline;
+		text-decoration: none;
 	}
-	
+
 	&[href^=tel] {
 		color: inherit;
 		text-decoration: none;
@@ -431,5 +431,13 @@ small { font-size: 87.5%; }
 			line-height: 1.5;
 			padding-bottom: .25em;
 		}
+	}
+	
+	a {
+		text-decoration: none;
+
+		@include touch-hover() { text-decoration: underline; }
+
+		&[href^=tel] { text-decoration: none; }
 	}
 }

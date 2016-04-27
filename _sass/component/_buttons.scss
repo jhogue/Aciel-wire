@@ -5,7 +5,7 @@ $form-button-border: false;
 $form-button-border-color: palette(brand, dark);
 $form-button-border-width: 1px;
 $form-button-border-radius: $default-border-radius;
-$form-button-padding: .325em 1em .25em;
+$form-button-padding: .325em .75em .25em;
 
 // Default button style. Classes must be chained to change colors, i.e. class="button button--primary"
 button,
@@ -21,7 +21,7 @@ a.button { margin-bottom: .5em; }
 .button {
 	@extend %base-rwd-size;
 	@include transition( all 250ms ease );
-	background-color: palette(mono, 25);
+	background-color: palette(mono, 10);
 	@if $form-button-border {
 		border: $form-button-border-width solid $form-button-border-color;
 	} @else {
@@ -34,7 +34,7 @@ a.button { margin-bottom: .5em; }
 	text-align: center;
 	
 	@include touch-hover() {
-		background-color: palette(mono, 10);
+		background-color: palette(mono, 25);
 		color: palette(mono, 75);
 	}
 
@@ -44,7 +44,7 @@ a.button { margin-bottom: .5em; }
 		color: palette(mono, white);
 
 		@include touch-hover() {
-			background: palette(brand, dark);
+			background: palette(mono, 90);
 			color: palette(mono, white);
 		}
 	}
