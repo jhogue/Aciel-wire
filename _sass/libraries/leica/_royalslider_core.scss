@@ -4,8 +4,10 @@
 .royalSlider {
 	//min-width: 600px;
 	//min-height: 400px;
-	position: relative;
 	direction: ltr;
+	margin: 0;
+	padding: 0;
+	position: relative;
 }
 .royalSlider > * {
 	float: left;

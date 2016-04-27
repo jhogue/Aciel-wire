@@ -12,15 +12,15 @@ html {
 	-webkit-font-smoothing: antialiased;
 }
 
-html,
-body {
-	min-height: 100%;
-}
-
 body {
 	overflow-x: visible;
 	position: relative;
 	z-index: map-get($zindex, body);
+}
+
+html,
+body {
+	min-height: 100%;
 }
 
 //
@@ -50,7 +50,8 @@ ol.menu {
 // Show nested back up text or an unicode element when fontface is not supported
 //
 .fa {
-	
+	vertical-align: middle;
+
 	& > span {
 		display: none;
 		visibility: hidden;
@@ -61,6 +62,17 @@ ol.menu {
 		}
 	}
 }
+
+
+//
+// Keep all the JS triggers together in case we need to chain more than one
+//
+@include media($small-up) {
+
+	// The adhesive nav bar is enabled
+	@include javascript-tag('adhesive-navbar');
+}
+
 
 //
 // Javascript enabled elements. Apply the bare minimum styles to these elements. 
@@ -77,6 +89,8 @@ ol.menu {
 	opacity: 0;
 	visibility: hidden;
 	@include transition( opacity 250ms ease, visibility 250ms ease );
+
+	&:hover { cursor: pointer; }
 
 	body.js-overlay-active & {
 		display: block;

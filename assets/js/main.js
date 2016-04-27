@@ -9,7 +9,7 @@ function mqtag() {
     return window.getComputedStyle(document.body,':after').getPropertyValue('content');
 }
 var mq_tag = mqtag();
-//console.log( "mq_tag=" + mq_tag );
+console.log( "mq_tag=" + mq_tag );
 
 
 /* 
@@ -21,13 +21,72 @@ function on_resize_orientationchange() {
 
 	// Check again on resize/orientation change
 	var mq_tag = mqtag();
-	//console.log( "Resized! mq_tag is now " + mq_tag );
-	// if ( mq_tag.indexOf("set-widths") !=-1 )  {
+	console.log( "Resized! mq_tag is now " + mq_tag );
+	
+	
+	if ( mq_tag.indexOf("adhesive-navbar") !=-1 ) {
+
+		// Remove .toggle class to the parent menu container
+		$('.js-active-link').click(function(e){
+			console.log('.js-active-link clicked');
+			e.preventDefault();
+			$.each( [ $('.stickynav--list li') ], function() {
+				$(this).removeClass('js-active');
+			});
+			$(this).removeClass('js-active-link');
+			
+			// Un-lock scroll position
+			var html = jQuery('html');
+			var scrollPosition = html.data('scroll-position');
+			html.css('overflow', html.data('previous-overflow'));
+			window.scrollTo(scrollPosition[0], scrollPosition[1]);
+		});
+		
+		// Add .toggle class to the parent menu container
+		$('.js-mainlink').click(function(e){
+			console.log('.js-mainlink clicked');
+			e.preventDefault();
+			$.each( [ $('.stickynav--list li') ], function() {
+				$(this).removeClass('js-active');
+			});
+			$(this).removeClass('js-mainlink');
+			$(this).addClass('js-active-link');
+			$(this).parent().addClass('js-active');
+			
+			// Lock scroll position, but retain settings for later
+			if ($('#stickynav').hasClass('stuck')) {
+				var scrollPosition = [self.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft, self.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop];
+				var html = jQuery('html');
+				html.data('scroll-position', scrollPosition);
+				html.data('previous-overflow', html.css('overflow'));
+				html.css('overflow', 'hidden');
+				window.scrollTo(scrollPosition[0], scrollPosition[1]);
+			};
+		});
+
+		/*$('.js-active .stickynav--mainlink').on('click', function(e) {
+			console.log('js-active anchor clicked');
+			e.preventDefault();
+			$.each( [ $('.stickynav--list li') ], function() {
+				$(this).removeClass('js-active');
+			});
+			$('html').removeClass('js-nav-active');
+		});
+		// Now listen for a click on an element without the other class already present
+		$('.stickynav--mainlink').on('click', function(e) {
+			e.preventDefault();
+			$.each( [ $('.stickynav--list li') ], function() {
+				$(this).removeClass('js-active');
+			});
+			$(this).parent().addClass('js-active');
+			$('html').addClass('js-nav-active');
+		});*/
+	}
 	
 	
 	// A drop down menu from a fixed menu bar will not scroll
 	// This little ditty sets the max-height to the height of the window
-	$(".stickynav--subnav").css({ maxHeight: $(window).height() - $(".stickynav > .stickynav--list").height() + "px" });
+	//$(".stickynav--subnav").css({ maxHeight: $(window).height() - $(".stickynav > .stickynav--list").height() + "px" });
 };
 
 
@@ -82,7 +141,20 @@ $(document).ready(function() {
 	}
 
 
+	// Product cards need to have two hover actions become interdependent
+	if( $('.js-hover').length > 0 ) {
+		$('.js-hover').hover(
+			function() {
+				$( this ).siblings().addClass( "js-hovered" );
+			}, function() {
+				$( this ).siblings().removeClass( "js-hovered" );
+			}
+		);
+	}
+
+
 	// Inititiate the horizontal homepage slide carousel
+	jQuery.rsCSS3Easing.easeOutBack = 'cubic-bezier(0.175, 0.885, 0.320, 1.275)';
 	var vertslider = $('.js-horizgallery').royalSlider({
 		autoHeight: true, 
 		arrowsNav: true,
@@ -94,6 +166,10 @@ $(document).ready(function() {
 			delay: 7000
 		},
 		autoScaleSlider: true, 
+		blockLoop: true,
+		block: {
+			delay: 400
+		},
 		controlsInside: true,
 		controlNavigation: 'none', // thumbnails, tabs, bullets, none
 		controlNavigationSpacing: 0,
@@ -199,11 +275,11 @@ $(document).ready(function() {
     $(window).on('resize', showSize);
 
 	showSize();
-	
-	function showSize() {
-		$('#size').html( $(window).width() + ' x ' + $(window).height());
-	}
 });
+
+function showSize() {
+	$('#size').html( $(window).width() + ' x ' + $(window).height());
+}
 
 
 // Keep this at the bottom

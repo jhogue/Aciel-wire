@@ -3,24 +3,31 @@
 
 	{% include head.html %}
 
+	<style>
+		.royalSlider > .rsContent {
+			visibility:hidden;
+		}
+	</style>
 	<body class="layout-{{ page.layout }} {{ page.bodyclass }}">
 		<div class="page">
 
 		{% include header.html %}
 
-		<div class="royalSlider rsUni hero-carousel js-horizgallery" role="banner">
-			<div class="hero-carousel--item--bg" style="background-image: url({{ '/files/hero/bg-1.jpg' | prepend: site.baseurl }})">
+		<ul class="royalSlider rsUni hero-carousel js-horizgallery" role="banner">
+			<li class="hero-carousel--item--bg rsContent" style="background-image: url({{ '/files/hero/bg-1.jpg' | prepend: site.baseurl }})">
 				<div class="hero-carousel--item">
-					<div class="hero-carousel--fore"><img src="{{ '/files/hero/bg-1.jpg' | prepend: site.baseurl }}" alt=""></div>
-					<div class="hero-carousel--text">
+					<div class="hero-carousel--fore" data-move-effect="left" data-delay="1000" data-move-offset="1000" data-speed="750" data-fade-effect="none">
+						<img src="{{ '/files/hero/bg-1.jpg' | prepend: site.baseurl }}" alt="">
+					</div>
+					<div class="hero-carousel--text" data-move-effect="left" data-delay="2000" data-move-offset="1000" data-speed="750" data-fade-effect="true">
 						<h2 class="hero-carousel--title">Hero Headline is so Cool</h2>
 						<p class="hero-carousel--blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
 						<p class="hero-carousel--cta"><a href="#" class="button button--primary hero-carousel--link">Click CTA Here</a></p>
 					</div>
 				</div>
-			</div>
-			<div class="hero-carousel--item--bg" style="background-image: url({{ '/files/hero/bg-2.jpg' | prepend: site.baseurl }})">
-				<div class="hero-carousel--item">
+			</li>
+			<li class="hero-carousel--item--bg" style="background-image: url({{ '/files/hero/bg-2.jpg' | prepend: site.baseurl }})">
+				<div class="hero-carousel--item rsContent">
 					<div class="hero-carousel--fore"><img src="{{ '/files/hero/bg-2.jpg' | prepend: site.baseurl }}" alt=""></div>
 					<div class="hero-carousel--text">
 						<h2 class="hero-carousel--title">This Hero Headline is Better</h2>
@@ -28,9 +35,9 @@
 						<p class="hero-carousel--cta"><a href="#" class="button button--primary hero-carousel--link">Click CTA Here</a></p>
 					</div>
 				</div>
-			</div>
-			<div class="hero-carousel--item--bg" style="background-image: url({{ '/files/hero/bg-3.jpg' | prepend: site.baseurl }})">
-				<div class="hero-carousel--item">
+			</li>
+			<li class="hero-carousel--item--bg" style="background-image: url({{ '/files/hero/bg-3.jpg' | prepend: site.baseurl }})">
+				<div class="hero-carousel--item rsContent">
 					<div class="hero-carousel--fore"><img src="{{ '/files/hero/bg-3.jpg' | prepend: site.baseurl }}" alt=""></div>
 					<div class="hero-carousel--text">
 						<h2 class="hero-carousel--title">Meh, this Headline is just OK</h2>
@@ -38,8 +45,8 @@
 						<p class="hero-carousel--cta"><a href="#" class="button button--primary hero-carousel--link">Click CTA Here</a></p>
 					</div>
 				</div>
-			</div>
-		</div>
+			</li>
+		</ul>
 
 		<section id="main" class="content">
 			<div class="container">
