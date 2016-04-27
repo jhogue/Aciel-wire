@@ -1,29 +1,69 @@
-/*<div class="product--card">
+/*<div class="product--card grid--item">
 	<a href="#product" class="product--card--link">
-		<div class="product--card--image"><img src="http://lasers.leica-geosystems.com/sites/default/files/styles/large_square/public/product_images/d810-touch-promo.jpg?itok=Zug6l8Kt" alt=""></div>
+		<div class="product--card--image snipe--container">
+			<div class="snipe snipe__topleft">
+				<div class="snipe--sub">On orders of $149 and up</div>
+				<div class="snipe--main">Free Shipping</div>
+			</div>
+			<img src="http://placehold.it/460x460" alt="Square aspect ratio">
+		</div>
 		<div class="product--card--meta">
-			<h3 class="product--card--title">Product Name</h3>
-			<p class="product--card--price">$849.00</p>
-			<div class="product--card--action"><button class="button button--primary">Add to Cart</button></div>
+			<h3 class="product--card--title">Name</h3>
+			<p class="product--card--price">$Price USD</p>
+			<div class="product--card--label">More Details</div>
 		</div>
 	</a>
+	<button class="product--card--action button button--primary" data-action="Would add this item directly to the cart and show the checkout experience">Add to Cart</button>
 </div>*/
 .product {
 
+	&--description { padding-bottom: $vert-line-height; }
+
 	&--card {
-		background-color: palette(mono, 15);
+		@include relative-container( $o: visible );
 		margin-bottom: 1em;
-		padding: .75em .75em 0;
 
 		&--link {
 			@include clearfix;
+			@include transition( all 250ms ease );
+			background-color: palette(mono, white);
+			border: 1px solid $color-borders;
 			display: block;
+			
+			.product--card--title,
+			.product--card--price,
+			.product--card--label { @include transition( all 250ms ease ); }
 
-			@include touch-hover() { 
+			//@include touch-hover() {
+			// would prefer a manual application here
+			.no-js &:hover,
+			.no-js &:focus,
+			.js.#{$modernizr-touch-off} &:hover,
+			.js.#{$modernizr-touch-off} &:focus,
+			.js.#{$modernizr-touch-off} &.js-hovered,
+			.js.#{$modernizr-touch-on} &:active {
+				@include transform( translateY(-3px) );
+				box-shadow: 0 2px 3px rgba(#000,.25);
 
-				.product--card--image { opacity: .5; }
+				.product--card--title,
+				.product--card--price { color: palette(mono, 25); }
+			}
+			
+			.no-js &:hover,
+			.no-js &:focus,
+			.js.#{$modernizr-touch-off} &:hover,
+			.js.#{$modernizr-touch-off} &:focus,
+			.js.#{$modernizr-touch-on} &:active {
 
-				.button { background: palette(brand, dark); }
+				.product--card--label .button {
+					background-color: palette(brand);
+					color: palette(mono, white);
+				}
+			}
+
+			&.js-hovered .product--card--label .button {
+				background-color: palette(mono, 10);
+				color: palette(mono);
 			}
 		}
 
@@ -33,45 +73,51 @@
 
 		&--meta {
 			@include clearfix;
+			padding: 0 .75em .75em;
 			position: relative;
 		}
 
-		&--title,
-		&--price {
-			float: left;
-			width: 50%;
+		&--title { font-weight: bold; }
+
+		&--price { font-weight: 100; }
+
+		&--label {
+			color: palette(brand, blue);
+			padding: .75em 0 .125em;
 		}
-
-		&--title {}
-
-		&--price {}
 
 		&--action {
-			float: right;
-			padding-top: .75em;
-			text-align: right;
-			width: 50%;
+			font-weight: bold;
+			position: absolute;
+				right: .5em; bottom: .5em;
+			z-index: 2;
 		}
 	}
+	
+	// Adjacent sibling selector: we can traverse down the DOM tree, but not up
+	&--card--link ~ &--card--action { @include transition( all 250ms ease ); }
 
+	&--card--link.js-hovered ~ &--card--action,
+	&--card--link:hover ~ &--card--action {
+		@include transform( translateY(-3px) );
+		background-color: palette(mono, 25);
+	}
+	
 
 	// Overrides
 	&__home &--card--title { @include one-element-size(h4); }
 
 	&__home &--card--title,
-	&__home &--card--price {
-		display: inline-block;
-		float: none;
-	}
+	&__home &--card--price {}
 	
-	&__home &--card--action {
-		position: absolute;
-			top: 0; right: 0;
-	}
+	&__home &--card--label {}
 
 
 	// Media
 	@include media($large-up) {
+
+		// Stop these buttons from growing larger with the viewport size
+		&--card--action { font-size: 1rem; }
 
 		.widget__compatible-apps &--card { padding-bottom: .75em; }
 
@@ -84,10 +130,74 @@
 		
 		.widget__compatible-apps &--card--title,
 		.widget__compatible-apps &--card--price,
-		.widget__compatible-apps &--card--action {
-			float: none;
-			text-align: left;
-			width: auto;
+		.widget__compatible-apps &--card--label {}
+	}
+}
+
+
+/*<div class="product--card--image snipe--container">
+	<div class="snipe snipe__topleft">
+		<div class="snipe--sub">On orders of $149 and up</div>
+		<div class="snipe--main">Free Shipping</div>
+	</div>
+	<img src="http://lasers.leica-geosystems.com/sites/default/files/styles/large_square/public/product_images/d510_front_reflection_var2-500x545.jpg?itok=W7s2pZ3C" alt="">
+</div>*/
+.snipe {
+	@include transform( translateY(-2em) );
+	@include transition( transform 250ms ease );
+	color: palette(mono, white);
+	padding: .5em .75em;
+	position: absolute;
+		top: 0; left: 0;
+
+	&:before {
+		@include transform-origin( 50% 50% );
+		@include transform( rotate(-15deg) );
+		@include transition( background 250ms ease );
+		background: rgba(240, 0, 32, .8);
+		content: '';
+		display: block;
+		height: 12em;
+		position: absolute;
+			top: -8em; left: -2em;
+		width: 24em;
+		z-index: 2;
+	}
+
+	&--container {
+		overflow: hidden;
+		position: relative;
+		z-index: 1;
+	}
+
+	&--sub,
+	&--main {
+		position: relative;
+		z-index: 3;
+	}
+
+	&--sub {
+		font-size: .875rem;
+		padding-bottom: 1em;
+	}
+
+	&--main {
+		font-size: 1rem;
+		font-weight: 700;
+	}
+}
+
+// Generic hover effect to expose the sub language
+a {
+	// Don't change this to use the touch-hover() mixin
+	&:hover,
+	&:focus,
+	&.js-hovered {
+		
+		.snipe {
+			@include transform( translateY(0) );
+
+			&:before { background: rgba(palette(brand), 1); }
 		}
 	}
 }
