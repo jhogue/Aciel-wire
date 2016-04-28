@@ -46,6 +46,71 @@
 }
 
 
+// Truncate content for mobile
+/*<article class="readmore readmore__product-specs">
+	[ ... ]
+	
+	<div class="readmore--action"><button class="button button--secondary js-readmore">Read More</button></div>
+</article>*/
+@include media($max-xsmall) {
+
+	.readmore {
+		@include transition( all 750ms ease );
+		@include relative-container( $o: hidden );
+		max-height: em(360);
+	
+		&--action {
+			@include transition( opacity 250ms ease );
+			overflow: visible;
+			padding: 1em 0;
+			position: absolute;
+				right: 0; bottom: 0; left: 0;
+			text-align: center;
+			z-index: 2;
+
+			button {
+
+				@include touch-hover() { box-shadow: 0 2px 3px rgba(#000,.25); }
+			}
+
+			&:before {
+				@include background-image(linear-gradient(top, rgba(#fff,0) 0%, rgba(#fff,1) 99%));
+				content: '';
+				min-height: em(160);
+				position: absolute;
+					right: 0; bottom: 0; left: 0;
+				z-index: -1;
+			}
+		}
+
+		// I like this max-height method, but there are some tricks to remember: 
+		// 1. The max-height reset needs to be super tall, just in case
+		// 	  1a. Unless a browser supports a cool property like 'fit-content', 'max-content' or 'unset'
+		//		  https://developer.mozilla.org/en-US/docs/Web/CSS/max-height
+		// 2. Which means that the animation will be calculated to that max-height, whether or not the layout ever needs it
+		// 3. Therefore, we set the transition timing higher than we normally would
+		&__expanded { max-height: em(3200); }
+	
+		&__expanded &--action {
+			opacity: 0;
+			right: auto; left: -99em;
+		}
+
+		&__product-specs &--action:before { @include background-image(linear-gradient(top, rgba(palette(mono, 10),0) 0%, rgba(palette(mono, 10),1) 99%)); }
+	}
+
+	@supports (max-height: fit-content) {
+		.readmore { @include transition( all 250ms ease ); }
+		.readmore__expanded { max-height: fit-content; }
+	}
+
+	@supports (max-height: unset) {
+		.readmore { @include transition( all 250ms ease ); }
+		.readmore__expanded { max-height: unset; }
+	}
+}
+
+
 /*<div class="breadcrumb">
 	<a href="." class="breadcrumb--link">Home</a>
 	<span class="breadcrumb--sep">|</span>

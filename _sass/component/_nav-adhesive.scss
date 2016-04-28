@@ -38,12 +38,13 @@
 		</div>
 	</div>*/
 .stickynav {
-	background-color: palette(mono, 10);
+	@include clearfix();
+	background: palette(mono, 10);
+	background: rgba( palette(mono, 10), .96);
 	clear: both;
 	position: relative;
 		top: 0;
 	width: 100%;
-	@include clearfix();
 
 	&.stuck { box-shadow: 0 2px 4px rgba(#000, .2); }
 
@@ -53,16 +54,16 @@
 		padding: 0 15%;
 		position: relative;
 		text-align: center;
-		
+
 		& > li { display: inline-block; }
-		
+
 		//& > li.js-active .stickynav--subnav--wrapper {
 		& > li:hover .stickynav--subnav--wrapper {
 			@include transition-delay( 500ms );
 			opacity: 1;
 				left: 0; right: 0;
 		}
-		
+
 		//& > li.js-active .stickynav--mainlink {
 		& > li:hover .stickynav--mainlink {
 			background-color: $overlay-active-color;
@@ -75,14 +76,14 @@
 		font-size: 1.25em;
 		padding: .625em 1em .5em;
 		text-transform: uppercase;
-		
+
 		@include touch-hover() {
 			background-color: $overlay-active-color;
 			color: $overlay-active-text-color;
 			text-decoration: none;
 		}
 	}
-	
+
 	&--subnav {
 		padding: .5em;
 
@@ -90,7 +91,7 @@
 			margin: 0 auto;
 			max-width: $max-width;
 		}
-		
+
 		&--wrapper {
 			@include transition( opacity 250ms ease );
 			background-color: $overlay-active-color;
@@ -176,7 +177,7 @@
 			max-width: 0;
 
 			.stuck & { max-width: em(100); }
-			
+
 			img { height: em(44); }
 		}
 	}
@@ -191,8 +192,18 @@
 		text-align: center;
 
 		@include touch-hover() {
-			background-color: palette(mono, 25);
-			color: palette(mono, 75);
+			background-color: palette(mono);
+			color: palette(mono, white);
+		}
+
+		.stuck & {
+			background-color: palette(mono);
+			color: palette(mono, white);
+
+			@include touch-hover() {
+				background-color: palette(brand);
+				color: palette(mono, white);
+			}
 		}
 	}
 

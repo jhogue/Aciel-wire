@@ -45,7 +45,7 @@
 	&--title {
 		@include one-element-size(h1);
 		color: palette(mono, white);
-		font-weight: 700;
+		font-weight: bold;
 		padding-bottom: $vert-line-height/2;
 		text-shadow: 0 0 1em rgba(#000, .5);
 	}

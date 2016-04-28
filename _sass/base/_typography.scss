@@ -112,16 +112,20 @@ h1,
 h2,
 .bravo {
 	@include one-element-size(h2);
+	color: palette(mono, 90);
 }
 
 h3,
 .charlie {
 	@include one-element-size(h3);
+	color: palette(brand);
 }
 
 h4,
 .delta {
 	@include one-element-size(h4);
+	color: palette(mono, 90);
+	font-weight: bold;
 }
 
 h5,
@@ -191,15 +195,12 @@ hr {
 
 ul,
 ol {
-	margin-left: 3em;
+	margin-left: 1.5em;
 
 	li {}
 	
 	& > ul, 
-	& > ol {
-		margin-left: 1.5em;
-		margin-bottom: 0;
-	}
+	& > ol { margin-bottom: 0; }
 }
 
 ul { list-style: square; }
@@ -233,14 +234,13 @@ table {
 		border-top: 1px solid $table-border-color;
 	}
 
-	caption {
-		text-align: center;
-	}
+	caption { text-align: center; }
 
 	// zebra striping pattern
 	tbody {
+
 		tr:nth-of-type(odd) {
-			background-color: $table-border-color;
+			background-color: percent-color($table-border-color, 25%);
 		}
 	}
 }
@@ -358,6 +358,76 @@ small { font-size: 87.5%; }
 		& > q:after { content: "’"; }
 	}
 }
+
+// not typography, but stuff that ends up inside the content column
+.alignleft,
+.alignright,
+.aligncenter,
+.alignnone { @extend .micro; }
+
+.alignleft,
+.alignright,
+img[style='float: left;'],
+img[style='float: right;'] {
+	margin: 0 auto .5em;
+	text-align: center;
+}
+
+a.alignleft,
+a.alignright { display: block; }
+
+a.alignleft,
+a.alignright,
+a.aligncenter,
+a.alignnone {
+
+	img { margin: 0 auto; }
+}
+
+.alignright.size-full,
+.alignleft.size-full,
+.aligncenter,
+.alignnone {
+	display: block;
+	float: none;
+	margin: 2rem auto;
+}
+
+@include media($xsmall-up) {
+
+	.alignleft,
+	.alignright,
+	img[style='float: left;'],
+	img[style='float: right;'] {
+		margin: 0 0 .5em;
+		max-width: 54%;
+
+		img { width: auto !important; } // override any inline style tags
+	}
+
+	.alignleft,
+	img[style='float: left;'] {
+		float: left;
+		margin-right: 1em;
+		text-align: left;
+	}
+
+	.alignright,
+	img[style='float: right;'] {
+		float: right;
+		margin-left: 1em;
+		text-align: right;
+	}
+}
+
+@include media($small-up) {
+
+	.alignleft,
+	.alignright,
+	img[style='float: left;'],
+	img[style='float: right;'] { max-width: 48%; }
+}
+
 
 .typography {
 	

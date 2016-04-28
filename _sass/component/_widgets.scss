@@ -25,3 +25,66 @@
 	// Specific widgets
 	&__apps &--link {}
 }
+
+
+/*<div class="signup">
+	<h3 class="signup--title widget--title">Join our Email List</h3>
+	<p>Weekly specials, subscriber deals and discounts</p>
+	<form class="form signup--form">
+		<label for="su-first">First name</label><input id="su-first" type="text" class="form--input form--input__first" placeholder="First name"><label for="su-last">Last name</label><input id="su-last" type="text" class="form--input form--input__last" placeholder="Last name">
+		<div class="form--singleline">
+			<button class="button button--primary">Sign Up</button>
+			<span class="form--overflow"><label for="su-email">Email</label><input id="su-email" type="email" class="form--input" placeholder="you@example.com"></span>
+		</div>
+	</form>
+</div>*/
+.signup {
+	background-color: palette(brand);
+	padding: 1em;
+
+	&--title {
+		@include one-element-size(h4);
+		color: palette(mono, white);
+		font-weight: bold;
+	}
+
+	p {
+		color: palette(mono, white);
+		padding-bottom: $vert-line-height/2;
+	}
+
+	&--form {
+
+		label { @include hide; }
+
+		.form--input__first,
+		.form--input__last {
+			margin-bottom: .75em;
+			width: 49%;
+		}
+
+		.form--input__first { margin-right: 1%; }
+
+		.form--input__last { margin-left: 1%; }
+	}
+
+	.form--input {
+		background-color: palette(brand);
+		border-color: palette(brand, dark);
+		color: palette(mono, 90);
+
+		@include placeholder { color: darken(palette(brand, dark), 8%); }
+
+		&:focus {
+			background-color: palette(brand, dark);
+			border-color: palette(brand, dark);
+			color: palette(mono, white);
+		}
+	}
+
+	.button {
+		background-color: palette(brand, dark);
+
+		@include touch-hover() { background-color: palette(mono, 90); }
+	}
+}

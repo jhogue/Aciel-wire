@@ -21,7 +21,7 @@ a.button { margin-bottom: .5em; }
 .button {
 	@extend %base-rwd-size;
 	@include transition( all 250ms ease );
-	background-color: palette(mono, 10);
+	background-color: palette(mono, 25);
 	@if $form-button-border {
 		border: $form-button-border-width solid $form-button-border-color;
 	} @else {
@@ -34,8 +34,8 @@ a.button { margin-bottom: .5em; }
 	text-align: center;
 	
 	@include touch-hover() {
-		background-color: palette(mono, 25);
-		color: palette(mono, 75);
+		background-color: palette(mono, 10);
+		color: palette(mono, 90);
 	}
 
 	&--primary,

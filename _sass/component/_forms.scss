@@ -19,15 +19,14 @@ label {}
 
 input:not([type='checkbox']),
 input:not([type='radio']) {
+	@include transition( all 250ms ease );
 	border: $form-input-border-width solid $form-input-border-color;
 	border-radius: $form-input-border-radius;
 	color: $form-input-color;
 	padding: $form-input-padding;
 	width: 100%;
 
-	@include placeholder {
-		color: $form-input-placeholder-color;
-	}
+	@include placeholder { color: $form-input-placeholder-color; }
 
 	&:focus {
 		border-color: $form-input-border-focus;

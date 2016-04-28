@@ -24,6 +24,8 @@ $breakpoints: (
 $xsmall-up: new-breakpoint( min-width bppx(base) );
 $xsmall: new-breakpoint( min-width ( bppx(base) ) max-width ( (bppx(small)-1px) ) );
 
+$max-xsmall: new-breakpoint( max-width bppx(base) );
+
 $small-up: new-breakpoint( min-width bppx(small) );
 $small: new-breakpoint( min-width ( bppx(small) ) max-width ( bppx(medium)-1px ) );
 

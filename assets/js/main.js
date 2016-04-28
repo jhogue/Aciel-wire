@@ -250,6 +250,43 @@ $(document).ready(function() {
 		}
 	}).data('royalSlider');
     
+    
+    // Visible Nearby gallery type for Product pages
+    // Important note! If you're adding CSS3 transition to slides, fadeInLoadedSlide should be disabled to avoid fade-conflicts.
+	var si = $('.js-prodgallery').royalSlider({
+		addActiveClass: true,
+		arrowsNav: false,
+		controlNavigation: 'none',
+		autoScaleSlider: true, 
+		autoScaleSliderWidth: 2100, // these #s drive the aspect ratio of the slider, no matter the contents   
+		autoScaleSliderHeight: 900,
+		loop: true,
+		fadeinLoadedSlide: false,
+		globalCaption: false,
+		globalCaptionInside: false,
+		keyboardNavEnabled: true,
+		video: {
+			youTubeCode: '<iframe src="https://www.youtube.com/embed/%id%?rel=1&autoplay=1&showinfo=0" frameborder="no" allowFullscreen></iframe>'
+		},
+		visibleNearby: {
+			enabled: true,
+			centerArea: 0.5,
+			center: true,
+			breakpoint: 800,
+			breakpointCenterArea: 0.67,
+			navigateByCenterClick: true
+		}
+	}).data('royalSlider');
+    
+
+	// Expand a Read More overlay for mobile
+	if( $('.js-readmore').length > 0 ) {
+		$('.js-readmore').click(function(e) {
+			console.log('.js-readmore clicked');
+			$(this).parent().parent().addClass('readmore__expanded');
+		});
+	}
+
 
 	/* 
      * Animate some scrolling for smoother transitions 
