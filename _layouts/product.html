@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+
+	{% include head.html %}
+
+	<body class="layout-{{ page.layout }} {{ page.bodyclass }}">
+		<div class="page">
+
+		{% include header.html %}
+
+
+		<div class="product--cover">
+			<div class="royalSlider visibleNearby js-prodgallery" style="background-image: url(http://lasers.leica-geosystems.com/sites/default/files/product_featured_images/s910_smart_base_hero_0.jpg)">
+				<a class="rsImg" href="#" data-rsw="1392" data-rsh="762">Leica DISTO S910 Laser Distance Meter</a>
+				<a class="rsImg" href="http://lasers.leica-geosystems.com/sites/default/files/product_images/s910_scope_of_delievery-500x479.jpg" data-rsw="500" data-rsh="479"><img src="http://lasers.leica-geosystems.com/sites/default/files/product_images/s910_scope_of_delievery-500x479.jpg" alt="Leica DISTO S910 Laser Distance Meter"></a>
+				<a class="rsImg" href="http://lasers.leica-geosystems.com/sites/default/files/product_images/s910_front.jpg" data-rsw="700" data-rsh="550"><img src="http://lasers.leica-geosystems.com/sites/default/files/product_images/s910_front.jpg" alt="Leica DISTO S910"></a>
+				<a class="rsImg" href="http://lasers.leica-geosystems.com/sites/default/files/product_images/s910_back.jpg" data-rsw="700" data-rsh="550"><img src="http://lasers.leica-geosystems.com/sites/default/files/product_images/s910_back.jpg" alt="DISTO S910"></a>
+				<a class="rsImg" href="http://lasers.leica-geosystems.com/sites/default/files/product_images/s910_business.jpg" data-rsw="700" data-rsh="550"><img src="http://lasers.leica-geosystems.com/sites/default/files/product_images/s910_business.jpg" alt="Leica DISTO S910 Laser Distance Meter"></a>
+				<a class="rsImg" href="http://lasers.leica-geosystems.com/sites/default/files/product_images/leica-disto-s910_display-us.jpg" data-rsw="681" data-rsh="550"><img src="http://lasers.leica-geosystems.com/sites/default/files/product_images/leica-disto-s910_display-us.jpg" alt="DISTO S910 Leica"></a>
+				<a class="rsImg" href="http://lasers.leica-geosystems.com/sites/default/files/product_images/s910_keypad.jpg" data-rsw="648" data-rsh="550"><img src="http://lasers.leica-geosystems.com/sites/default/files/product_images/s910_keypad.jpg" alt="DISTO S910 Leica Geosystems"></a>
+				<a class="rsImg" href="http://lasers.leica-geosystems.com/sites/default/files/product_images/s910_smart_base_right_01_ref-500x500.jpg" data-rsw="500" data-rsh="500"><img src="http://lasers.leica-geosystems.com/sites/default/files/product_images/s910_smart_base_right_01_ref-500x500.jpg" alt="Leica DISTO S910 SmartBase"></a>
+			</div>
+		</div>
+
+
+		<section id="main" class="content">
+			<div class="container">
+				
+				<header class="product--header">
+					<h1 class="product--title">{{ page.title }}</h1>
+					<p class="product--subtitle">For measurements that play hard to get</p>
+					<ul class="product--jumplinks menu">
+						<li><a href="#howto">How To</a></li>
+						<li><a href="#inthefield">In the Field</a></li>
+						<li><a href="#reviews">Reviews</a></li>
+						<li><a href="#support">Support</a></li>
+					</ul>
+					<div class="product--purchase">
+						<p class="product--purchase--price">$1,499 USD</p>
+						<p class="product--purchase--offer">Free Shipping</p>
+						<p class="product--purchase--action"><button class="button button--primary">Buy Now</button></p>
+					</div>
+				</header>
+				
+				{{ content }}
+			</div>
+		</section>
+
+		{% include footer.html %}
+
+		</div>
+	</body>
+</html>

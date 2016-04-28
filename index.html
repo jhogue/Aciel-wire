@@ -28,10 +28,10 @@ title: Home
 	</a>
 	<div class="cover--item cover--item__terciary cover--item__signup">
 		<div class="cover--item--wrapper">
-			<div class="cover--item--inner">
-				<h3 class="cover--item--title">Join our Email List</h3>
+			<div class="cover--item--inner signup">
+				<h3 class="signup--title cover--item--title">Join our Email List</h3>
 				<p>Weekly specials, subscriber deals and discounts</p>
-				<form class="cover--form">
+				<form class="form signup--form">
 					<label for="su-first">First name</label><input id="su-first" type="text" class="form--input form--input__first" placeholder="First name"><label for="su-last">Last name</label><input id="su-last" type="text" class="form--input form--input__last" placeholder="Last name">
 					<div class="form--singleline">
 						<button class="button button--primary">Sign Up</button>
@@ -47,60 +47,68 @@ title: Home
 	<div class="product--collection">
 
 		<div class="product--card grid--item">
-			<a href="#product" class="product--card--link">
+			<a href="{{ '/product-single' | prepend: site.baseurl }}" class="product--card--link">
 				<div class="product--card--image snipe--container">
 					<div class="snipe snipe__topleft">
 						<div class="snipe--sub">On orders of $149 and up</div>
 						<div class="snipe--main">Free Shipping</div>
 					</div>
-					<img src="http://lasers.leica-geosystems.com/sites/default/files/styles/large_square/public/product_images/d510_front_reflection_var2-500x545.jpg?itok=W7s2pZ3C" alt="">
+					<img src="http://lasers.leica-geosystems.com/sites/default/files/styles/large_square/public/product_images/x310_scope_of_delivery-450x350.jpg?itok=ggDilam0" alt="Square aspect ratio">
 				</div>
 				<div class="product--card--meta">
-					<h3 class="product--card--title">Product Name</h3>
-					<p class="product--card--price">$849.00</p>
-					<div class="product--card--action"><span class="button button--secondary">Details</span></div>
+					<h3 class="product--card--title">D510</h3>
+					<p class="product--card--price">$599.00 USD</p>
+					<div class="product--card--label">View Details</div>
 				</div>
 			</a>
+			<button class="product--card--action button button--primary js-hover" data-action="Would add this item directly to the cart and show the checkout experience">Buy Now</button>
 		</div>
 		<div class="product--card grid--item">
-			<a href="#product" class="product--card--link">
+			<a href="{{ '/product-single' | prepend: site.baseurl }}" class="product--card--link">
 				<div class="product--card--image snipe--container">
 					<div class="snipe snipe__topleft">
 						<div class="snipe--sub">On orders of $149 and up</div>
 						<div class="snipe--main">Free Shipping</div>
 					</div>
-					<img src="http://lasers.leica-geosystems.com/sites/default/files/styles/large_square/public/product_images/d410_scope_of_delievery-500x491.jpg?itok=FjCdDINw" alt="">
+					<img src="http://lasers.leica-geosystems.com/sites/default/files/styles/large_square/public/product_images/d410_scope_of_delievery-500x491.jpg?itok=FjCdDINw" alt="Square aspect ratio">
 				</div>
 				<div class="product--card--meta">
-					<h3 class="product--card--title">Product Name</h3>
-					<p class="product--card--price">$849.00</p>
-					<div class="product--card--action"><span class="button button--secondary">Details</span></div>
+					<h3 class="product--card--title">X310</h3>
+					<p class="product--card--price">$279.00 USD</p>
+					<div class="product--card--label">View Details</div>
 				</div>
 			</a>
+			<button class="product--card--action button button--primary js-hover" data-action="Would add this item directly to the cart and show the checkout experience">Buy Now</button>
 		</div>
 		<div class="product--card grid--item">
-			<a href="#product" class="product--card--link">
-				<div class="product--card--image">
-					<img src="http://lasers.leica-geosystems.com/sites/default/files/styles/large_square/public/product_images/d510_front_reflection_var2-500x545.jpg?itok=W7s2pZ3C" alt="">
+			<a href="{{ '/product-single' | prepend: site.baseurl }}" class="product--card--link">
+				<div class="product--card--image snipe--container">
+					<img src="http://lasers.leica-geosystems.com/sites/default/files/styles/large_square/public/product_images/d210_scope_of_delivery-583x500.jpg?itok=nube_r8Z" alt="Square aspect ratio">
 				</div>
 				<div class="product--card--meta">
-					<h3 class="product--card--title">Product Name</h3>
-					<p class="product--card--price">$849.00</p>
-					<div class="product--card--action"><span class="button button--secondary">Details</span></div>
+					<h3 class="product--card--title">D210</h3>
+					<p class="product--card--price">$199.00 USD</p>
+					<div class="product--card--label">View Details</div>
 				</div>
 			</a>
+			<button class="product--card--action button button--primary js-hover" data-action="Would add this item directly to the cart and show the checkout experience">Buy Now</button>
 		</div>
 		<div class="product--card grid--item">
-			<a href="#product" class="product--card--link">
-				<div class="product--card--image">
-					<img src="http://lasers.leica-geosystems.com/sites/default/files/styles/large_square/public/product_images/x310_scope_of_delivery-450x350.jpg?itok=ggDilam0" alt="">
+			<a href="{{ '/product-single' | prepend: site.baseurl }}" class="product--card--link">
+				<div class="product--card--image snipe--container">
+					<div class="snipe snipe__topleft">
+						<div class="snipe--sub">On orders of $149 and up</div>
+						<div class="snipe--main">Free Shipping</div>
+					</div>
+					<img src="http://lasers.leica-geosystems.com/sites/default/files/styles/large_square/public/product_images/d510_front_reflection_var2-500x545.jpg?itok=W7s2pZ3C" alt="Square aspect ratio">
 				</div>
 				<div class="product--card--meta">
-					<h3 class="product--card--title">Product Name</h3>
-					<p class="product--card--price">$849.00</p>
-					<div class="product--card--action"><span class="button button--secondary">Details</span></div>
+					<h3 class="product--card--title">D510</h3>
+					<p class="product--card--price">$599.00 USD</p>
+					<div class="product--card--label">View Details</div>
 				</div>
 			</a>
+			<button class="product--card--action button button--primary js-hover" data-action="Would add this item directly to the cart and show the checkout experience">Buy Now</button>
 		</div>
 	</div>
 </div>

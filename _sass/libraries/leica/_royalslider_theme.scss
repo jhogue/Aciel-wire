@@ -29,8 +29,8 @@ $thumb-height: 60px;
 .rsUni .rsSlide,
 .rsUni .rsVideoFrameHolder,
 .rsUni .rsThumbs {
-	background: #222;
-	color: #fff;
+	background: palette(mono, black);
+	color: palette(mono, white);
 }
 
 
@@ -440,3 +440,59 @@ $thumb-height: 60px;
 	font-size: 12px;
 	border-radius: 2px;
 }
+
+
+/***************
+*
+*  9. Visible nearby core
+*
+****************/
+.visibleNearby {
+	width: 100%;
+
+	img { -webkit-backface-visibility: hidden; }
+
+	// For accessibility, we insert an img tag into the primary anchor. Hide for js enabled
+	.js & a.rsImg img,
+	.rsgCaption img { display: none; }
+
+	// Text inserted into the anchor will show up as a caption
+	.rsGCaption {
+		width: 100%;
+		position: static;
+		float: left;
+		left: auto;
+		bottom: auto;
+		text-align: center;
+	}
+}
+.royalSlider > .rsImg { visibility:hidden; }
+
+
+/* Scaling transforms */
+.visibleNearby .rsSlide img {
+	@include transition(all 250ms ease-out);
+	@include transform(scale(0.75));
+	opacity: 0.67;
+}
+.visibleNearby .rsActiveSlide img {
+	@include transform(scale(1));
+	opacity: 1;
+}
+
+/* Non-linear resizing on smaller screens
+@media screen and (min-width: 0px) and (max-width: 900px) { 
+  #gallery-1 {
+    padding: 12px 0 12px;
+  }
+  #gallery-1 .rsOverflow,
+  .royalSlider#gallery-1 {
+    height: 400px !important;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 500px) { 
+  #gallery-1 .rsOverflow,
+  .royalSlider#gallery-1 {
+    height: 300px !important;
+  }
+} */
