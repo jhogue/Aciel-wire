@@ -26,6 +26,13 @@ function on_resize_orientationchange() {
 	
 	if ( mq_tag.indexOf("adhesive-navbar") !=-1 ) {
 
+		// Initiate Waypoints shortcut
+		if( $('.js-sticky').length > 0 ) {
+			var sticky = new Waypoint.Sticky({
+				element: $('.js-sticky')[0],
+			});
+		}
+
 		// Remove .toggle class to the parent menu container
 		$('.js-active-link').click(function(e){
 			console.log('.js-active-link clicked');
@@ -123,6 +130,32 @@ $(document).ready(function() {
 		//	$(this).slideUp(250);
 		//});
 	});
+	
+	// Special accordion trigger. Change this later, the markup sucks. 
+	if ( $('.elastic-grid-expanded').length > 0 ) {
+		
+		$('.elastic-grid-expanded').hide();
+		
+		// Need to fix this by using context... something like:
+		//$('.elastic-grid-menu li').on('click', '.elastic-grid-thumbnail.js-toggle-active', function(e) {
+		$('.elastic-grid-thumbnail.js-toggle-active').on('click', function(e) {
+			var next = $(this).next();
+			$(this).removeClass('js-toggle-active');
+			$(next).slideUp();
+		});
+		
+		$('.elastic-grid-thumbnail').on('click', function(e) {
+			e.preventDefault();
+			
+			$('.elastic-grid-thumbnail').removeClass('js-toggle-active');
+			
+			$('.elastic-grid-expanded').slideUp();
+			
+			var next = $(this).next();
+			$(this).addClass('js-toggle-active');
+			$(next).slideDown();
+		});
+	}
 
 
 	//<a href="#searchform" class="mainnav--button"><span class="fa fa-search" aria-hidden="true"><span>Search</span></span></a>
@@ -134,9 +167,10 @@ $(document).ready(function() {
 
 
 	// Initiate Waypoints shortcut
-	if( $('.js-sticky').length > 0 ) {
+	if( $('.js-sticky-productheader').length > 0 ) {
 		var sticky = new Waypoint.Sticky({
-			element: $('.js-sticky')[0],
+			element: $('.js-sticky-productheader')[0],
+			offset: $(".mainnav").outerHeight(true)
 		});
 	}
 
@@ -270,10 +304,10 @@ $(document).ready(function() {
 		},
 		visibleNearby: {
 			enabled: true,
-			centerArea: 0.5,
+			centerArea: 0.4, // this is the setting for large screens. Seems to be the percentage to hide
 			center: true,
 			breakpoint: 800,
-			breakpointCenterArea: 0.67,
+			breakpointCenterArea: 0.58, // this is the setting for screens under the breakpoint threshold
 			navigateByCenterClick: true
 		}
 	}).data('royalSlider');

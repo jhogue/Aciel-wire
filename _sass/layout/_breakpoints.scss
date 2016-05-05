@@ -29,8 +29,11 @@ $max-xsmall: new-breakpoint( max-width bppx(base) );
 $small-up: new-breakpoint( min-width bppx(small) );
 $small: new-breakpoint( min-width ( bppx(small) ) max-width ( bppx(medium)-1px ) );
 
-$smallish-to-medium: new-breakpoint( min-width ( em(600) ) max-width ( bppx(medium)-1px ) );
-$smallish-to-large: new-breakpoint( min-width ( em(600) ) max-width ( bppx(large)-1px ) );
+$xsmall-to-medium: new-breakpoint( min-width ( bppx() ) max-width ( bppx(medium)-1px ) );
+$small-to-medium: new-breakpoint( min-width ( em(600) ) max-width ( bppx(medium)-1px ) );
+
+$xsmall-to-large: new-breakpoint( min-width ( bppx() ) max-width ( bppx(large)-1px ) );
+$small-to-large: new-breakpoint( min-width ( em(600) ) max-width ( bppx(large)-1px ) );
 
 $medium-up: new-breakpoint( min-width bppx(medium) );
 $medium: new-breakpoint( min-width ( bppx(medium) ) max-width (bppx(large)-1px) );

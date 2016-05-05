@@ -100,7 +100,7 @@
 	// This one grows from a single col to a two and stops at three
 	&__trio &--item {
 
-		@include media($smallish-to-large) {
+		@include media($xsmall-to-large) {
 			@include span-columns(6);
 			@include omega(2n);
 		}
@@ -114,7 +114,7 @@
 	// This one grows from a single col to a two to a three and stops at four
 	&__quartet &--item {
 
-		@include media($smallish-to-medium) {
+		@include media($xsmall-to-medium) {
 			@include span-columns(6);
 			@include omega(2n);
 		}

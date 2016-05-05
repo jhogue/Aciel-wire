@@ -245,7 +245,6 @@
 
 
 // Need the "stuck" classs and the "sticky-wrapper" for Waypoints to work
-.sticky-wrapper,
 .stickynav {
 	display: none;
 	visibility: hidden;
@@ -253,16 +252,15 @@
 
 @include media($small-up) {
 
-	.sticky-wrapper,
 	.stickynav {
 		display: block;
 		visibility: visible;
-	}
 
-	.js .stuck {
-		position: fixed;
-			top: 0;
-		z-index: map-get($zindex, sticky);
+		.js &.stuck {
+			position: fixed;
+				top: 0;
+			z-index: map-get($zindex, sticky);
+		}
 	}
 
 	.js .sticky-wrapper { background-color: $body-bg-color; }

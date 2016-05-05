@@ -15,13 +15,27 @@
 	</a>
 	<button class="product--card--action button button--primary" data-action="Would add this item directly to the cart and show the checkout experience">Add to Cart</button>
 </div>*/
+@mixin product-container() {
+	padding: 1em 0;
+	margin-bottom: $vert-line-height;
+}
+
+@mixin product-bg-container( $bg: palette(mono, 10) ) {
+	background-color: $bg;
+	margin: 0 -1em;
+	padding: 1em 1em $vert-line-height;
+}
+
 .product {
 	
 	&.grid { padding-top: $vert-line-height; } // for the single product... <div class="product grid grid--rightrail">
 
 	&--description { padding-bottom: $vert-line-height; }
 
-	&--section--title { font-weight: $font-custom-bold; }
+	&--section--title {
+		font-weight: $font-custom-bold;
+		margin-bottom: .785em;
+	}
 
 	&--card {
 		@include relative-container( $o: visible );
@@ -180,15 +194,35 @@
 	</header>*/
 	&--header {
 		@include clearfix;
-		background-color: palette(mono, black);
+		@include transition( background 250ms ease );
+		background: palette(mono, black);
 		color: palette(mono, white);
-		margin: - $vert-line-height -1em 0;
 		padding: .5em 1em 1em;
+
+		@include media($xsmall-up) {
+
+			&.stuck {
+				background: rgba(palette(mono, black), .94);
+				position: fixed;
+					top: 65px; left: 0; // would rather set the offset from the top via javascript
+				width: 100%;
+				
+				.product--subtitle {
+					max-height: 0;
+					opacity: 0;
+				}
+			}
+		}
 	}
 
 	&--title { font-weight: bold; }
 
-	&--subtitle { padding-bottom: $vert-line-height/2; }
+	&--subtitle {
+		@include transition( opacity 250ms ease );
+		max-height: 99em;
+		opacity: 1;
+		padding-bottom: $vert-line-height/2;
+	}
 
 	&--jumplinks {
 		@include span-columns(6);
@@ -236,9 +270,7 @@
 		</div>
 	</div>*/
 	&--howto {
-		background-color: palette(mono, 10);
-		margin: 0 -1em;
-		padding: 1em 1em $vert-line-height;
+		@include product-bg-container();
 
 		&--videos {}
 	}
@@ -251,10 +283,10 @@
 	&--specs {
 		background-color: palette(mono, 10);
 		margin: 0 -1em;
-		padding: 1em 1em 0;
+		padding: 1em;
 
 		&--table {
-			
+
 			.col_0 {
 				border-right: 1px solid $table-border-color;
 				text-align: right;
@@ -264,7 +296,170 @@
 		}
 	}
 
+	&--featfunct {
+		@include product-bg-container( darken(palette(mono, 10), 4%) );
+	}
+
+	&--inthefield {
+		@include product-container();
+	}
+
+	&--related {
+		@include product-container();
+	}
+	
+	&--reviews {
+		@include product-container();
+	}
+	
+	&--support {
+		@include product-bg-container();
+	}
+
 } // end .product
+
+
+/*
+I would want to rework this markup when the time comes. 
+Need an anchor as a trigger... 
+need "js-" classes for triggers...
+need proper BEM classes...
+
+<div class="product--featfunct">
+	<h2 class="product--section--title">Features and Functions</h2>
+	<p>Functions are red icons with white while features are white icons with red.</p>
+	<ul class="elastic-grid menu">
+		<li id="1">
+			<div class="elastic-grid-thumbnail">
+				<div class="veg-thumbnail-link">
+					<div class="icon-text">
+						<img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/icons/icon-bluetooth_0.jpg" width="100" height="100" alt="Bluetooth icon">
+						<div class="text">Bluetooth Smart (4.0)</div>
+					</div>
+				</div>
+				<div class="veg-thumbnail-pointer"></div>
+			</div>
+			<div class="elastic-grid-expanded">
+				<div class="elastic-grid-expanded-inner"><span class="veg-close"></span>
+					<div class="accordion-content">
+						<p><img alt="Yard" class="image-left" src="http://lasers.leica-geosystems.com/sites/default/files/yard.jpg"></p>
+						<p>Send measurements directly to your apps using Bluetooth Smart.</p>
+						<p>See our&nbsp;<a href="../leica-disto-app-directory">App Directory</a>&nbsp;for a list of apps that all kinds of professionals are using to transform the way they work.</p>
+						<p>See our blog for <a href="../blog/bluetooth-disto-os-compatibility">more information about device compatibility</a>.</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
+						<p><em>The free&nbsp;<a href="../leica-disto-app-directory#27">Leica DISTO Sketch App</a>&nbsp;lets you take a picture with your iPhone and layer measured lines on top of i</em>t.</p>
+					</div>
+				</div>
+			</div>*/
+.elastic-grid {
+
+	li { padding-top: $vert-line-height/2; }
+
+	&.menu a { display: inline-block; }
+
+	&-thumbnail {
+		@include clearfix;
+
+		&:hover { 
+			cursor: pointer;
+
+			.text,
+			.veg-thumbnail-pointer:before { color: palette(brand); }
+		}
+
+		.icon-text {}
+
+		img,
+		.text {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		img { max-width: 50px; }
+
+		.text {
+			@extend %base-rwd-size;
+			font-weight: $font-custom-bold;
+			margin-left: .5em;
+		}
+	}
+
+	.veg-thumbnail-link {
+		float: left;
+		text-align: left;
+		width: 80%;
+	}
+
+	.veg-thumbnail-pointer {
+		float: left;
+		padding: .75em .5em 0 0;
+		text-align: right;
+		width: 20%;
+
+		&:before {
+			@include transition( transform 250ms ease );
+			content: "\f078"; // chevron down
+			display: inline-block;
+			font: normal normal normal 1.25em/1 FontAwesome;
+			text-rendering: auto;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+	}
+
+	.js-toggle-active .veg-thumbnail-pointer:before { @include transform( rotate(180deg) ); }
+
+	&-expanded {
+
+		&-inner {
+			border: 1px solid $color-borders;
+			overflow: visible;
+			padding: .75em;
+			position: relative;
+			margin-top: .75em;
+
+			&:before {
+				@include transform( rotate(45deg) );
+				content: ''; 
+				background-color: palette(mono, white);
+				border-color: $color-borders;
+				border-style: solid; 
+				border-width: 1px 0 0 1px;
+				height: 1em;
+				position: absolute;
+					top: -.5625em; left: 75px;
+				width: 1em; 
+			}
+
+			img {}
+
+			p { margin-bottom: $vert-line-height/2; }
+
+			p:blank,
+			p:empty { display: none; }
+		}
+	}
+
+
+	// Media
+	@media (min-width: em(640)) {
+
+		li {
+			@include span-columns(6);
+
+			.elastic-grid-expanded { margin: 0 -75% 0 0; }
+		}
+
+		li:nth-child(even) {
+			@include omega();
+
+			.elastic-grid-expanded { margin: 0 0 0 -75%; }
+			
+			.elastic-grid-expanded-inner:before { left: auto; right: 75px; }
+		}	
+	}
+}
 
 
 /*<div class="product--card--image snipe--container">

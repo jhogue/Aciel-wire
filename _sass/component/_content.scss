@@ -10,24 +10,6 @@
 	}
 }
 
-.typography {
-
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 { clear: both; }
-
-	p,
-	ul,
-	ol,
-	dl,
-	address,
-	form,
-	table { margin-bottom: $vert-line-height; }
-}
-
 
 // Responsive table styles
 .table {
@@ -52,14 +34,19 @@
 	
 	<div class="readmore--action"><button class="button button--secondary js-readmore">Read More</button></div>
 </article>*/
-@include media($max-xsmall) {
+.readmore {
+	display: inherit;
 
-	.readmore {
+	&--action { @include hide; }
+
+	// Only show for small screens
+	@include media($max-xsmall) {
 		@include transition( all 750ms ease );
 		@include relative-container( $o: hidden );
 		max-height: em(360);
 	
 		&--action {
+			@include show();
 			@include transition( opacity 250ms ease );
 			overflow: visible;
 			padding: 1em 0;
@@ -97,6 +84,8 @@
 		}
 
 		&__product-specs &--action:before { @include background-image(linear-gradient(top, rgba(palette(mono, 10),0) 0%, rgba(palette(mono, 10),1) 99%)); }
+
+		&__featfunct &--action:before { @include background-image(linear-gradient(top, rgba(darken(palette(mono, 10), 4%), 0) 0%, rgba(darken(palette(mono, 10), 4%), 1) 99%)); }
 	}
 
 	@supports (max-height: fit-content) {
