@@ -24,25 +24,27 @@
 
 
 		<section id="main" class="content">
+			
+			<header class="product--header js-sticky-productheader">
+				<h1 class="product--title">{{ page.title }}</h1>
+				<p class="product--subtitle">For measurements that play hard to get</p>
+				<ul class="product--jumplinks menu">
+					<li><a href="#howto">How To</a></li>
+					<li><a href="#inthefield">In the Field</a></li>
+					<li><a href="#reviews">Reviews</a></li>
+					<li><a href="#support">Support</a></li>
+				</ul>
+				<div class="product--purchase">
+					<p class="product--purchase--price">$1,499 USD</p>
+					<p class="product--purchase--offer">Free Shipping</p>
+					<p class="product--purchase--action"><button class="button button--primary">Buy Now</button></p>
+				</div>
+			</header>
+			
 			<div class="container">
 				
-				<header class="product--header">
-					<h1 class="product--title">{{ page.title }}</h1>
-					<p class="product--subtitle">For measurements that play hard to get</p>
-					<ul class="product--jumplinks menu">
-						<li><a href="#howto">How To</a></li>
-						<li><a href="#inthefield">In the Field</a></li>
-						<li><a href="#reviews">Reviews</a></li>
-						<li><a href="#support">Support</a></li>
-					</ul>
-					<div class="product--purchase">
-						<p class="product--purchase--price">$1,499 USD</p>
-						<p class="product--purchase--offer">Free Shipping</p>
-						<p class="product--purchase--action"><button class="button button--primary">Buy Now</button></p>
-					</div>
-				</header>
-				
 				{{ content }}
+				
 			</div>
 		</section>
 
