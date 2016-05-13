@@ -38,7 +38,7 @@
 	}
 
 	&--card {
-		@include relative-container( $o: visible );
+		@include relative-container( $o: visible, $z: 0 );
 		margin-bottom: 1em;
 
 		&--link {
@@ -126,147 +126,137 @@
 	&__home &--card--label {}
 
 
-	// Media
-	@include media($large-up) {
-
-		// Stop these buttons from growing larger with the viewport size
-		/*&--card--action { font-size: 1rem; }
-
-		.widget__compatible-apps &--card { padding-bottom: .75em; }
-
-		.widget__compatible-apps &--card--image { @include span-columns(2 of 4); }
-
-		.widget__compatible-apps &--card--meta {
-			@include span-columns(2 of 4);
-			@include omega();
-		}
-
-		.widget__compatible-apps &--card--title,
-		.widget__compatible-apps &--card--price,
-		.widget__compatible-apps &--card--label {}*/
-	}
-	
 	/*<div class="product--cover">
-		<div class="arrows">
-			<div class="arrows--left"><span class="fa fa-angle-double-left" aria-hidden="true"></span></div>
-			<div class="arrows--right"><span class="fa fa-angle-double-right" aria-hidden="true"></span></div>
-		</div>
-		<div class="royalSlider rsUni visibleNearby js-prodgallery" style="background-image: url(http://lasers.leica-geosystems.com/sites/default/files/product_featured_images/s910_smart_base_hero_0.jpg);">
-			<div class="rsVisibleNearbyWrap" style="height: 725px; width: 1334px;">
-				<div class="rsOverflow" style="cursor: -webkit-grab; overflow: visible;">
-					<div class="rsContainer" style="transition: 500ms cubic-bezier(0.39, 0.575, 0.565, 1); transform: translate3d(0px, 0px, 0px);">
-						<div style="left: 0px;" class="rsSlide rsActiveSlide">
-							<img class="rsImg rsMainSlideImage" src="#" style="width: 886px; height: 442px; margin-left: 3px; margin-top: 141px;">
-						</div>
-						<div style="left: 901.7800000000001px;" class="rsSlide">
-							<img class="rsImg rsMainSlideImage" src="http://lasers.leica-geosystems.com/sites/default/files/product_images/s910_scope_of_delievery-500x479.jpg" style="width: 500px; height: 479px; margin-left: 196px; margin-top: 123px;">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>*/
+			<div class="product--cover--img" style="background-image: url(http://lasers.leica-geosystems.com/sites/default/files/product_featured_images/s910_smart_base_hero_0.jpg)">
+			</div>*/
 	&--cover {
 		position: relative;
-		
-		.visibleNearby {
-			background-size: cover;
+		z-index: 1;
+
+		&--img {
+			margin: 0 -7.5%;
+			max-width: none;
+			width: 115%;
+		}
+
+		.js & .sticky-wrapper { background-color: transparent; }
+
+		@include media($small-up) {
+
+			&--img {
+				margin: 0;
+				width: 100%;
+			}
+		}
+
+		@media (min-width: bp(large)) and (max-height: em(800)) {
+			height: calc(95vh - 59px - 119px); // height of header and adhesive navbar
 			
-			.rsSlide { background-color: transparent; }
+			&--img {
+				@include transform( translateX(-50%) );
+				position: absolute;
+					bottom: 0; left: 50%;
+				min-height: 100%;
+				min-width: 100%;
+				width: auto;
+				z-index: -1;
+			}
 		}
-
-		.rsVisibleNearbyWrap {
-			@include background-image(linear-gradient(left, rgba(#000,.75) 0%,rgba(#000,0) 15%,rgba(#000,0) 85%,rgba(#000,.75) 100%));
-		}
-
-		.rsOverflow .rsSlide:first-child img { display: none; }
 	} // end .product--cover
 
-	/*<header class="product--header">
-		<h1 class="product--title">{{ page.title }}</h1>
-		<p class="product--subtitle">For measurements that play hard to get</p>
+	/*<header class="product--header js-sticky-productheader">
+		<div class="product--purchase">
+			<h1 class="product--title">{{ page.title }}</h1>
+			<p class="product--subtitle">For measurements that play hard to get</p>
+		</div>
+		<div class="product--purchase">
+			<p class="product--purchase--action"><button class="button button--primary">Buy Now</button></p>
+			<p class="product--purchase--price">$1,499 USD</p>
+			<p class="product--purchase--offer">Free Shipping</p>
+		</div>
 		<ul class="product--jumplinks menu">
 			<li><a href="#howto">How To</a></li>
 			<li><a href="#inthefield">In the Field</a></li>
 			<li><a href="#reviews">Reviews</a></li>
 			<li><a href="#support">Support</a></li>
 		</ul>
-		<div class="product--purchase">
-			<p class="product--purchase--price">$1,499 USD</p>
-			<p class="product--purchase--offer">Free Shipping</p>
-			<p class="product--purchase--action"><button class="button button--primary">Buy Now</button></p>
-		</div>
 	</header>*/
 	&--header {
 		@include clearfix;
 		@include transition( background 250ms ease );
-		background: palette(mono, black);
+		background: rgba(palette(mono, black), 1);
 		color: palette(mono, white);
 		padding: .5em 1em 1em;
+		width: 100%;
 
 		&.stuck {
-			background: rgba(palette(mono, black), .94);
+			background: rgba(palette(mono, black), .92);
 			position: fixed;
-				top: 65px; left: 0; // would rather set the offset from the top via javascript
-			width: 100%;
+				top: 65px; bottom: auto; // would rather set the offset from the top via javascript
 			z-index: map-get($zindex, sticky);
-		}
 
-		// Hide certain elements when the header becomes adhesive
-		@media (max-width: bp()) {
+			.product {
 
-			&.stuck .product {
-				
-				&--title {
-					float: left;
-					padding-top: .5em;
-				}
-				
-				&--purchase--action { padding-top: .625em; }
-				
 				&--subtitle,
-				&--jumplinks,
 				&--purchase--price,
-				&--purchase--offer { display: none; }
-			}
-		}
-
-		@include media($xsmall-up) {
-
-			&.stuck .product {
-				
-				&--title { float: left; }
-				
-				&--subtitle,
-				&--purchase--offer { display: none; }
+				&--purchase--offer {
+					max-height: 0;
+					padding: 0;
+				}
 			}
 		}
 
 		@include media($small-up) {
-			
-			&.stuck { top: 52px; } // would rather set the offset from the top via javascript
+
+			&.stuck {
+				top: 52px; bottom: auto; // would rather set the offset from the top via javascript
+
+				.product {
+
+					&--purchase--price {
+						max-height: 4em;
+						padding: 0;
+					}
+
+					&--jumplinks { margin-top: -24px !important; } // need to override the application of .menu { margin: 0; }
+				}
+			}
+		}
+
+		@include media($medium-up) {
+
+			&.stuck .product--title { padding-bottom: 0; }
+
+			&.stuck .product--purchase { padding-top: 1.75em; }
 		}
 	}
 
-	/* Transitions dont work here as we have to resort to a display: none, which clobbers everything else
 	&--subtitle,
-	&--jumplinks,
 	&--purchase--price,
 	&--purchase--offer {
-		@include transition( opacity 500ms ease );
-		opacity: 1;
-	}*/
+		@include transition( all 500ms ease );
+		max-height: 4em;
+		overflow-y: hidden;
+	}
 
-	&--title { font-weight: bold; }
+	&--labels {
+		float: left;
+		width: 60%;
+	}
+
+	&--title {
+		font-weight: bold;
+		padding-bottom: $vert-line-height/3;
+	}
 
 	&--subtitle {
 		padding-bottom: $vert-line-height/2;
-		width: 100%;
 	}
 
 	&--jumplinks {
-		float: left;
-		width: 50%;
+		clear: left;
+		margin-right: -1em;
+		text-align: center;
 
 		a {
 			color: palette(brand, blue);
@@ -275,15 +265,22 @@
 				color: palette(mono, white);
 			}
 		}
+
+		li {
+			display: inline-block;
+			margin-right: .5em;
+		}
 	}
 
 	&--purchase {
-		float: right;
+		float: left;
 		text-align: right;
+		width: 40%;
 
 		&--price {
 			@include one-element-size(h4);
 			font-weight: bold;
+			padding-bottom: .125em;
 		}
 
 		&--offer {
@@ -293,7 +290,9 @@
 		}
 
 		&--action {
-			
+			margin-right: -.25em;
+			padding-bottom: $vert-line-height/3;
+
 			button {
 				
 				@include touch-hover() { background-color: palette(brand, dark); }
@@ -302,34 +301,55 @@
 	}
 	
 	// Media
+	@media (min-width: em(400)) {
+
+		&--labels { width: 65%; }
+
+		&--purchase { width: 35%; }
+	}
+
+	@media (min-width: em(480)) {
+
+		&--labels { width: 70%; }
+
+		&--purchase { width: 30%; }
+	}
+
 	@include media($xsmall-up) {
 
-		&--subtitle {
-			float: left;
-			width: 65%;
-		}
+		&--labels { width: 75%; }
 
-		&--jumplinks {
-			clear: left;
-			width: 65%;
-
-			li {
-				display: inline-block;
-				margin-right: .5em;
-			}
-		}
+		&--purchase { width: 25%; }
+		
+		&--jumplinks { text-align: left; }
 	}
 	
-	@include media($medium-up) {
-		
-		&--purchase--price,
-		&--purchase--offer {
-			display: inline-block;
-			margin-left: .5em;
-			vertical-align: baseline;
+	@include media($small-up) {
+
+		&--jumplinks {
+			clear: none;
+			float: left;
+			width: 75%;	
 		}
 	}
 
+	@include media($medium-up) {
+
+		&--header {
+			background: rgba(palette(mono, black), .67);
+			position: absolute;
+				bottom: 0; left: 0;
+		}
+
+		&--purchase { padding-top: .75em; }
+
+		&--purchase--action {
+			float: right;
+			margin-left: .5em;
+		}
+
+		&--purchase--price { margin-top: .25em; }
+	}
 
 	/*<div id="howto" class="product--howto" role="complementary">
 		<h2 class="product--section--title">How to use the S910</h2>    
@@ -612,53 +632,40 @@ need proper BEM classes...
 }
 
 
-// Arrows overlay the slideshow
-@include keyframes(glide-left) {
-	from {
-		@include transform(translateX(0));
-	}
-	to {
-		@include transform(translateX(-6px));
-	}
-}
+// Temporary to mock up the previous Flexslider functionality
+.flexslider--wrapper {
+	@include clearfix;
+	background-color: palette(mono, 10);
+	padding: 1em;
+	position: relative;
 
-@include keyframes(glide-right) {
-	from {
-		@include transform(translateX(0));
-	}
-	to {
-		@include transform(translateX(6px));
-	}
-}
-
-.arrows {
-	
-	&--left,
-	&--right {
-		color: palette(mono, white);
-		font-size: 2em;
-		margin-top: -.75em;
-		opacity: .5;
+	&:after {
+		@include background-image( linear-gradient(left, rgba(#000,0) 0%,rgba(#000,.2) 100%) );
+		content: '';
+		display: block;
 		position: absolute;
-			top: 50%;
-		z-index: 1;
-
-		@include media($xsmall-up) { font-size: 3em; }
-
-		@include media($medium-up) { font-size: 4em; }
-	}
-
-	&--left {
-		@include animation( glide-left 1s ease infinite alternate );
-		left: 10%;
-	}
-
-	&--right {
-		@include animation( glide-right 1s ease infinite alternate );
-		right: 10%;
+			top: 0; right: 0; bottom: 0;
+		width: 10%;
 	}
 }
 
+.flexslider {
+	overflow-y: scroll;
+	white-space: nowrap;
+	width: 100%;
+
+	.slides {
+		clear: both;
+		list-style: none;
+		margin: 0;
+		position: relative;
+
+		li {
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+}
 
 
 /*<div class="product--card--image snipe--container">

@@ -27,6 +27,8 @@ function on_resize_orientationchange() {
 	if ( mq_tag.indexOf("adhesive-navbar") !=-1 ) {
 
 		// Initiate Waypoints shortcuts
+		// Need to figure out how to destroy a previous initialization. 
+		// We end up with way too many <div class="sticky-wrapper">s
 		if( $('.js-sticky').length > 0 ) {
 			var sticky = new Waypoint.Sticky({
 				element: $('.js-sticky')[0],
