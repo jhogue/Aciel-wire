@@ -26,10 +26,16 @@ function on_resize_orientationchange() {
 	
 	if ( mq_tag.indexOf("adhesive-navbar") !=-1 ) {
 
-		// Initiate Waypoints shortcut
+		// Initiate Waypoints shortcuts
 		if( $('.js-sticky').length > 0 ) {
 			var sticky = new Waypoint.Sticky({
 				element: $('.js-sticky')[0],
+			});
+		}
+		if( $('.js-sticky-productheader').length > 0 ) {
+			var sticky = new Waypoint.Sticky({
+				element: $('.js-sticky-productheader')[0],
+				offset: $(".stickynav").outerHeight(true)
 			});
 		}
 
@@ -88,6 +94,15 @@ function on_resize_orientationchange() {
 			$(this).parent().addClass('js-active');
 			$('html').addClass('js-nav-active');
 		});*/
+	} else {
+		
+		// Initiate Waypoints shortcut
+		if( $('.js-sticky-productheader').length > 0 ) {
+			var sticky = new Waypoint.Sticky({
+				element: $('.js-sticky-productheader')[0],
+				offset: $(".mainnav").outerHeight(true)
+			});
+		}
 	}
 	
 	
@@ -164,15 +179,6 @@ $(document).ready(function() {
 		$('#searchform').slideToggle(250).toggleClass('js-target-open');
 		$(this).toggleClass('js-toggle-active');
 	});
-
-
-	// Initiate Waypoints shortcut
-	if( $('.js-sticky-productheader').length > 0 ) {
-		var sticky = new Waypoint.Sticky({
-			element: $('.js-sticky-productheader')[0],
-			offset: $(".mainnav").outerHeight(true)
-		});
-	}
 
 
 	// Product cards need to have two hover actions become interdependent
@@ -304,7 +310,7 @@ $(document).ready(function() {
 		},
 		visibleNearby: {
 			enabled: true,
-			centerArea: 0.4, // this is the setting for large screens. Seems to be the percentage to hide
+			centerArea: 0.58, // this is the setting for large screens. Seems to be the percentage to hide
 			center: true,
 			breakpoint: 800,
 			breakpointCenterArea: 0.58, // this is the setting for screens under the breakpoint threshold
