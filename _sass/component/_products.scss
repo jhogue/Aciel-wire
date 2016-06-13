@@ -27,7 +27,7 @@
 }
 
 .product {
-	
+
 	&.grid { padding-top: $vert-line-height; } // for the single product... <div class="product grid grid--rightrail">
 
 	&--description { padding-bottom: $vert-line-height; }
@@ -151,7 +151,7 @@
 
 		@media (min-width: bp(large)) and (max-height: em(800)) {
 			height: calc(95vh - 59px - 119px); // height of header and adhesive navbar
-			
+
 			&--img {
 				@include transform( translateX(-50%) );
 				position: absolute;
@@ -191,6 +191,7 @@
 
 		&.stuck {
 			background: rgba(palette(mono, black), .92);
+			padding: .5em 1em 0.5em;
 			position: fixed;
 				top: 65px; bottom: auto; // would rather set the offset from the top via javascript
 			z-index: map-get($zindex, sticky);
@@ -225,9 +226,12 @@
 
 		@include media($medium-up) {
 
-			&.stuck .product--title { padding-bottom: 0; }
+			&.stuck .product--title {
+				@include one-element-size(h3);
+				padding-bottom: 0;
+			}
 
-			&.stuck .product--purchase { padding-top: 1.75em; }
+			&.stuck .product--purchase { padding-top: 0.75em; }
 		}
 	}
 
@@ -294,12 +298,12 @@
 			padding-bottom: $vert-line-height/3;
 
 			button {
-				
+
 				@include touch-hover() { background-color: palette(brand, dark); }
 			}
 		}
 	}
-	
+
 	// Media
 	@media (min-width: em(400)) {
 
@@ -320,16 +324,16 @@
 		&--labels { width: 75%; }
 
 		&--purchase { width: 25%; }
-		
+
 		&--jumplinks { text-align: left; }
 	}
-	
+
 	@include media($small-up) {
 
 		&--jumplinks {
 			clear: none;
 			float: left;
-			width: 75%;	
+			width: 75%;
 		}
 	}
 
@@ -352,7 +356,7 @@
 	}
 
 	/*<div id="howto" class="product--howto" role="complementary">
-		<h2 class="product--section--title">How to use the S910</h2>    
+		<h2 class="product--section--title">How to use the S910</h2>
 		<div class="product--howto--videos">
 			<div class="embed-container">
 				<iframe src="https://www.youtube.com/embed/d1-OYFK5fqk?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
@@ -366,7 +370,7 @@
 	}
 
 	/*<div id="specs" class="product--specs">
-		<h2 class="product--section--title">Specifications</h2>  
+		<h2 class="product--section--title">Specifications</h2>
 		<table id="tablefield-0" class="tablefield product--specs--table">
 			<tbody>
 				<tr class="odd"><td class="row_1 col_0">ISO 16331-1 certified measuring accuracy (favorable conditions)</td><td class="row_1 col_1">1.0mm / ± 0.04 in*</td> </tr>*/
@@ -400,11 +404,11 @@
 	&--related {
 		@include product-container();
 	}
-	
+
 	&--reviews {
 		@include product-container();
 	}
-	
+
 	&--support {
 		@include product-bg-container();
 	}
@@ -413,8 +417,8 @@
 
 
 /*
-I would want to rework this markup when the time comes. 
-Need an anchor as a trigger... 
+I would want to rework this markup when the time comes.
+Need an anchor as a trigger...
 need "js-" classes for triggers...
 need proper BEM classes...
 
@@ -455,7 +459,7 @@ need proper BEM classes...
 	&-thumbnail {
 		@include clearfix;
 
-		&:hover { 
+		&:hover {
 			cursor: pointer;
 
 			.text,
@@ -516,15 +520,15 @@ need proper BEM classes...
 
 			&:before {
 				@include transform( rotate(45deg) );
-				content: ''; 
+				content: '';
 				background-color: palette(mono, white);
 				border-color: $color-borders;
-				border-style: solid; 
+				border-style: solid;
 				border-width: 1px 0 0 1px;
 				height: 1em;
 				position: absolute;
 					top: -.5625em; left: 75px;
-				width: 1em; 
+				width: 1em;
 			}
 
 			img {}
@@ -550,11 +554,11 @@ need proper BEM classes...
 			@include omega();
 
 			.elastic-grid-expanded { margin: 0 0 0 -100%; }
-			
+
 			.elastic-grid-expanded-inner:before { left: auto; right: 75px; }
 		}
 	}
-	
+
 	@media (min-width: em(680)) {
 
 		.veg-thumbnail-link { width: 88%; }
@@ -583,7 +587,7 @@ need proper BEM classes...
 			@include omega();
 
 			.elastic-grid-expanded { margin: 0 0 0 -215%; }
-			
+
 			.elastic-grid-expanded-inner:before { left: auto; right: 75px; }
 		}
 	}
@@ -595,7 +599,7 @@ need proper BEM classes...
 
 			.elastic-grid-expanded {
 				margin: 0 -331% 0 0;
-				
+
 				&-inner {
 					@include clearfix;
 
@@ -613,7 +617,7 @@ need proper BEM classes...
 
 			.elastic-grid-expanded-inner:before { left: 33%; }
 		}
-		
+
 		li:nth-child(4n + 3) {
 
 			.elastic-grid-expanded { margin: 0 -110.5% 0 -220.5%; }
@@ -625,7 +629,7 @@ need proper BEM classes...
 			@include omega();
 
 			.elastic-grid-expanded { margin: 0 0 0 -331%; }
-			
+
 			.elastic-grid-expanded-inner:before { left: auto; right: 75px; }
 		}
 	}
