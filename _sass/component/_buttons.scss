@@ -32,7 +32,7 @@ a.button { margin-bottom: .5em; }
 	cursor: pointer;
 	padding: $form-button-padding;
 	text-align: center;
-	
+
 	@include touch-hover() {
 		background-color: palette(mono, 10);
 		color: palette(mono, 90);
@@ -42,6 +42,7 @@ a.button { margin-bottom: .5em; }
 	.js-toggle-active {
 		background: palette(brand);
 		color: palette(mono, white);
+		font-weight: 100;
 
 		@include touch-hover() {
 			background: palette(mono, 90);
