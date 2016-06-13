@@ -42,11 +42,33 @@ title: Home
 		</div>
 	</div>
 </div>
-
-<div class="product product__home grid grid__quartet">
-	<div class="product--collection">
-
-		{% include partials/product-4cards.html %}
-		
-	</div>
+<div class="cover--grid cover--grid__reverse">
+	<a class="cover--item cover--item__main" href="#">
+		<div class="cover--item--wrapper" style="background-image: url({{ '/files/hero/bg-3.jpg' | prepend: site.baseurl }})">
+			<div class="cover--item--inner">
+				<h2 class="cover--item--title">Card Seven Main</h2>
+			</div>
+		</div>
+	</a>
+	<a class="cover--item cover--item__secondary" href="#">
+		<div class="cover--item--wrapper" style="background-image: url({{ '/files/hero/bg-4.jpg' | prepend: site.baseurl }})">
+			<div class="cover--item--inner">
+				<h2 class="cover--item--title">Card Four Secondary</h2>
+			</div>
+		</div>
+	</a>
+	<a class="cover--item cover--item__terciary" href="#">
+		<div class="cover--item--wrapper" style="background-image: url({{ '/files/hero/bg-1.jpg' | prepend: site.baseurl }})">
+			<div class="cover--item--inner">
+				<h2 class="cover--item--title">Card Five Terciary</h2>
+			</div>
+		</div>
+	</a>
+	<a class="cover--item cover--item__terciary" href="#">
+		<div class="cover--item--wrapper" style="background-image: url({{ '/files/hero/bg-1.jpg' | prepend: site.baseurl }})">
+			<div class="cover--item--inner">
+				<h2 class="cover--item--title">Card Six Terciary</h2>
+			</div>
+		</div>
+	</a>
 </div>
