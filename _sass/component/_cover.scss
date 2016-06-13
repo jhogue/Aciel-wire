@@ -12,7 +12,6 @@
 
 	&--grid {
 		@include clearfix;
-		padding: $vert-line-height 0;
 	}
 
 	&--item {
@@ -78,14 +77,21 @@
 
 	// Media
 	@include media( $xsmall-up ) {
-		
+
 		&--grid { margin: 0 -.5em; }
-		
+
 		&--item {
 			float: left;
 			width: 50%;
 
 			&--wrapper { border: .5em solid palette(mono, white); }
+		}
+
+		&--grid__reverse {
+			.cover--item {
+				float: right;
+				width: 50%;
+			}
 		}
 	}
 
@@ -95,6 +101,13 @@
 			width: 33.3333%;
 
 			&__main { width: 100%; }
+		}
+
+		&--grid__reverse {
+			.cover--item {
+				float: right;
+				width: 33.3333%;
+			}
 		}
 	}
 
@@ -118,6 +131,15 @@
 			&__main &--wrapper { padding-top: 1em; }
 
 			&__secondary &--wrapper { @include maintain-ratio(8 3); }
+		}
+
+		&--grid__reverse {
+			.cover--item__main,
+			.cover--item__secondary { width: 50%; }
+		}
+
+		&--grid__reverse {
+			.cover--item__terciary { width: 25%; }
 		}
 	}
 }

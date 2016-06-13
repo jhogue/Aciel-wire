@@ -99,19 +99,19 @@
 			@include background-image(linear-gradient(top, $overlay-active-color 5%, $overlay-active-color-dark 95%));
 			opacity: 0;
 			overflow-x: scroll;
-			position: absolute; 
+			position: absolute;
 				top: 100%; left: -999em;
 			z-index: map-get($zindex, sticky-subnav);
 		}
 	}
-	
+
 	// The first group of text buttons
 	&--subnav &--list {
 		background-color: palette(mono, 10);
 
-		& > li { display: inline-block; } 
+		& > li { display: inline-block; }
 	}
-	
+
 	&--list .overlay--link {
 		@include one-element-size(h4);
 		font-weight: $font-custom-bold;
@@ -139,8 +139,8 @@
 		background-color: palette(mono, 10);
 		padding: 0 1em 1em;
 
-		.overlay--card { 
-			@include span-columns(3);
+		.overlay--card {
+			@include span-columns(2);
 
 			&__main { @include span-columns(6); }
 
@@ -212,12 +212,12 @@
 		right: 0;
 		@include clearfix;
 	}
-	
+
 	&--search,
 	&--cart { float: left; }
 
 	&--search {
-		margin-top: 4px; 
+		margin-top: 4px;
 
 		.mainnav--button { padding-top: .125em; }
 	}
@@ -234,7 +234,7 @@
 			.mainnav--cart--items { padding-top: 1.375em; }
 		}
 	}
-	
+
 	@include media($large-up) {
 
 		&--brand,
