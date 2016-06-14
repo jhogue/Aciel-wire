@@ -18,11 +18,11 @@
 
 	&--compare {
 		font-size: em(14);
-		
+
 		.fa { font-size: em(16, 14); }
-		
+
 		.fa-check-circle { color: palette(brand, green); }
-		
+
 		@include media($small-up) {
 			font-size: 1em;
 		}
@@ -33,7 +33,7 @@
 // Truncate content for mobile
 /*<article class="readmore readmore__product-specs">
 	[ ... ]
-	
+
 	<div class="readmore--action"><button class="button button--secondary js-readmore">Read More</button></div>
 </article>*/
 .readmore {
@@ -47,7 +47,7 @@
 		overflow: hidden;
 		position: relative;
 		max-height: em(360);
-	
+
 		&--action {
 			@include show();
 			@include transition( opacity 250ms ease );
@@ -73,14 +73,14 @@
 			}
 		}
 
-		// I like this max-height method, but there are some tricks to remember: 
+		// I like this max-height method, but there are some tricks to remember:
 		// 1. The max-height reset needs to be super tall, just in case
 		// 	  1a. Unless a browser supports a cool property like 'fit-content', 'max-content' or 'unset'
 		//		  https://developer.mozilla.org/en-US/docs/Web/CSS/max-height
 		// 2. Which means that the animation will be calculated to that max-height, whether or not the layout ever needs it
 		// 3. Therefore, we set the transition timing higher than we normally would
 		&__expanded { max-height: em(3200); }
-	
+
 		&__expanded &--action {
 			opacity: 0;
 			right: auto; left: -99em;
@@ -128,19 +128,24 @@
 <div class="embed-container ">
 	<iframe width="560" height="315" src="//www.youtube.com/embed/TdwT5JlH8gM?wmode=transparent" frameborder="0" allowfullscreen></iframe>
 </div>*/
-.js .embed-container { 
+.js .embed-container {
 	@include proportional-container( 16 9 );
 
-	iframe, 
-	object, 
+
+	iframe,
+	object,
 	embed,
-	& > div { 
+	& > div {
 		position: absolute;
 			top: 0; left: 0;
 		z-index: 1;
 		width: 100% !important;
 		height: 100% !important;
 	}
+}
+
+.js .product--overview .embed-container {
+	border: 1px solid palette(mono, 25);
 }
 
 .no-js .embed-container {
@@ -155,8 +160,8 @@
 		color: palette(mono, 10);
 	}
 
-	iframe, 
-	object, 
+	iframe,
+	object,
 	embed,
 	& > div { @include hide(); }
 }

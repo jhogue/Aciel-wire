@@ -70,7 +70,7 @@
 
 		@include touch-hover() {
 
-			.cover--item--title { background-color: transparent; }
+			.cover--item--title { background-color: rgba(#000, .25); }
 		}
 	} // end &--item
 
@@ -84,7 +84,17 @@
 			float: left;
 			width: 50%;
 
-			&--wrapper { border: .5em solid palette(mono, white); }
+			.cover--grid__product & {
+				border: .5em solid palette(mono, white);
+			}
+
+			&--wrapper {
+				border: .5em solid palette(mono, white);
+
+				.cover--grid__product & {
+					border: 1px solid palette(mono, 25);
+				}
+			}
 		}
 
 		&--grid__reverse {
@@ -107,6 +117,10 @@
 			.cover--item {
 				float: right;
 				width: 33.3333%;
+			}
+
+			.cover--item__main {
+				width: 100%;
 			}
 		}
 	}
