@@ -369,15 +369,22 @@
 		&--videos {}
 	}
 
+	&--inthefield {
+		@include product-bg-container();
+	}
+
+	&--related-blog {
+		background-color: palette(mono, white);
+		padding: 1em;
+	}
+
 	/*<div id="specs" class="product--specs">
 		<h2 class="product--section--title">Specifications</h2>
 		<table id="tablefield-0" class="tablefield product--specs--table">
 			<tbody>
 				<tr class="odd"><td class="row_1 col_0">ISO 16331-1 certified measuring accuracy (favorable conditions)</td><td class="row_1 col_1">1.0mm / ± 0.04 in*</td> </tr>*/
 	&--specs {
-		background-color: palette(mono, 10);
-		margin: 0 -1em;
-		padding: 1em;
+		border-bottom: 1px solid $table-border-color;
 
 		&--table {
 
@@ -393,12 +400,8 @@
 	&--featfunct {
 		@include clearfix;
 		background-color: darken(palette(mono, 10), 4%);
-		margin-top: - $vert-line-height;
+		//margin-top: - $vert-line-height;
 		padding: 1em;
-	}
-
-	&--inthefield {
-		@include product-container();
 	}
 
 	&--related {
