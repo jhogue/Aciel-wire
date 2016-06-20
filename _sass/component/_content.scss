@@ -10,6 +10,20 @@
 		color: palette(brand);
 		margin-bottom: .75em;
 	}
+	
+	.center-text { text-align: center; }
+}
+
+.header {
+	position: relative;
+
+	&--action {
+
+		@include media($small-up) {
+			position: absolute;
+				top: 0; right: 0;
+		}	
+	}
 }
 
 
@@ -117,7 +131,15 @@
 	
 	// Show when the persistant class is present
 	&__persistant &:not(.readmore__expanded) { max-height: em(360); }
-	
+
+	&__persistant &__compare-table:not(.readmore__expanded) { max-height: em(300); }
+
+	&__persistant &__compare-table &--action {
+		z-index: 10;
+
+		&:before { min-height: 6em; }
+	}
+
 	&__persistant &--action { @include show(); }
 }
 
