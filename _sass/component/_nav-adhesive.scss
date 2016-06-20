@@ -2,32 +2,10 @@
 	<div class="stickynav--brand">
 		<a href="." title="Back Home"><img src="{{ "/files/Leica-Geosystems.png" | prepend: site.baseurl }}" alt="Leica Geosystems"></a>
 	</div>
-	<ul class="stickynav">
-		<li>
-			<a href="#" class="stickynav--mainlink">Disto</a>
-			<ul class="stickynav--list stickynav--subnav">
-				<li>
-					<ul class="stickynav--list">
-						<li><a href="#" class="stickynav--link">Compare</a></li>
-					</ul>
-				</li>
-				<li>
-					<ul class="stickynav--grid">
-						<li class="overlay--card">
-							<div class="overlay--card--title">
-								<h4>Product name</h4>
-							</div>
-							<div class="overlay--card--img">
-								<img src="http://placehold.it/640x480" alt="">
-							</div>
-							<div class="overlay--card--price">
-								<p>Product price</p>
-							</div>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</li>
+	<ul class="stickynav--list">
+		<li><a href="#" class="stickynav--mainlink">Disto</a></li>
+		<li><a href="#" class="stickynav--mainlink">3D Disto</a></li>
+		<li><a href="#" class="stickynav--mainlink">Lino</a></li>
 	</ul>
 	<div class="stickynav--search-n-cart">
 		<div class="mainnav--search">
@@ -53,23 +31,9 @@
 		display: block;
 		margin: 0 auto;
 		padding: 0 15%;
-		position: relative;
 		text-align: center;
 
 		& > li { display: inline-block; }
-
-		//& > li.js-active .stickynav--subnav--wrapper {
-		& > li:hover .stickynav--subnav--wrapper {
-			@include transition-delay( 500ms );
-			opacity: 1;
-				left: 0; right: 0;
-		}
-
-		//& > li.js-active .stickynav--mainlink {
-		& > li:hover .stickynav--mainlink {
-			background-color: $overlay-active-color;
-			color: $overlay-active-text-color;
-		}
 	}
 
 	&--mainlink {
@@ -83,68 +47,12 @@
 			color: $overlay-active-text-color;
 			text-decoration: none;
 		}
-	}
-
-	&--subnav {
-		padding: .5em;
-
-		> li {
-			margin: 0 auto;
-			max-width: $max-width;
-		}
-
-		&--wrapper {
-			@include transition( opacity 250ms ease );
-			background-color: $overlay-active-color;
-			@include background-image(linear-gradient(top, $overlay-active-color 5%, $overlay-active-color-dark 95%));
-			opacity: 0;
-			overflow-x: scroll;
-			position: absolute;
-				top: 100%; left: -999em;
-			z-index: map-get($zindex, sticky-subnav);
-		}
-	}
-
-	// The first group of text buttons
-	&--subnav &--list {
-		background-color: palette(mono, 10);
-
-		& > li { display: inline-block; }
-	}
-
-	&--list .overlay--link {
-		@include one-element-size(h4);
-		font-weight: $font-custom-bold;
-		padding: 1em .75em .875em;
-
-		@include touch-hover() {
-			background-color: palette(mono, white);
+		
+		// A simple selected or active state, using a manually passed body class right now
+		.disto li:first-child & {
+			background-color: palette(mono, 75);
+			color: palette(mono, 15);
 			text-decoration: none;
-		}
-	}
-
-	/*<li class="overlay--card overlay--card__main">
-		<div class="overlay--card--title">
-			<h4>DISTO Selector</h4>
-		</div>
-		<div class="overlay--card--img">
-			<img src="/leica/files/guy-holding.png" alt="">
-		</div>
-		<div class="overlay--card--price">
-			<p>Choose the right DISTO <a href="/leica/compare" class="button button--primary">Let's Begin</a></p>
-		</div>
-	</li>*/
-	&--grid {
-		@include clearfix;
-		background-color: palette(mono, 10);
-		padding: 0 1em 1em;
-
-		.overlay--card {
-			@include span-columns(2);
-
-			&__main { @include span-columns(6); }
-
-			&__main:nth-child(2) { @include omega(); }
 		}
 	}
 
