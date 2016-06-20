@@ -2,19 +2,20 @@
 layout: page
 title: Disto&ndash; Laser distancing meters
 permalink: product-category/
+bodyclass: disto
 ---
 
 <!-- We are in .content-/-main -->
 
-<div class="stickynav--list stickynav--subnav">
-	<ul class="stickynav--list">
-		<li><a href="{{ '/products' | prepend: site.baseurl }}" class="overlay--link">Shop</a></li>
-		<li><a href="{{ '/compare' | prepend: site.baseurl }}" class="overlay--link">Compare</a></li>
-		<li><a href="{{ '/apps' | prepend: site.baseurl }}" class="overlay--link">Apps</a></li>
-		<li><a href="{{ '/videos' | prepend: site.baseurl }}" class="overlay--link">Videos</a></li>
-		<li><a href="#" class="overlay--link">Pro Packs</a></li>
-		<li><a href="#" class="overlay--link">Accessories</a></li>
-		<li><a href="#" class="overlay--link">Parts</a></li>
+<div class="subnav">
+	<ul class="subnav--list menu">
+		<li><a href="{{ '/products' | prepend: site.baseurl }}" class="subnav--link">Shop</a></li>
+		<li><a href="{{ '/compare' | prepend: site.baseurl }}" class="subnav--link">Compare</a></li>
+		<li><a href="{{ '/apps' | prepend: site.baseurl }}" class="subnav--link">Apps</a></li>
+		<li><a href="{{ '/videos' | prepend: site.baseurl }}" class="subnav--link">Videos</a></li>
+		<li><a href="#" class="subnav--link">Pro Packs</a></li>
+		<li><a href="#" class="subnav--link">Accessories</a></li>
+		<li><a href="#" class="subnav--link">Parts</a></li>
 	</ul>
 </div>
 
@@ -23,191 +24,232 @@ permalink: product-category/
 </header>
 
 
-
-<!-- Product Carousel 
-<div class="flexslider--wrapper">
-	<div class="flexslider">
-		<ul class="slides">
-			<li>
-				<a href="{{ '/product-single' | prepend: site.baseurl }}" title="DISTO D810 Touch Laser Distance Meter" class="colorbox" rel="gallery-node-10-bje73tfZhZc">
-					<img src="{{ '/files/product_menu_1.png' | prepend: site.baseurl }}" alt="">
-					<h4 class="centered">S910</h4>
-				</a>
-			</li>
-			<li>
-				<a href="{{ '/product-single' | prepend: site.baseurl }}" title="DISTO D810 Touch Laser Distance Meter" class="colorbox" rel="gallery-node-10-bje73tfZhZc">
-					<img src="{{ '/files/product_menu_2.png' | prepend: site.baseurl }}" alt="">
-					<h4 class="centered">Title</h4>
-				</a>
-			</li>
-			<li>
-				<a href="{{ '/product-single' | prepend: site.baseurl }}" title="DISTO D810 Touch Laser Distance Meter" class="colorbox" rel="gallery-node-10-bje73tfZhZc">
-					<img src="{{ '/files/product_menu_3.png' | prepend: site.baseurl }}" alt="">
-					<h4 class="centered">Title</h4>
-				</a>
-			</li>
-			<li>
-				<a href="{{ '/product-single' | prepend: site.baseurl }}" title="DISTO D810 Touch Laser Distance Meter" class="colorbox" rel="gallery-node-10-bje73tfZhZc">
-					<img src="{{ '/files/product_menu_4.jpg' | prepend: site.baseurl }}" alt="">
-					<h4 class="centered">Title</h4>
-				</a>
-			</li>
-			<li>
-				<a href="{{ '/product-single' | prepend: site.baseurl }}" title="DISTO D810 Touch Laser Distance Meter" class="colorbox" rel="gallery-node-10-bje73tfZhZc">
-					<img src="{{ '/files/product_menu_5.png' | prepend: site.baseurl }}" alt="">
-					<h4 class="centered">Title</h4>
-				</a>
-			</li>
-			<li>
-				<a href="{{ '/product-single' | prepend: site.baseurl }}" title="DISTO D810 Touch Laser Distance Meter" class="colorbox" rel="gallery-node-10-bje73tfZhZc">
-					<img src="{{ '/files/product_menu_6.jpg' | prepend: site.baseurl }}" alt="">
-					<h4 class="centered">Title</h4>
-				</a>
-			</li>
-			<li>
-				<a href="{{ '/product-single' | prepend: site.baseurl }}" title="DISTO D810 Touch Laser Distance Meter" class="colorbox" rel="gallery-node-10-bje73tfZhZc">
-					<img src="{{ '/files/product_menu_7.png' | prepend: site.baseurl }}" alt="">
-					<h4 class="centered">Title</h4>
-				</a>
-			</li>
-			<li>
-				<a href="{{ '/product-single' | prepend: site.baseurl }}" title="DISTO D810 Touch Laser Distance Meter" class="colorbox" rel="gallery-node-10-bje73tfZhZc">
-					<img src="{{ '/files/product_menu_8.png' | prepend: site.baseurl }}" alt="">
-					<h4 class="centered">Title</h4>
-				</a>
-			</li>
-		</ul>
+<style type="text/css">
+	.nav-img { text-align: center; }
+	.views-field-field-display-price { font-weight: bold; color: #4f4f4f; }
+</style>
+<section id="compare" class="readmore__persistant">
+	<div class="readmore readmore__compare-table">
+		<table class="views-table table--compare responsive">
+			<thead>
+				<tr>
+					<th class="views-field views-field-field-menu-image"></th>
+					<th class="views-field views-field-field-menu-image">
+						<div class="nav-img"><a href="{{ '/product-single' | prepend: site.baseurl }}"><img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/styles/navigation_product/public/menu_images/s910-menu_image.png?itok=dT4y_Ccy" width="100" height="150" alt="Leica DISTO S910"></a></div>
+						<div class="nav-title"><a href="{{ '/product-single' | prepend: site.baseurl }}">S910</a></div></th>
+					<th class="views-field views-field-field-menu-image">
+						<div class="nav-img"><a href="{{ '/product-single' | prepend: site.baseurl }}"><img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/styles/navigation_product/public/menu_images/d810touch.png?itok=4jUuCqco" width="58" height="150" alt="Leica DISTO D810 Touch"></a></div>
+						<div class="nav-title"><a href="{{ '/product-single' | prepend: site.baseurl }}">D810 Touch</a></div></th>
+					<th class="views-field views-field-field-menu-image">
+						<div class="nav-img"><a href="{{ '/product-single' | prepend: site.baseurl }}"><img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/styles/navigation_product/public/menu_images/e7500i.png?itok=DtW8lUG9" width="58" height="150" alt="E7500i"></a></div>
+						<div class="nav-title"><a href="/disto/e7500i">E7500i</a></div></th>
+					<th class="views-field views-field-field-menu-image">
+						<div class="nav-img"><a href="{{ '/product-single' | prepend: site.baseurl }}"><img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/styles/navigation_product/public/menu_images/e7500_front_reflection_us_var1menu_7.jpg?itok=VogbwKHg" width="58" height="138" alt=""></a></div>
+						<div class="nav-title"><a href="{{ '/product-single' | prepend: site.baseurl }}">E7500</a></div></th>
+					<th class="views-field views-field-field-menu-image">
+						<div class="nav-img"><a href="{{ '/product-single' | prepend: site.baseurl }}"><img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/styles/navigation_product/public/menu_images/e7400x.png?itok=kUb9Uo6u" width="58" height="150" alt="E7400x"></a></div>
+						<div class="nav-title"><a href="{{ '/product-single' | prepend: site.baseurl }}">E7400x</a></div></th>
+					<th class="views-field views-field-field-menu-image">
+						<div class="nav-img"><a href="{{ '/product-single' | prepend: site.baseurl }}"><img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/styles/navigation_product/public/menu_images/d2_front_us-55x119.jpg?itok=mFPbkjO1" width="55" height="119" alt="Leica DISTO D2 with Bluetooth"></a></div>
+						<div class="nav-title"><a href="{{ '/product-single' | prepend: site.baseurl }}">D2</a></div></th>
+					<th class="views-field views-field-field-menu-image">
+						<div class="nav-img"><a href="{{ '/product-single' | prepend: site.baseurl }}"><img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/styles/navigation_product/public/menu_images/e7300.png?itok=hmOcWRR_" width="58" height="150" alt="E7300"></a></div>
+						<div class="nav-title"><a href="{{ '/product-single' | prepend: site.baseurl }}">E7300</a></div></th>
+					<th class="views-field views-field-field-menu-image">
+						<div class="nav-img"><a href="{{ '/product-single' | prepend: site.baseurl }}"><img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/styles/navigation_product/public/menu_images/e7100i.png?itok=y2Qsz5ba" width="58" height="150" alt="E7100i"></a></div>
+						<div class="nav-title"><a href="{{ '/product-single' | prepend: site.baseurl }}">E7100i</a></div></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="even">
+					<td class="views-field views-field-field-display-price">Price</td>
+					<td class="views-field views-field-field-display-price">$1 499&nbsp;USD</td>
+					<td class="views-field views-field-field-display-price">$849&nbsp;USD</td>
+					<td class="views-field views-field-field-display-price">$599&nbsp;USD</td>
+					<td class="views-field views-field-field-display-price">$499&nbsp;USD</td>
+					<td class="views-field views-field-field-display-price">$279&nbsp;USD</td>
+					<td class="views-field views-field-field-display-price">$199&nbsp;USD</td>
+					<td class="views-field views-field-field-display-price">$179&nbsp;USD</td>
+					<td class="views-field views-field-field-display-price">$149&nbsp;USD</td>
+				</tr>
+				<tr class="odd">
+					<td class="views-field views-field-field-accuracy-range">Accuracy / Range</td>
+					<td class="views-field views-field-field-accuracy-range">1/16" • 1000'</td>
+					<td class="views-field views-field-field-accuracy-range">1/16" • 660'</td>
+					<td class="views-field views-field-field-accuracy-range">1/16" • 660'</td>
+					<td class="views-field views-field-field-accuracy-range">1/16" •  500'</td>
+					<td class="views-field views-field-field-accuracy-range">1/16" • 390'</td>
+					<td class="views-field views-field-field-accuracy-range">1/16" • 328'</td>
+					<td class="views-field views-field-field-accuracy-range">1/16" • 295'</td>
+					<td class="views-field views-field-field-accuracy-range">1/16" • 200'</td>
+				</tr>
+				<tr class="even">
+					<td class="views-field views-field-field-intelligent-endpiece"><a class="colorbox-inline init-colorbox-inline-processed cboxElement" href="?width=550&amp;height=500&amp;inline=true#intelligent_endpiece">Intelligent Endpiece</a></td>
+					<td class="views-field views-field-field-intelligent-endpiece"></td>
+					<td class="views-field views-field-field-intelligent-endpiece"><span class="fa fa-check-circle"></span></td>
+					<td class="views-field views-field-field-intelligent-endpiece"><span class="fa fa-check-circle"></span></td>
+					<td class="views-field views-field-field-intelligent-endpiece"><span class="fa fa-check-circle"></span></td>
+					<td class="views-field views-field-field-intelligent-endpiece"><span class="fa fa-check-circle"></span></td>
+					<td class="views-field views-field-field-intelligent-endpiece"><span class="fa fa-check-circle"></span></td>
+					<td class="views-field views-field-field-intelligent-endpiece"><span class="fa fa-check-circle"></span</td>
+					<td class="views-field views-field-field-intelligent-endpiece"></td>
+				</tr>
+				<tr class="odd">
+					<td class="views-field views-field-field-smart-horizontal"><a class="colorbox-inline init-colorbox-inline-processed cboxElement" href="?width=550&amp;height=500&amp;inline=true#smart_horizontal">Smart Horizontal</a></td>
+					<td class="views-field views-field-field-smart-horizontal"><span class="fa fa-check-circle"></span></td>
+					<td class="views-field views-field-field-smart-horizontal"><span class="fa fa-check-circle"></span></td>
+					<td class="views-field views-field-field-smart-horizontal"><span class="fa fa-check-circle"></span></td>
+					<td class="views-field views-field-field-smart-horizontal"><span class="fa fa-check-circle"></span></td>
+					<td class="views-field views-field-field-smart-horizontal"><span class="fa fa-check-circle"></span></td>
+					<td class="views-field views-field-field-smart-horizontal"></td>
+					<td class="views-field views-field-field-smart-horizontal"></td>
+					<td class="views-field views-field-field-smart-horizontal"></td>
+				</tr>
+				<tr class="even">
+					<td class="views-field views-field-field-bluetooth"><a class="colorbox-inline init-colorbox-inline-processed cboxElement" href="?width=550&amp;height=500&amp;inline=true#bluetooth">Bluetooth</a></td>
+					<td class="views-field views-field-field-bluetooth">V4.0 Smart</td>
+					<td class="views-field views-field-field-bluetooth">V4.0 Smart</td>
+					<td class="views-field views-field-field-bluetooth">V4.0 Smart</td>
+					<td class="views-field views-field-field-bluetooth"></td>
+					<td class="views-field views-field-field-bluetooth"></td>
+					<td class="views-field views-field-field-bluetooth">V4.0 Smart</td>
+					<td class="views-field views-field-field-bluetooth"></td>
+					<td class="views-field views-field-field-bluetooth">V4.0 Smart</td>
+				</tr>
+				<tr class="odd">
+					<td class="views-field views-field-field-camera-pointfinder"><a class="colorbox-inline init-colorbox-inline-processed cboxElement" href="?width=550&amp;height=500&amp;inline=true#camera_pointfinder">Outdoor Pointfinder Camera</a></td>
+					<td class="views-field views-field-field-camera-pointfinder"><span class="fa fa-check-circle"></span></td>
+					<td class="views-field views-field-field-camera-pointfinder"><span class="fa fa-check-circle"></span></td>
+					<td class="views-field views-field-field-camera-pointfinder"><span class="fa fa-check-circle"></span></td>
+					<td class="views-field views-field-field-camera-pointfinder"><span class="fa fa-check-circle"></span></td>
+					<td class="views-field views-field-field-camera-pointfinder"></td>
+					<td class="views-field views-field-field-camera-pointfinder"></td>
+					<td class="views-field views-field-field-camera-pointfinder"></td>
+					<td class="views-field views-field-field-camera-pointfinder"></td>
+				</tr>
+				<tr class="even">
+					<td class="views-field views-field-field-measure-within-picture"><a class="colorbox-inline init-colorbox-inline-processed cboxElement" href="?width=550&amp;height=500&amp;inline=true#measure_within_picture">Measure within Picture</a></td>
+					<td class="views-field views-field-field-measure-within-picture"><span class="fa fa-check-circle"></span></td>
+					<td class="views-field views-field-field-measure-within-picture"><span class="fa fa-check-circle"></span></td>
+					<td class="views-field views-field-field-measure-within-picture"></td>
+					<td class="views-field views-field-field-measure-within-picture"></td>
+					<td class="views-field views-field-field-measure-within-picture"></td>
+					<td class="views-field views-field-field-measure-within-picture"></td>
+					<td class="views-field views-field-field-measure-within-picture"></td>
+					<td class="views-field views-field-field-measure-within-picture"></td>
+				</tr>
+				<tr class="odd">
+					<td class="views-field views-field-field-smartbase"><a class="colorbox-inline init-colorbox-inline-processed cboxElement" href="?width=550&amp;height=500&amp;inline=true#smartbase">SmartBase</a></td>
+					<td class="views-field views-field-field-smartbase"><span class="">1</span></td>
+					<td class="views-field views-field-field-smartbase"></td>
+					<td class="views-field views-field-field-smartbase"></td>
+					<td class="views-field views-field-field-smartbase"></td>
+					<td class="views-field views-field-field-smartbase"></td>
+					<td class="views-field views-field-field-smartbase"></td>
+					<td class="views-field views-field-field-smartbase"></td>
+					<td class="views-field views-field-field-smartbase"></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="readmore--action"><button class="button button--secondary js-readmore">Show More</button></div>
 	</div>
-</div> end flexslider--wrapper -->
+</section>
+
+
+<!-- We are breaking out of the main section and container here so this can go full width -->
+	</div>
+</section>
+<!-- Now we are floating in the briny sea -->
+
+
+<!-- Paragraphs flexibility… full width option, two col option, three col option -->
+
+<!-- Full width -->
+<section class="paragraph paragraph__full paragraph__alignimg--left" style="background-image: url(http://lasers.leica-geosystems.com/product-selector/files/images/indoor-outdoor-bg.jpg);">
+	<article class="paragraph--block paragraph--block__right">
+		<div class="paragraph--block--inner">
+			<h2 class="paragraph--headline">Find the right DISTO™</h2>
+			<p class="paragraph--blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+			<p class="paragraph--cta"><a class="button button--primary" href="#">Find it Now</a></p>
+		</div>
+	</article>
+</section>
+
+<!-- Eventually half width -->
+<div class="paragraph--row paragraph--row__duo">
+	<section class="paragraph paragraph__duo paragraph__alignimg--left" style="background-image: url(http://lasers.leica-geosystems.com/product-selector/files/images/outdoor2-bg.jpg);">
+		<article class="paragraph--block paragraph--block__right">
+			<div class="paragraph--block--inner">
+				<h2 class="paragraph--headline">Apps</h2>
+				<p class="paragraph--blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+				<p class="paragraph--cta"><a class="button button--primary" href="#">Browse DISTO Apps</a></p>
+			</div>
+		</article>
+	</section>
+	
+	<section class="paragraph paragraph__duo paragraph__alignimg--right" style="background-image: url(http://lasers.leica-geosystems.com/product-selector/files/images/s910-vs-propack-bg.jpg);">
+		<article class="paragraph--block paragraph--block">
+			<div class="paragraph--block--inner">
+				<h2 class="paragraph--headline">Videos</h2>
+				<p class="paragraph--blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+				<p class="paragraph--cta"><a class="button button--primary" href="#">Browse DISTO Videos</a></p>
+			</div>
+		</article>
+	</section>
+</div>
+
+
+<section class="paragraph paragraph__full paragraph__alignimg--right" style="background-image: url(http://lasers.leica-geosystems.com/product-selector/files/images/indoor-outdoor-bg.jpg);">
+	<article class="paragraph--block paragraph--block__right">
+		<div class="paragraph--block--inner">
+			<h2 class="paragraph--headline">DISTO™ Pro Packs</h2>
+			<p class="paragraph--blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+			<p class="paragraph--cta"><a class="button button--primary" href="#">Shop Pro Packs</a></p>
+		</div>
+	</article>
+</section>
+
+
+<!-- Row of three -->
+<div class="paragraph--row paragraph--row__trio">
+	<section class="paragraph paragraph__trio" style="background-image: url(http://lasers.leica-geosystems.com/product-selector/files/images/outdoor2-bg.jpg);">
+		<article class="paragraph--block">
+			<div class="paragraph--block--inner">
+				<h2 class="paragraph--headline">Accessories</h2>
+				<p class="paragraph--blurb">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p class="paragraph--cta"><a class="button button--primary" href="#">Shop</a></p>
+			</div>
+		</article>
+	</section>
+	<section class="paragraph paragraph__trio" style="background-image: url(http://lasers.leica-geosystems.com/product-selector/files/images/s910-vs-propack-bg.jpg);">
+		<article class="paragraph--block">
+			<div class="paragraph--block--inner">
+				<h2 class="paragraph--headline">Parts</h2>
+				<p class="paragraph--blurb">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p class="paragraph--cta"><a class="button button--primary" href="#">Shop</a></p>
+			</div>
+		</article>
+	</section>
+	<section class="paragraph paragraph__trio" style="background-image: url(http://lasers.leica-geosystems.com/product-selector/files/images/indoor-outdoor-bg.jpg);">
+		<article class="paragraph--block">
+			<div class="paragraph--block--inner">
+				<h2 class="paragraph--headline">Support</h2>
+				<p class="paragraph--blurb">Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				<p class="paragraph--cta"><a class="button button--primary" href="#">Get Support</a></p>
+			</div>
+		</article>
+	</section>
+</div>
 
 
 
-<table class="views-table table--compare responsive">
-	<thead>
-		<tr>
-			<th class="views-field views-field-field-menu-image"></th>
-			<th class="views-field views-field-field-menu-image">
-				<div class="nav-img"><a href="/disto/s910"><img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/styles/navigation_product/public/menu_images/s910-menu_image.png?itok=dT4y_Ccy" width="100" height="150" alt="Leica DISTO S910"></a></div>
-				<div class="nav-title"><a href="/disto/s910">S910</a></div></th>
-			<th class="views-field views-field-field-menu-image">
-				<div class="nav-img"><a href="/disto/d810-touch"><img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/styles/navigation_product/public/menu_images/d810touch.png?itok=4jUuCqco" width="58" height="150" alt="Leica DISTO D810 Touch"></a></div>
-				<div class="nav-title"><a href="/disto/d810-touch">D810 Touch</a></div></th>
-			<th class="views-field views-field-field-menu-image">
-				<div class="nav-img"><a href="/disto/e7500i"><img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/styles/navigation_product/public/menu_images/e7500i.png?itok=DtW8lUG9" width="58" height="150" alt="E7500i"></a></div>
-				<div class="nav-title"><a href="/disto/e7500i">E7500i</a></div></th>
-			<th class="views-field views-field-field-menu-image">
-				<div class="nav-img"><a href="/disto/e7500"><img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/styles/navigation_product/public/menu_images/e7500_front_reflection_us_var1menu_7.jpg?itok=VogbwKHg" width="58" height="138" alt=""></a></div>
-				<div class="nav-title"><a href="/disto/e7500">E7500</a></div></th>
-			<th class="views-field views-field-field-menu-image">
-				<div class="nav-img"><a href="/disto/e7400x"><img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/styles/navigation_product/public/menu_images/e7400x.png?itok=kUb9Uo6u" width="58" height="150" alt="E7400x"></a></div>
-				<div class="nav-title"><a href="/disto/e7400x">E7400x</a></div></th>
-			<th class="views-field views-field-field-menu-image">
-				<div class="nav-img"><a href="/disto/d2"><img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/styles/navigation_product/public/menu_images/d2_front_us-55x119.jpg?itok=mFPbkjO1" width="55" height="119" alt="Leica DISTO D2 with Bluetooth"></a></div>
-				<div class="nav-title"><a href="/disto/d2">D2</a></div></th>
-			<th class="views-field views-field-field-menu-image">
-				<div class="nav-img"><a href="/disto/e7300"><img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/styles/navigation_product/public/menu_images/e7300.png?itok=hmOcWRR_" width="58" height="150" alt="E7300"></a></div>
-				<div class="nav-title"><a href="/disto/e7300">E7300</a></div></th>
-			<th class="views-field views-field-field-menu-image">
-				<div class="nav-img"><a href="/disto/e7100i"><img typeof="foaf:Image" src="http://lasers.leica-geosystems.com/sites/default/files/styles/navigation_product/public/menu_images/e7100i.png?itok=y2Qsz5ba" width="58" height="150" alt="E7100i"></a></div>
-				<div class="nav-title"><a href="/disto/e7100i">E7100i</a></div></th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr class="even" style="font-weight: bold;">
-			<th class="views-field views-field-field-display-price">Price</th>
-			<td class="views-field views-field-field-display-price">$1 499&nbsp;USD</td>
-			<td class="views-field views-field-field-display-price">$849&nbsp;USD</td>
-			<td class="views-field views-field-field-display-price">$599&nbsp;USD</td>
-			<td class="views-field views-field-field-display-price">$499&nbsp;USD</td>
-			<td class="views-field views-field-field-display-price">$279&nbsp;USD</td>
-			<td class="views-field views-field-field-display-price">$199&nbsp;USD</td>
-			<td class="views-field views-field-field-display-price">$179&nbsp;USD</td>
-			<td class="views-field views-field-field-display-price">$149&nbsp;USD</td>
-		</tr>
-		<tr class="odd">
-			<th class="views-field views-field-field-accuracy-range">Accuracy / Range</th>
-			<td class="views-field views-field-field-accuracy-range">1/16" • 1000'</td>
-			<td class="views-field views-field-field-accuracy-range">1/16" • 660'</td>
-			<td class="views-field views-field-field-accuracy-range">1/16" • 660'</td>
-			<td class="views-field views-field-field-accuracy-range">1/16" •  500'</td>
-			<td class="views-field views-field-field-accuracy-range">1/16" • 390'</td>
-			<td class="views-field views-field-field-accuracy-range">1/16" • 328'</td>
-			<td class="views-field views-field-field-accuracy-range">1/16" • 295'</td>
-			<td class="views-field views-field-field-accuracy-range">1/16" • 200'</td>
-		</tr>
-		<tr class="even">
-			<th class="views-field views-field-field-intelligent-endpiece"><a class="colorbox-inline init-colorbox-inline-processed cboxElement" href="?width=550&amp;height=500&amp;inline=true#intelligent_endpiece">Intelligent Endpiece</a></th>
-			<td class="views-field views-field-field-intelligent-endpiece"></td>
-			<td class="views-field views-field-field-intelligent-endpiece"><span class="fa fa-check-circle"></span></td>
-			<td class="views-field views-field-field-intelligent-endpiece"><span class="fa fa-check-circle"></span></td>
-			<td class="views-field views-field-field-intelligent-endpiece"><span class="fa fa-check-circle"></span></td>
-			<td class="views-field views-field-field-intelligent-endpiece"><span class="fa fa-check-circle"></span></td>
-			<td class="views-field views-field-field-intelligent-endpiece"><span class="fa fa-check-circle"></span></td>
-			<td class="views-field views-field-field-intelligent-endpiece"><span class="fa fa-check-circle"></span</td>
-			<td class="views-field views-field-field-intelligent-endpiece"></td>
-		</tr>
-		<tr class="odd">
-			<th class="views-field views-field-field-smart-horizontal">
-			<a class="colorbox-inline init-colorbox-inline-processed cboxElement" href="?width=550&amp;height=500&amp;inline=true#smart_horizontal">Smart Horizontal</a></th>
-			<td class="views-field views-field-field-smart-horizontal"><span class="fa fa-check-circle"></span></td>
-			<td class="views-field views-field-field-smart-horizontal"><span class="fa fa-check-circle"></span></td>
-			<td class="views-field views-field-field-smart-horizontal"><span class="fa fa-check-circle"></span></td>
-			<td class="views-field views-field-field-smart-horizontal"><span class="fa fa-check-circle"></span></td>
-			<td class="views-field views-field-field-smart-horizontal"><span class="fa fa-check-circle"></span></td>
-			<td class="views-field views-field-field-smart-horizontal"></td>
-			<td class="views-field views-field-field-smart-horizontal"></td>
-			<td class="views-field views-field-field-smart-horizontal"></td>
-		</tr>
-		<tr class="even">
-			<th class="views-field views-field-field-bluetooth"><a class="colorbox-inline init-colorbox-inline-processed cboxElement" href="?width=550&amp;height=500&amp;inline=true#bluetooth">Bluetooth</a></th>
-			<td class="views-field views-field-field-bluetooth">V4.0 Smart</td>
-			<td class="views-field views-field-field-bluetooth">V4.0 Smart</td>
-			<td class="views-field views-field-field-bluetooth">V4.0 Smart</td>
-			<td class="views-field views-field-field-bluetooth"></td>
-			<td class="views-field views-field-field-bluetooth"></td>
-			<td class="views-field views-field-field-bluetooth">V4.0 Smart</td>
-			<td class="views-field views-field-field-bluetooth"></td>
-			<td class="views-field views-field-field-bluetooth">V4.0 Smart</td>
-		</tr>
-		<tr class="odd">
-			<th class="views-field views-field-field-camera-pointfinder"><a class="colorbox-inline init-colorbox-inline-processed cboxElement" href="?width=550&amp;height=500&amp;inline=true#camera_pointfinder">Outdoor Pointfinder Camera</a></th>
-			<td class="views-field views-field-field-camera-pointfinder"><span class="fa fa-check-circle"></span></td>
-			<td class="views-field views-field-field-camera-pointfinder"><span class="fa fa-check-circle"></span></td>
-			<td class="views-field views-field-field-camera-pointfinder"><span class="fa fa-check-circle"></span></td>
-			<td class="views-field views-field-field-camera-pointfinder"><span class="fa fa-check-circle"></span></td>
-			<td class="views-field views-field-field-camera-pointfinder"></td>
-			<td class="views-field views-field-field-camera-pointfinder"></td>
-			<td class="views-field views-field-field-camera-pointfinder"></td>
-			<td class="views-field views-field-field-camera-pointfinder"></td>
-		</tr>
-		<tr class="even">
-			<th class="views-field views-field-field-measure-within-picture"><a class="colorbox-inline init-colorbox-inline-processed cboxElement" href="?width=550&amp;height=500&amp;inline=true#measure_within_picture">Measure within Picture</a></th>
-			<td class="views-field views-field-field-measure-within-picture"><span class="fa fa-check-circle"></span></td>
-			<td class="views-field views-field-field-measure-within-picture"><span class="fa fa-check-circle"></span></td>
-			<td class="views-field views-field-field-measure-within-picture"></td>
-			<td class="views-field views-field-field-measure-within-picture"></td>
-			<td class="views-field views-field-field-measure-within-picture"></td>
-			<td class="views-field views-field-field-measure-within-picture"></td>
-			<td class="views-field views-field-field-measure-within-picture"></td>
-			<td class="views-field views-field-field-measure-within-picture"></td>
-		</tr>
-		<tr class="odd">
-			<th class="views-field views-field-field-smartbase"><a class="colorbox-inline init-colorbox-inline-processed cboxElement" href="?width=550&amp;height=500&amp;inline=true#smartbase">SmartBase</a></th>
-			<td class="views-field views-field-field-smartbase"><span class="">1</span></td>
-			<td class="views-field views-field-field-smartbase"></td>
-			<td class="views-field views-field-field-smartbase"></td>
-			<td class="views-field views-field-field-smartbase"></td>
-			<td class="views-field views-field-field-smartbase"></td>
-			<td class="views-field views-field-field-smartbase"></td>
-			<td class="views-field views-field-field-smartbase"></td>
-			<td class="views-field views-field-field-smartbase"></td>
-		</tr>
-	</tbody>
-</table>
+<!-- Time to get back into the boat! -->	
+<section class="content">
+	<div class="container">
+<!-- end -->
 
 
-
-<!-- Two Column grid -->
+<!-- Two Column grid
 <div class="product--grid grid grid__duo">
 	<div class="overlay--card overlay--card__main grid--item">
 		<div class="overlay--card--title">
@@ -231,9 +273,9 @@ permalink: product-category/
 			<p><a href="{{ '/compare' | prepend: site.baseurl }}" class="button button--primary display-block">Explore Now</a></p>
 		</div>
 	</div>
-</div>
+</div> -->
 
-<!-- Tradition Grid Four Cards -->
+<!-- Tradition Grid Four Cards
 <div class="video grid grid__quartet product--overview">
 	<h3 class="video--category">Overview Teasers <span class="video--count">simple grid</span></h3>
 	<div>
@@ -274,9 +316,9 @@ permalink: product-category/
 			</a>
 		</div>
 	</div>
-</div>
+</div> -->
 
-<!-- Cover Grid Four Cards -->
+<!-- Cover Grid Four Cards
 <div class="cover--grid cover--grid__product">
 	<h3 class="video--category">Overview Teasers <span class="video--count">cover grid</span></h3>
 	<div>
@@ -321,4 +363,4 @@ permalink: product-category/
 			</div>
 		</a>
 	</div>
-</div>
+</div> -->

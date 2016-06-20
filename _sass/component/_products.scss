@@ -386,6 +386,11 @@
 	&--specs {
 		border-bottom: 1px solid $table-border-color;
 
+		&--action {
+			padding: .75em 0;
+			text-align: center;
+		}
+
 		&--table {
 
 			.col_0 {

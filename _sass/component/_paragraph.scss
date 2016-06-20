@@ -1,0 +1,113 @@
+/*<section class="paragraph paragraph__full paragraph__alignimg--left" style="background-image: url(http://lasers.leica-geosystems.com/product-selector/files/images/indoor-outdoor-bg.jpg);">
+	<article class="paragraph--block paragraph--block__right">
+		<div class="paragraph--block--inner">
+			<h2 class="paragraph--headline">Find the right DISTO™</h2>
+			<p class="paragraph--blurb">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+			<p class="paragraph--cta"><a class="button button--primary" href="#">Find it Now</a></p>
+		</div>
+	</article>
+</section>*/
+.paragraph {
+	@include proportional-container( 4 3 );
+	background-color: transparent;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	&__alignimg--left { background-position: left center; }
+
+	&__alignimg--right { background-position: right center; }
+
+	&--block {
+		@include proportional-element();
+		background-color: rgba(#000, .25);
+		text-align: center;
+		
+		&--inner {
+			@include transform( translate(0%, -50%) );
+			margin-left: -50%;
+			position: absolute;
+				top: 50%; left: 53%;
+			width: 94%;transform: translate(0%, -50%);
+		}
+		
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		p,
+		li {
+			color: palette(mono, white);
+			line-height: 1.3333;
+			text-shadow: 0 0 .25em rgba(#000, .5);
+		}
+
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 { font-weight: bold; }
+	}
+	
+	&--cta {
+		padding: .5em 0;
+
+		.button {
+			box-shadow: 0 .125em .25em rgba(#000, .33);
+			font-weight: bold;
+			text-shadow: none;
+		}
+	}
+	
+	&--row { @include clearfix; }
+	
+	@include media($xsmall-up) {
+		@include maintain-ratio( 8 5 );
+		
+		&--row__duo &,
+		&--row__trio & { padding-bottom: percentage(1 / 2); }
+		
+		&--row__duo & {
+			float: left;
+			width: 50%;
+		}
+		
+		&--row__trio & {
+			float: left;
+			width: 33.33%;
+		}
+	}
+	
+	@include media($small-up) {
+		
+		&--block {
+			
+			h2, 
+			h3,
+			h4,
+			h5,
+			h6 { padding-bottom: .5em; }
+		}
+		
+		&__full &--block { background-color: transparent; }
+			
+		&__full &--block__right { left: 50%; }
+			
+		&__full &--block__right &--block--inner { width: 46%; }
+	}
+	
+	@include media($medium-up) {
+		@include maintain-ratio( 16 9 );
+		
+		&--row__duo &,
+		&--row__trio & { padding-bottom: percentage(1 / 3); }
+	}
+	
+	@include media($large-up) {
+		@include maintain-ratio( 21 9 );
+		
+		&--row__duo &,
+		&--row__trio & { padding-bottom: percentage(1 / 4); }
+	}
+}
