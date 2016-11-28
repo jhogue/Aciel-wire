@@ -10,9 +10,15 @@
 		color: palette(brand);
 		margin-bottom: .75em;
 	}
-	
+
 	.center-text { text-align: center; }
+
+	&__promo & { padding: 0; }
 }
+
+// Ugh, need this for a special page since I did not set up the templates properly
+.content__promo #main { @include hide(); }
+
 
 .header {
 	position: relative;

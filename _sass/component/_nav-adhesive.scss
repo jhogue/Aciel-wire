@@ -39,6 +39,7 @@
 	&--mainlink {
 		color: palette(mono, 90);
 		font-size: 1.25em;
+    //outline: 2px solid green;
 		padding: .625em 1em .5em;
 		text-transform: uppercase;
 
@@ -49,7 +50,13 @@
 		}
 		
 		// A simple selected or active state, using a manually passed body class right now
-		.disto li:first-child & {
+		.lumin li:nth-child(1) & {
+			background-color: palette(mono, black);
+			color: palette(mono, 15);
+			text-decoration: none;
+		}
+		
+		.disto li:nth-child(2) & {
 			background-color: palette(mono, 75);
 			color: palette(mono, 15);
 			text-decoration: none;

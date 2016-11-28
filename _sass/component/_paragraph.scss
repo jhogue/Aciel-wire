@@ -14,21 +14,38 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 
-	&__alignimg--left { background-position: left center; }
+	&__alignimg--top { background-position: center top; }
 
 	&__alignimg--right { background-position: right center; }
 
+	&__alignimg--bottom { background-position: center bottom; }
+
+	&__alignimg--left { background-position: left center; }
+
 	&--block {
+		@include transition( background-color 500ms ease );
 		@include proportional-element();
-		background-color: rgba(#000, .25);
+		display: block;
+		background-color: rgba(#000, 0);
 		text-align: center;
-		
+
+		.button { @include transition( all 500ms ease ); }
+
+		@include touch-hover() {
+			background-color: rgba(#000, .5);
+
+			.button {
+				background-color: palette(mono, 90);
+				color: palette(mono, white);
+			}
+		}
+	
 		&--inner {
-			@include transform( translate(0%, -50%) );
+			@include transform( translate(0, -50%) );
 			margin-left: -50%;
 			position: absolute;
 				top: 50%; left: 53%;
-			width: 94%;transform: translate(0%, -50%);
+			width: 94%;
 		}
 		
 		h2,
@@ -48,8 +65,23 @@
 		h4,
 		h5,
 		h6 { font-weight: bold; }
+
+		// Positioning
+		&__bottom &--inner {
+			@include transform( translate(0, 0) );
+				top: auto; bottom: $vert-line-height;
+
+			@include media($small-up) { bottom: $vert-line-height*1.5; }
+		}
 	}
-	
+
+	&--block__noblurb &--headline { @include one-element-size(kilo); }
+
+	&--blurb {
+		margin: 0 auto;
+		max-width: em(480);
+	}
+
 	&--cta {
 		padding: .5em 0;
 
