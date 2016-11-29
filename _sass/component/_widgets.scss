@@ -85,6 +85,6 @@
 	.button {
 		background-color: palette(brand, dark);
 
-		@include touch-hover() { background-color: palette(mono, 90); }
+		@include touch-hover('hover') { background-color: palette(mono, 90); }
 	}
 }

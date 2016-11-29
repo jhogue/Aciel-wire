@@ -33,7 +33,7 @@
 		font-size: 2em;
 		padding: .1875em .5em .3125em;
 
-		@include touch-hover() { color: palette(brand); }
+		@include touch-hover('hover') { color: palette(brand); }
 
 		&__cart {
 
@@ -47,7 +47,7 @@
 	&--list__overlay &--button {
 		background-color: palette(mono, 10);
 
-		@include touch-hover() {
+		@include touch-hover('hover') {
 			background-color: $overlay-bg-color;
 			color: palette(mono, white);
 		}
@@ -268,7 +268,7 @@
 			padding: .5em .5em .25em;
 			text-transform: uppercase;
 
-			@include touch-hover() {
+			@include touch-hover('hover') {
 				color: palette(mono, 75);
 			}
 
@@ -278,7 +278,7 @@
 				border-bottom-color: darken($overlay-active-color, 8%);
 				color: $overlay-active-text-color;
 
-				@include touch-hover() { color: $overlay-active-text-color; }
+				@include touch-hover('hover') { color: $overlay-active-text-color; }
 			}
 
 			.fa {
@@ -338,7 +338,7 @@
 	&--link {
 		padding: .375em .5em .25em;
 
-		@include touch-hover() {
+		@include touch-hover('hover') {
 			background-color: palette(mono, 10);
 		}
 	}

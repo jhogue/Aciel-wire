@@ -59,7 +59,7 @@
 
 		&--link {
 			
-			@include touch-hover() {
+			@include touch-hover('hover') {
 
 				.apps--item--thumbnail { opacity: .5; }
 			}

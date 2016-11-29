@@ -52,7 +52,7 @@
 			.product--card--price,
 			.product--card--label { @include transition( all 250ms ease ); }
 
-			//@include touch-hover() {
+			//@include touch-hover('hover') {
 			// would prefer a manual application here
 			.no-js &:hover,
 			.no-js &:focus,

@@ -20,7 +20,7 @@
 		font-size: 1.25em;
 		@include appearance(none);
 
-		@include touch-hover() { color: palette(mono, 75); }
+		@include touch-hover('hover') { color: palette(mono, 75); }
 	}
 
 	input:focus + button { color: palette(brand); }

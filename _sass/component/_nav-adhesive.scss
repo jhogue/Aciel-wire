@@ -43,7 +43,7 @@
 		padding: .625em 1em .5em;
 		text-transform: uppercase;
 
-		@include touch-hover() {
+		@include touch-hover('hover') {
 			background-color: $overlay-active-color;
 			color: $overlay-active-text-color;
 			text-decoration: none;
@@ -107,7 +107,7 @@
 		min-width: 124px;
 		text-align: center;
 
-		@include touch-hover() {
+		@include touch-hover('hover') {
 			background-color: palette(mono);
 			color: palette(mono, white);
 		}
@@ -116,7 +116,7 @@
 			background-color: palette(mono);
 			color: palette(mono, white);
 
-			@include touch-hover() {
+			@include touch-hover('hover') {
 				background-color: palette(brand);
 				color: palette(mono, white);
 			}

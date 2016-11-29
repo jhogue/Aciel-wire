@@ -16,7 +16,7 @@
 		line-height: 1.5;
 		padding: .875em 1em .625em;
 
-		@include touch-hover() {
+		@include touch-hover('hover') {
 			background-color: palette(mono, 90);
 			color: palette(mono, white);
 		}

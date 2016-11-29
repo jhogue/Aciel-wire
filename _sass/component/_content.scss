@@ -8,6 +8,7 @@
 	&--title {
 		@extend .mega;
 		color: palette(brand);
+		font-weight: $font-custom-light;
 		margin-bottom: .75em;
 	}
 
@@ -75,7 +76,7 @@
 
 		button {
 
-			@include touch-hover() { box-shadow: 0 2px 3px rgba(#000,.25); }
+			@include touch-hover('hover') { box-shadow: 0 2px 3px rgba(#000,.25); }
 		}
 
 		&:before {

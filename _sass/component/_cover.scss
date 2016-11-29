@@ -57,7 +57,7 @@
 			text-align: center;
 		}
 
-		@include touch-hover() {
+		@include touch-hover('hover') {
 
 			.cover--item--wrapper { background-size: 104% 104%; }
 

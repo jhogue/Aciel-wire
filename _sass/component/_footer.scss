@@ -13,7 +13,7 @@
 		color: palette(mono, 66);
 		margin-right: .75em;
 		
-		@include touch-hover() {
+		@include touch-hover('hover') {
 			color: palette(brand);
 		}
 	}
