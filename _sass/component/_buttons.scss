@@ -1,52 +1,108 @@
 // @file buttons.scss
 
-$form-button-background: palette(brand);
-$form-button-border: false;
-$form-button-border-color: palette(brand, dark);
-$form-button-border-width: 1px;
-$form-button-border-radius: $default-border-radius;
-$form-button-padding: .325em .75em .25em;
+// Button Mixin
+// @usage @include button($color: primary, $size: default, $reg: true);
+@mixin button( $color: default, $size: default, $reg: default ) {
+  @if $color == primary {
+    @include touch-hover() {
+      background-color: palette(brand);
+      border-color: palette(brand);
+      color: palette(mono, white);
+    }
 
-// Default button style. Classes must be chained to change colors, i.e. class="button button--primary"
-button,
-button.button,
-input.button {
-	cursor: pointer;
-	@include appearance(button);
+    @include touch-hover('hover') {
+      background-color: palette(mono, 90);
+      border-color: palette(mono, 90);
+      color: palette(mono, white);
+    }
+  }
+  @else if $color == dark {
+    @include touch-hover() {
+      background-color: palette(brand, dark);
+      border-color: palette(brand, dark);
+      color: palette(mono, white);
+    }
+
+    @include touch-hover('hover') {
+      background-color: palette(mono, 90);
+      border-color: palette(mono, 90);
+      color: palette(mono, white);
+    }
+  }
+  @else if $color == light {
+    @include touch-hover() {
+      background-color: palette(mono, 25);
+      border-color: palette(mono, 25);
+      color: palette(mono, black);
+    }
+
+    @include touch-hover('hover') {
+      background-color: palette(brand);
+      border-color: palette(brand);
+      color: palette(mono, white);
+    }
+  }
+  @else if $color == reds {
+    @include touch-hover() {
+      background-color: palette(brand);
+      border-color: palette(brand);
+      color: palette(mono, white);
+    }
+
+    @include touch-hover('hover') {
+      background-color: palette(brand, dark);
+      border-color: palette(brand, dark);
+      color: palette(mono, white);
+    }
+  }
+  @else {
+    @include touch-hover() {
+      background-color: palette(mono, 25);
+      border-color: palette(mono, 25);
+      color: palette(mono, 66);
+    }
+
+    @include touch-hover('hover') {
+      background-color: palette(mono, 10);
+      border-color: palette(mono, 10);
+      color: palette(mono, 90);
+    }
+  }
+
+  @if $size == small {
+    padding: 0.175em .75em .25em;
+  }
+  @else {
+    @extend %base-rwd-size;
+    padding: .325em .75em .25em;
+
+    @include media($medium-up) {
+      padding-left: 1.25em;
+      padding-right: 1.25em;
+    }
+
+    @include media($large-up) {
+      padding-left: 1.5em;
+      padding-right: 1.5em;
+    }
+  }
+
+  @if $reg == true {
+    @include transition(all 250ms ease);
+    border-radius: $form-input-border-radius;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    -webkit-appearance: none; // http://trentwalton.com/2010/07/14/css-webkit-appearance/
+  }
 }
 
-a.button { margin-bottom: .5em; }
+.button,
+.button-link {
+  @include button($color: primary, $size: default, $reg: true);
 
-// Additional button styles must be chained, i.e. class="button button--primary"
-.button {
-	@extend %base-rwd-size;
-	@include transition( all 250ms ease );
-	background-color: palette(mono, 25);
-	@if $form-button-border {
-		border: $form-button-border-width solid $form-button-border-color;
-	} @else {
-		border: none;
-	}
-	border-radius: $form-button-border-radius;
-	color: palette(mono, 66);
-	cursor: pointer;
-	padding: $form-button-padding;
-	text-align: center;
-
-	@include touch-hover() {
-		background-color: palette(mono, 10);
-		color: palette(mono, 90);
-	}
-
-	&--primary,
-	.js-toggle-active {
-		background: palette(brand);
-		color: palette(mono, white);
-		font-weight: 100;
-
-		@include touch-hover() {
-			background: palette(mono, 90);
-			color: palette(mono, white);
-		}
-	}
+  &--secondary {
+    @include button($color: light, $size: default, $reg: true);
+    border: 0;
+  }
 }

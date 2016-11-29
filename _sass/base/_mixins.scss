@@ -3,34 +3,57 @@
 // @link http://csswizardry.com/2016/02/mixins-better-for-performance/
 
 // Provide a hover effect for non-touch devices, turn it into an Active state for mobile, and maintain a fallback.
-// @requires Modernizr as a JS dependency to get .no-touch classes
+// @requires Modernizr as a JS dependency to get .no-touch/.no-touchevents classes
 // Adds styles via @content
 // @jhogue
-//
+// @usage @include touch-hover('hover', '.js-hovered');
+// Optional class can be passed through and appended to the hover state as an additional modifier
 $modernizr-touch-off: 'no-touch';
 $modernizr-touch-on: 'touch';
 
-@mixin touch-hover( $disabled: false ) {
-	
-	@if $disabled {
-		.no-js &,
-		.no-js &:hover, // the fallback
-		.no-js &:focus,
-		.js.#{$modernizr-touch-off} &,
-		.js.#{$modernizr-touch-off} &:hover, // enhanced for no-touch
-		.js.#{$modernizr-touch-off} &:focus,
-		.js.#{$modernizr-touch-on} &,
-		.js.#{$modernizr-touch-on} &:active { // relay same styles to active for touch devices
-			@content;
-		}
-	} @else {
-		.no-js &:hover, // the fallback
-		.no-js &:focus,
-		.js.#{$modernizr-touch-off} &:hover, // enhanced for no-touch
-		.js.#{$modernizr-touch-off} &:focus,
-		.js.#{$modernizr-touch-on} &:active { // relay same styles to active for touch devices
-			@content;
-		}
+@mixin touch-hover( $state: 'idle', $optional: false ) {
+
+  @if $state == 'idle' {
+    &,
+    &:link,
+    &:visited {
+        @content;
+    }
+  }
+
+  @if $state == 'hover' {
+    @if $optional {
+      .no-js &:hover, // the fallback
+      .no-js &:focus,
+      .js.#{$modernizr-touch-off} &:hover, // enhanced for no-touch
+      .js.#{$modernizr-touch-off} &:focus,
+      .js.#{$modernizr-touch-on} &:active, // relay same styles to active for touch devices
+      .js.#{$modernizr-touch-off} &#{$optional} {
+        @content;
+      }
+    } @else {
+      .no-js &:hover, // the fallback
+      .no-js &:focus,
+      .js.#{$modernizr-touch-off} &:hover, // enhanced for no-touch
+      .js.#{$modernizr-touch-off} &:focus,
+      .js.#{$modernizr-touch-on} &:active { // relay same styles to active for touch devices
+        @content;
+      }
+    }
+  }
+
+  // A "disabled" state sets ALL options to the same @content styles, negating any hover effects
+  @if $state == 'disabled' {
+    .no-js &,
+    .no-js &:hover, // the fallback
+    .no-js &:focus,
+    .js.#{$modernizr-touch-off} &,
+    .js.#{$modernizr-touch-off} &:hover, // enhanced for no-touch
+    .js.#{$modernizr-touch-off} &:focus,
+    .js.#{$modernizr-touch-on} &,
+    .js.#{$modernizr-touch-on} &:active { // relay same styles to active for touch devices
+      @content;
+    }
   }
 }
 

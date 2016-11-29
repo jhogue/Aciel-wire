@@ -14,27 +14,47 @@ $font-custom-bold: bold;
 
 // Defaults
 $default-border-radius: 4px;
+$default-box-shadow: 0 2px 3px rgba(#000,.25);
 
 // Tables
 $table-border-collapse: true;
 $table-border-color: $color-borders;
 $table-cell-padding: .5em;
 
+// Forms
+$form-input-background-color: palette(mono, white);
+$form-input-border-color: palette(mono, 25);
+$form-input-border-focus: palette(mono);
+$form-input-border-width: 1px;
+$form-input-border-radius: 3px;
+$form-input-placeholder-color: palette(mono, 33);
+$form-input-color: palette(mono, 66);
+$form-input-padding: .25em .5em .125em;
+
 // God damn Z-indices
 // https://www.smashingmagazine.com/2009/09/the-z-index-css-property-a-comprehensive-look/
 $zindex: (
-	body: 1,
-	rwd-table-pinned: 2,
-	rwd-table-wrapper: 3,
-	rwd-table-content: 4,
-	adhesive-brand: 99,
-	overlay: 100,
-	mainnav: 101,
-	searchform: 102,
-	ul-subnav: 500,
-	li-subnav: 501,
-	subnav: 503,
-	sticky: 998,
-	sticky-subnav: 999,
-	size-tag: 2147483647
+  body: 1,
+  rwd-table-pinned: 2,
+  rwd-table-wrapper: 3,
+  rwd-table-content: 4,
+  readmore: 90,
+  readmore-trigger: 92,
+  sidebar-flexslider: 96,
+  royalslider-thumbs: 96,
+  sidebar-flexslider-directions: 97,
+  royalslider-thumbs-directions: 97,
+  product-cover-image: 98,
+  adhesive-brand: 99,
+  overlay: 100,
+  mainnav: 101,
+  searchform: 102,
+  ul-subnav: 500,
+  li-subnav: 501,
+  subnav: 503,
+  sticky-parent: 997,
+  sticky: 998,
+  sticky-subnav: 999,
+  popup-modal: 1000,
+  size-tag: 2147483647
 );
