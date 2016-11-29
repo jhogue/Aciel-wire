@@ -19,6 +19,16 @@ $vert-line-height: $line-height * 1em;
 	font-style: normal;
 }
 
+@mixin fa() {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 // ----- Akkurat -----
 @font-face {
 	font-family: 'Akkurat';
@@ -71,7 +81,7 @@ select,
 textarea {
 	color: palette(mono);
 	font-family: $font-custom;
-	font-weight: normal;
+	font-weight: $font-custom-normal;
 	line-height: $line-height;
 }
 
@@ -80,7 +90,7 @@ a {
 	text-decoration: none;
 	@include transition( all 250ms ease );
 
-	@include touch-hover() {
+	@include touch-hover('hover') {
 		color: palette(brand);
 		text-decoration: none;
 	}
@@ -106,36 +116,53 @@ a {
 // Headings
 h1,
 .alpha {
-	@include one-element-size(h1);
+  @include one-element-size(h1);
+}
+
+h1 {
+
+  &.title__page,
+  &.title__node {
+    @extend .mega;
+    color: palette(brand);
+    font-weight: 100;
+    margin: 0 0 .75em 0;
+    padding-top: .5em;
+  }
 }
 
 h2,
 .bravo {
-	@include one-element-size(h2);
-	color: palette(mono, 90);
+  @include one-element-size(h2);
+  color: palette(mono, 90);
 }
 
 h3,
 .charlie {
-	@include one-element-size(h3);
-	color: palette(brand);
+  @include one-element-size(h3);
+  color: palette(brand);
 }
 
 h4,
 .delta {
-	@include one-element-size(h4);
-	color: palette(mono, 90);
-	font-weight: bold;
+  @include one-element-size(h4);
+  color: palette(mono, 90);
+  font-weight: bold;
 }
 
 h5,
 .echo {
-	@extend %base-rwd-size;
+  @extend %base-rwd-size;
+  color: palette(brand);
+  font-weight: bold;
 }
 
 h6,
 .foxtrot {
-	@extend %base-rwd-size;
+  @extend %base-rwd-size;
+  color: palette(mono, 90);
+  letter-spacing: .0625em;
+  text-transform: uppercase;
 }
 
 p,
@@ -145,8 +172,14 @@ dd,
 address,
 input,
 select,
-textarea {
+textarea,
+table th,
+table td {
 	@extend %base-rwd-size;
+}
+
+p:empty {
+  display: none;
 }
 
 // Block level elements

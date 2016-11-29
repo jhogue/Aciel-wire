@@ -12,7 +12,8 @@
 	"layout/breakpoints",
 	"base/colors",
 	"base/typesizes",
-	"base/variables";
+	"base/variables",
+	"base/placeholders";
 
 
 @import
@@ -30,4 +31,22 @@
 	"libraries/leica/zurb-rwd-tables",
 
 	// All files inside
-	"component/*";
+	//"component/*";
+	"component/global",
+	"component/forms",
+	"component/buttons",
+	"component/header",
+	"component/hero",
+	"component/nav-adhesive",
+	"component/navigation",
+	"component/subnav",
+	"component/content",
+	"component/cover",
+	"component/appstore",
+	"component/footer",
+	"component/paragraph",
+	"component/products",
+	"component/search",
+	"component/video",
+	"component/cart",
+	"component/widgets";

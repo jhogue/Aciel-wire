@@ -1,0 +1,651 @@
+// Stuff from Drupal core stylesheets that we need here
+.form-actions {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+tr.even,
+tr.odd {
+  border-bottom: 1px solid #ccc;
+}
+
+
+// Placeholder mixins
+%shared-checkout-table {
+
+  thead,
+  tbody {
+    border: 0;
+    width: 100%;
+  }
+
+  th,
+  td {
+    padding: .5em .75em 0;
+    text-align: left;
+    vertical-align: middle;
+    width: auto;
+  }
+
+  input[type=text] {
+    max-width: 100% !important; // Damn inline values for cols mess with mobile
+    width: 100% !important;
+  }
+
+  th {
+    @include one-element-size( micro );
+    color: palette(mono, 90);
+    font-weight: bold;
+    letter-spacing: .0625em;
+    text-transform: uppercase;
+  }
+
+  td {
+    color: palette(mono, 66);
+  }
+}
+
+%cart-default-button {
+  background-color: palette(mono, white);
+  border-color: $color-borders;
+  color: palette(mono, 66);
+  cursor: pointer;
+  
+  @include touch-hover(hover) {
+    background-color: palette(mono, 66);
+    border-color: palette(mono, 75);
+    color: palette(mono, 10);
+  }
+}
+
+
+//<div id="block-commerce-checkout-progress-indication" class="block block-commerce-checkout-progress cart--header">
+//  <div class="content">
+//    <div class="item-list">
+//      <ol class="commerce-checkout-progress clearfix inline checkout-pages-5">
+//        <li class="cart first">Cart</li>
+//        <li class="checkout">Checkout</li>
+//        <li class="payment_info">Payment</li>
+//        <li class="review">Review</li>
+//        <li class="complete last">Complete</li>
+//      </ol>
+//    </div>
+//  </div>
+//</div>
+.cart {
+
+  &--header {
+    background-color: palette(brand, blue);
+    border: 1px solid palette(brand, denim);
+    color: palette(mono, white);
+    margin-bottom: $vert-line-height;
+    text-align: center;
+    
+    .content {
+      background-color: transparent;
+      padding: 0;
+    }
+  }
+}
+
+.commerce-checkout-progress {
+  @extend %zero-list;
+
+  li {
+    display: inline-block;
+    font-size: rem(14);
+    margin-right: -4px;
+    overflow: hidden;
+    padding: .5em 3.25em .5em .75em;
+    position: relative;
+    white-space: nowrap;
+    width: em(64);
+    vertical-align: middle;
+    z-index: 2;
+
+    &:before {
+      color: palette(brand, denim);
+      margin-right: 2em; // Push the word labels out of view
+    }
+
+    &:after {
+      @include transform( rotate(45deg) );
+      @include transform-origin( center );
+      background-color: palette(brand, blue);
+      border-top: 1px solid palette(brand, denim);
+      border-right: 1px solid palette(brand, denim);
+      content: '';
+      height: 10em;
+      position: absolute;
+        top: -3.75em; right: 2.375em;
+      width: 10em;
+      z-index: -1;
+    }
+
+    &:last-child {
+      padding-right: 1em;
+
+      &:after {
+        display: none;
+      }
+    }
+
+    &.active {
+      color: palette(brand, denim);
+      margin-left: -1.5em;
+      padding-left: 2em;
+      padding-right: 2.5em;
+      position: relative;
+      z-index: 1;
+
+      &:after {
+        background-color: palette(mono, white);
+      }
+    }
+
+    &.active:first-child {
+      margin-left: 0;
+      padding-left: .75em;
+    }
+
+    &.active:last-child {
+      background-color: palette(mono, white);
+    }
+  }
+
+  .cart:before,
+  .checkout:before,
+  .payment_info:before,
+  .review:before,
+  .complete:before {
+    @include fa();
+    font-size: rem(18);
+  }
+  
+  // Font Awesome is called from their CDN right now. These character mappings should not change, but could
+  .cart:before { content: '\f07a'; } // cart
+  .checkout:before { content: '\f2bb'; } // address-card
+  .payment_info:before { content: '\f09d'; } // credit card
+  .review:before { content: '\f03a'; } // list
+  .complete:before { content: '\f046'; } // check-square-o
+
+  // Just for the wireframes
+  a {
+    color: palette(mono, white);
+    
+    @include touch-hover('hover') {
+      color: palette(mono, black);
+    }
+  }
+
+  
+  // Media
+  @include media($small-up) {
+
+    li {
+      padding: .5em 2.25em .5em .5em;
+      width: auto; // Show the labels now
+
+      &:before {
+        margin-right: .5em;
+      }
+    }
+  }
+
+  @include media($medium-up) {
+
+    li {
+      font-size: rem(16);
+    }
+
+    .checkout:before,
+    .shipping:before,
+    .review:before,
+    .payment_info:before,
+    .complete:before {
+      font-size: rem(20);
+    }
+  }
+}
+
+//<table class="views-table cols-6">
+//  <thead>
+//    <tr>
+//      <th class="views-field views-field-field-product-thumbnail-" scope="col"></th>
+//      <th class="views-field views-field-line-item-title" scope="col">Product</th>
+//      <th class="views-field views-field-commerce-unit-price" scope="col">Price</th>
+//      <th class="views-field views-field-edit-quantity" scope="col">Quantity</th>
+//      <th class="views-field views-field-edit-delete" scope="col">Remove</th>
+//      <th class="views-field views-field-commerce-total" scope="col">Total</th>
+//    </tr>
+//  </thead>
+//  <tbody>
+//    <tr class="odd views-row-first views-row-last">
+//      <td class="views-field views-field-field-product-thumbnail-"><img typeof="foaf:Image" src="http://leica.dev/sites/default/files/styles/thumbnail/public/leica_media/commerce_product_thumb/DISTO/shopping-cart-product-tmb-808183-s910.jpg?itok=itae0K8k" width="100" height="100" alt="S910 Shopping Cart Image 808183"></td>
+//      <td class="views-field views-field-line-item-title">S910</td>
+//      <td class="views-field views-field-commerce-unit-price price">$1,499.00</td>
+//      <td class="views-field views-field-edit-quantity">
+//        <div class="form-item form-type-textfield form-item-edit-quantity-0">
+//          <input title="Quantity" type="text" id="edit-edit-quantity-0" name="edit_quantity[0]" value="1" size="4" maxlength="4" class="form-text">
+//        </div>
+//      </td>
+//      <td class="views-field views-field-edit-delete"><input class="delete-line-item form-submit ajax-processed" type="submit" id="edit-edit-delete-0" name="delete-line-item-0" value="Remove"></td>
+//      <td class="views-field views-field-commerce-total price">$1,499.00</td>
+//    </tr>
+//  </tbody>
+//</table>
+
+// Cart before checkout
+.commerce-line-item-views-form {
+  @extend %shared-checkout-table;
+
+  .views-field-line-item-title,
+  .views-field-commerce-total.price {
+    color: palette(mono, 75);
+    font-weight: bold;
+  }
+
+  .views-field-field-product-thumbnail- {
+    background-color: palette(mono, white);
+  }
+
+  .views-field-commerce-total {
+    text-align: right;
+  }
+
+  input.delete-line-item {
+    font-size: 1rem;
+    padding: .25em .5em .125em;
+    width: auto;
+
+    @include touch-hover(hover) {
+      background-color: palette(brand);
+      color: palette(mono, white);
+      cursor: pointer;
+    }
+  }
+
+
+  // Media 
+  @media (max-width: bp(smallish)) {
+
+    table,
+    tbody {
+      display: block;
+      overflow: hidden;
+      width: 100%;
+    }
+
+    table {
+      border-top: 1px solid $color-borders;
+    }
+
+    thead {
+      display: none;
+    }
+
+    tr { @include clearfix; }
+
+    td {
+      border-top: 0;
+      display: block;
+      float: left;
+      width: 60%;
+    }
+
+    td.views-field-field-product-thumbnail- {
+      width: 40%;
+    }
+
+    td.views-field-edit-quantity {
+      width: 20%;
+      padding-right: 0;
+    }
+
+    td.views-field-edit-delete {
+      width: 40%;
+    }
+
+    .views-field-commerce-total.price {
+      border-bottom: 1px solid $color-borders;
+      padding-bottom: .5em;
+      width: 100%;
+    }
+  }
+}
+
+
+// Shared styles for max-width and checkout buttons
+#commerce-checkout-form-checkout,
+#commerce-checkout-form-shipping,
+#commerce-checkout-form-review,
+#commerce-checkout-form-payment-info,
+#commerce-checkout-form-complete {
+  margin: 0 auto;
+  max-width: bp(smallish);
+
+  .messages {
+    
+    li {
+      // Prevent the messages from making the column wider than 100%
+      word-break: break-word;
+    }
+  }
+
+  input.form-checkbox,
+  input.form-radio {
+    width: 1.5em;
+  }
+
+  // The Checkout button
+  .checkout-buttons {
+    padding-top: $vert-line-height;
+    text-align: center; 
+
+    .checkout-continue {
+      @extend .button;
+    }
+
+    .button-operator {
+      display: inline-block;
+      padding: 1em .75em;
+    }
+
+    .checkout-cancel,
+    .checkout-back {
+      cursor: pointer;
+      
+      @include touch-hover(hover) {
+        background-color: palette(mono, 25);
+      }
+    }
+    
+    @include media($smallish-up) {
+
+      .checkout-continue,
+      .checkout-cancel,
+      .checkout-back {
+        width: auto;
+      }
+    }
+  }
+}
+
+
+// Checkout
+.view-commerce-cart-summary {
+  @extend %shared-checkout-table;
+  
+  .views-field-commerce-total {
+    display: none;
+    
+    @media (min-width: em(480) ) {
+      display: table-cell;
+    }
+  }
+}
+
+#commerce-checkout-form-checkout {
+
+  legend {
+    @include one-element-size(h4);
+    color: palette(brand);
+    font-weight: bold;
+    padding-top: $vert-line-height;
+  }
+
+  .commerce-price-formatted-components {
+    border-collapse: separate;
+    border-top: 1px solid palette(brand);
+    width: 100%;
+
+    tr {
+      border: 0;
+    }
+
+    .component-type-commerce-price-formatted-amount td {
+      background-color: palette(brand);
+      color: palette(mono, white);
+    }
+  }
+
+  .form-item {
+    margin-top: .75em;
+    margin-bottom: .75em;
+  }
+
+  // Override default Drupal addressfield handling
+  div.addressfield-container-inline > div.form-item {
+    float: none;
+    margin-right: 0;
+  }
+
+  // The state drop down
+  div.addressfield-container-inline > div.form-item.form-item-customer-profile-shipping-commerce-customer-address-und-0-administrative-area {
+    float: left;
+    margin-right: 5%;
+    width: 60%;
+  }
+
+  // The zip code
+  div.addressfield-container-inline > div.form-item.form-item-customer-profile-shipping-commerce-customer-address-und-0-postal-code {
+    float: left;
+    width: 35%;
+  }
+
+  // The Add Coupon button
+  //<fieldset class="commerce_coupon form-wrapper" id="edit-commerce-coupon">
+  //<div class="fieldset-wrapper">
+  //  <div class="form-item form-type-textfield form-item-commerce-coupon-coupon-code">
+  //    <label for="edit-commerce-coupon-coupon-code">Coupon Code </label>
+  //    <input type="text" id="edit-commerce-coupon-coupon-code" name="commerce_coupon[coupon_code]" value="" size="60" maxlength="128" class="form-text">
+  //    <div class="description">Enter here your coupon code.</div>
+  //  </div>
+  //  <input type="submit" id="edit-commerce-coupon-coupon-add" name="coupon_add" value="Add coupon" class="form-submit ajax-processed">
+  //  <div class="view view-commerce-coupon-review-pane view-id-commerce_coupon_review_pane view-display-id-checkout view-dom-id-5e194d259c2bccecf2536bb831a59594"></div>
+  //</div>
+  .commerce_coupon {
+    
+    .fieldset-wrapper {
+      position: relative;
+    }
+
+    .form-item-commerce-coupon-coupon-code input {
+      //margin-right: 7.25em;
+      width: calc(100% - 7.25em); // Does this meet the site requirements?
+    }
+
+    input[type='submit'] {
+      @extend %cart-default-button;
+      position: absolute;
+        top: 1.5em; right: 0;
+      width: auto;
+    }
+    
+    .messages ~ input[type=submit] {
+      top: 5.125em;
+    }
+  }
+}
+
+
+// Checkout form shipping options
+#commerce-checkout-form-shipping {}
+
+
+// Checkout Review
+#commerce-checkout-form-shipping,
+#commerce-checkout-form-review {
+
+  .pane-title,
+  .commerce_payment .fieldset-legend,
+  .commerce_shipping .fieldset-legend {
+    color: palette(brand);
+    font-weight: bold;
+  }
+}
+
+// Review your order and information
+#commerce-checkout-form-review {
+
+  .pane-title {
+    background-color: transparent !important; // because of zebra-striping
+
+    td {
+      border-top: 0;
+      padding: 1em 0 0;
+    }
+  }
+
+  .commerce_payment .fieldset-legend {
+    display:inline-block;
+    padding: 1em 0 .5em; 
+  }
+
+  .view-commerce-cart-summary {
+    margin: -.5em -.5em 0;
+  }
+
+  .commerce-order-handler-area-order-total /*table*/.commerce-price-formatted-components {
+    border-collapse: separate;
+    border-top: 1px solid palette(brand);
+    margin-left: 0;
+    width: 100%;
+
+    .component-type-base-price,
+    .component-type-commerce-price-formatted-amount {
+      font-weight: bold;
+    }
+  }
+
+  // Order total
+  .view-commerce-cart-summary .component-type-commerce-price-formatted-amount td {
+    background-color: palette(brand);
+    border: 0;
+    color: palette(mono, white);
+  }
+}
+
+// Enter Payment info
+#commerce-checkout-form-payment-info {
+
+  legend {
+    @include one-element-size(h4);
+    color: palette(brand);
+    font-weight: bold;
+    padding-top: $vert-line-height;
+  }
+}
+
+
+//<div class="line-item-summary">
+//  <div class="line-item-total">
+//    <span class="line-item-total-label">Total:</span> <span class="line-item-total-raw">$1,499.00</span>
+//  </div>
+//</div>
+.line-item-summary {
+  padding: $vert-line-height/2 .75em;
+  text-align: center;
+
+  @include media($smallish-up) {
+    text-align: right;
+  }
+}
+
+.line-item-total {
+  @include one-element-size( h4 );
+}
+
+.line-item-total-raw {
+  color: palette(mono, 90);
+  font-weight: bold;
+}
+
+//<div class="form-actions commerce-line-item-actions form-wrapper" id="edit-actions">
+//  <input type="submit" id="edit-submit" name="op" value="Update cart" class="form-submit ajax-processed">
+//  <input type="submit" id="edit-checkout" name="op" value="Checkout" class="form-submit">
+//</div>
+.commerce-line-item-actions {
+
+  #edit-submit,
+  #edit-checkout {
+    @extend .button;
+  }
+  
+  #edit-submit {
+    @extend %cart-default-button;
+  }
+  
+  #edit-checkout {
+    font-weight: bold;
+    padding-left: 1.25em;
+    padding-right: 1.25em;
+  }
+  
+  @include media($smallish-up) {
+    text-align: right;
+    
+    #edit-submit,
+    #edit-checkout {
+      width: auto;
+    }
+  }
+}
+
+// Checkout complete
+#commerce-checkout-form-complete {
+  padding-top: $vert-line-height;
+
+  p {
+    margin-bottom: $vert-line-height;
+  }
+}
+
+
+// NEW elements for the updated cart design
+.product-name {}
+
+.product-description {
+  font-size: 87.5%;
+  font-weight: normal;
+}
+
+.optional-warranty {
+  color: palette(mono, 90);
+  font-size: 87.5%;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.shipping-options {
+  padding-top: $vert-line-height;
+  padding-bottom: $vert-line-height;
+
+  table {
+
+    tbody {
+
+      tr:nth-of-type(odd),
+      tr:nth-of-type(even) {
+        background-color: transparent;
+        border-bottom: 1px solid #ccc;
+      }
+    }
+  }
+
+  label {
+    cursor: pointer;
+  }
+
+  input[type='radio'] {
+
+    & + span {
+      margin-left: .75em;
+    }
+  }
+
+  .price {
+    font-weight: bold;
+    text-align: right;
+  }
+}
