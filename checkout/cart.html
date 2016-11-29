@@ -1,0 +1,131 @@
+---
+layout: page
+title: Shopping Cart
+permalink: checkout/cart/
+bodyclass: 'page-cart'
+---
+
+<!-- We are in .content-/-main -->
+
+<header class="content--header">
+	<h1 class="content--title">{{ page.title }}</h1>
+</header>
+
+<div class="region region--content">
+
+  {% include partials/checkout-progress.html %}
+
+  <div id="block-system-main" class="block block-system">
+    <div class="content">
+      
+      <div class="grid grid--rightrail">
+    		<div class="grid--column grid--column--main">
+      
+          <div class="view view-commerce-cart-form view-id-commerce_cart_form view-display-id-default jquery-once-1-processed">
+            <div class="view-content">
+              <div class="commerce-line-item-views-form">
+                
+              <form action="/cart" method="post" id="views-form-commerce-cart-form-default" accept-charset="UTF-8">
+                <div>
+                  <input type="hidden" name="form_build_id" value="form-tRYXbRg-MZuh-qPhvxB2HS4L9iYS-COG_zWemTd3-so">
+                  <input type="hidden" name="form_id" value="views_form_commerce_cart_form_default">
+                  <table class="views-table cols-6">
+                    <thead>
+                      <tr>
+                        <th class="views-field views-field-field-product-thumbnail-" scope="col"></th>
+                        <th class="views-field views-field-line-item-title" scope="col">Product</th>
+                        <th class="views-field views-field-commerce-unit-price" scope="col">Price</th>
+                        <th class="views-field views-field-edit-quantity" scope="col">Quantity</th>
+                        <th class="views-field views-field-commerce-total" scope="col">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="odd views-row-first views-row-last">
+                        <td class="views-field views-field-field-product-thumbnail-"><img typeof="foaf:Image" src="https://lasers.leica-geosystems.com/sites/default/files/styles/shopping_cart_image__height_175px_/public/leica_media/commerce_product_thumb/DISTO/shopping-cart-product-tmb-808183-s910.jpg?itok=JLPAVdoR" width="200" height="200" alt="S910 Shopping Cart Image 808183"></td>
+                        <td class="views-field views-field-line-item-title">
+                          <div class="product-name">Disto S910</div>
+                          <div class="product-description">Multiple dimensions from a single location; Bluetooth compatible.</div>
+                        </td>
+                        <td class="views-field views-field-commerce-unit-price price">
+                          $1,499.00
+                          <div class="optional-warranty">FREE 2 year warranty</div>
+                        </td>
+                        <td class="views-field views-field-edit-quantity">
+                          <div class="form-item form-type-textfield form-item-edit-quantity-0"><input title="Quantity" type="text" id="edit-edit-quantity-0" name="edit_quantity[0]" value="1" size="4" maxlength="4" class="form-text"></div>
+                        </td>
+                        <td class="views-field views-field-commerce-total price">$1,499.00</td>
+                      </tr>
+                      <tr class="even views-row-last">
+                        <td class="views-field views-field-field-product-thumbnail-"><img typeof="foaf:Image" src="http://leica.dev/sites/default/files/styles/thumbnail/public/leica_media/commerce_product_thumb/DISTO/shopping-cart-accsry-tmb-778359-ta360-tripod-adapter.jpg?itok=sGvs5Te8" width="200" height="200" alt="Shopping Cart Image TA360 Disto 360 tripod adapter 778359"></td>
+                        <td class="views-field views-field-line-item-title">TA360 Disto 360 tripod adapter</td>
+                        <td class="views-field views-field-commerce-unit-price price">$149.00</td>
+                        <td class="views-field views-field-edit-quantity"><div class="form-item form-type-textfield form-item-edit-quantity-1"><input title="Quantity" type="text" id="edit-edit-quantity-1" name="edit_quantity[1]" value="1" size="4" maxlength="4" class="form-text"></div></td>
+                        <td class="views-field views-field-commerce-total price">$149.00</td>
+                      </tr>
+                      <tr class="odd views-row-last">
+                        <td class="views-field views-field-field-product-thumbnail-"><img typeof="foaf:Image" src="http://leica.dev/sites/default/files/styles/thumbnail/public/leica_media/commerce_product_thumb/DISTO/shopping-cart-accsry-tmb-780117-glb30-laser-glasses.jpg?itok=QLoYZhBy" width="200" height="200" alt="Shopping Cart Img Laser Glasses GLB30 780117"></td>
+                        <td class="views-field views-field-line-item-title">Laser Glasses GLB30</td>
+                        <td class="views-field views-field-commerce-unit-price price">$35.00</td>
+                        <td class="views-field views-field-edit-quantity"><div class="form-item form-type-textfield form-item-edit-quantity-2"><input title="Quantity" type="text" id="edit-edit-quantity-2" name="edit_quantity[2]" value="1" size="4" maxlength="4" class="form-text"></div></td>
+                        <td class="views-field views-field-commerce-total price">$35.00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </form>
+              
+              </div>
+            </div>
+          </div><!-- end .view-commerce-cart-form -->
+        
+        </div>
+        <aside class="grid--column grid--column--rail">
+          <div class="checkout--list">
+          
+            <div class="checkout--shipping">
+              <h4>Select a Shipping option</h4>
+              <table class="checkout--shipping--table">
+                <tbody>
+                  <tr>
+                    <td class="form-item"><label for="radio1"><input type="radio" id="radio1" name="radio_group1" value="Free" checked><span>Free Ground Shipping</span></label></td>
+                    <td class="checkout--shipping--price">$0.00</td>
+                  </tr>
+                  <tr>
+                    <td class="form-item"><label for="radio2"><input type="radio" id="radio2" name="radio_group1" value="2-day"><span>Express 2-day Air</span></label></td>
+                    <td class="checkout--shipping--price">$12.95</td>
+                  </tr>
+                  <tr>
+                    <td class="form-item"><label for="radio3"><input type="radio" id="radio3" name="radio_group1" value="1-day"><span>Express 1-Day Air</span></label></td>
+                    <td class="checkout--shipping--price">$19.95</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="checkout--account">
+              <h4>Have an Account?</h4>
+              <span class="form-item">
+                <label for="radio4"><input type="radio" id="radio4" name="radio_group2" value="New" checked><span>Create New Account</span></label>
+              </span>
+              <span class="form-item">
+                <label for="radio5"><input type="radio" id="radio5" name="radio_group2" value="Existing"><span>Sign In</span></label>
+              </span>
+            </div>
+            
+            <div class="checkout--summary">
+              <div class="line-item-total"><span class="line-item-total-label">Order Total:</span> <span class="line-item-total-raw">$1,683.00</span></div>
+            </div>
+            
+            <div id="edit-actions" class="form-actions commerce-line-item-actions form-wrapper">
+              <input type="submit" id="edit-submit" name="op" value="Update cart" class="form-submit ajax-processed">
+              <input type="submit" id="edit-checkout" name="op" value="Checkout" class="form-submit">
+            </div>
+          
+          </div>
+        </aside>
+      </div><!-- end grid--rightrail -->
+        
+    </div>
+  </div><!-- end .block.block-system -->
+
+</div><!-- end .region--content -->

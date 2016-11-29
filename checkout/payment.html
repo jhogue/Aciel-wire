@@ -1,0 +1,122 @@
+---
+layout: page
+title: Payment Details
+permalink: checkout/payment/
+bodyclass: 'page-cart'
+---
+
+<!-- We are in .content-/-main -->
+
+<header class="content--header">
+	<h1 class="content--title">{{ page.title }}</h1>
+</header>
+
+<div class="region region--content">
+
+  {% include partials/checkout-progress.html %}
+
+  <div id="block-system-main" class="block block-system">
+    <div class="content">
+      
+      <div class="grid grid--rightrail">
+    		<div class="grid--column grid--column--main">
+      
+          
+          <!-- Start paste from existing cart -->
+          <form action="/checkout/993/payment_info" method="post" id="commerce-checkout-form-payment-info" accept-charset="UTF-8"><div><div class="checkout-help">
+  Please enter your payment information below. </div>
+<fieldset class="commerce_payment form-wrapper" id="edit-commerce-payment"><legend><span class="fieldset-legend">Payment</span></legend><div class="fieldset-wrapper"><div id="edit-commerce-payment-payment-method" class="form-radios"><div class="form-item form-type-radio form-item-commerce-payment-payment-method">
+ <input type="radio" id="edit-commerce-payment-payment-method-shopatroncommerce-payment-shopatron" name="commerce_payment[payment_method]" value="shopatron|commerce_payment_shopatron" checked="checked" class="form-radio">  <label class="option" for="edit-commerce-payment-payment-method-shopatroncommerce-payment-shopatron">Credit Card </label>
+
+</div>
+</div><div id="payment-details"><div class="form-item form-type-textfield form-item-commerce-payment-payment-details-credit-card-number">
+  <label for="edit-commerce-payment-payment-details-credit-card-number">Number <span class="form-required" title="This field is required.">*</span></label>
+ <input type="tel" autocomplete="cc-number" class="cc-number form-text form-text-tel required" id="edit-commerce-payment-payment-details-credit-card-number" name="commerce_payment[payment_details][credit_card][number]" value="" size="60" maxlength="128">
+</div>
+<div class="clearfix"><div class="form-item form-type-textfield form-item-commerce-payment-payment-details-credit-card-exp">
+  <label for="edit-commerce-payment-payment-details-credit-card-exp">Expiration <span class="form-required" title="This field is required.">*</span></label>
+ <input autocomplete="cc-exp" class="cc-exp form-text required" placeholder="mm / yy" type="text" id="edit-commerce-payment-payment-details-credit-card-exp" name="commerce_payment[payment_details][credit_card][exp]" value="" size="" maxlength="128">
+</div>
+<div class="form-item form-type-textfield form-item-commerce-payment-payment-details-credit-card-cvc">
+  <label for="edit-commerce-payment-payment-details-credit-card-cvc">CVC <span class="form-required" title="This field is required.">*</span></label>
+ <input type="tel" autocomplete="off" class="cc-cvc form-text form-text-tel required" id="edit-commerce-payment-payment-details-credit-card-cvc" name="commerce_payment[payment_details][credit_card][cvc]" value="" size="" maxlength="128">
+</div>
+</div></div></div></fieldset>
+<fieldset class="checkout-buttons form-wrapper" id="edit-buttons"><div class="fieldset-wrapper"><input class="checkout-continue form-submit" type="submit" id="edit-continue" name="op" value="Continue to next step"><span class="checkout-processing element-invisible"></span><span class="button-operator">or</span><input class="checkout-back form-submit" type="submit" id="edit-back" name="op" value="Go back"></div></fieldset>
+<input type="hidden" name="form_build_id" value="form-azQ5Y93c5eXvXUj6ZeH7TESGpX0v0-UEa-zFidaYnaA">
+<input type="hidden" name="form_id" value="commerce_checkout_form_payment_info">
+</div></form>
+          <!-- end #commerce-checkout-form-payment-info -->
+        
+        </div>
+        <aside class="grid--column grid--column--rail">
+          <div class="checkout--list">
+          
+            <div class="checkout--mini-cart">
+              <h4>Cart Contents <a class="back-to-step" href="{ '/checkout/cart' | prepend: site.baseurl }}">Back to Cart</a></h4>
+              <table class="views-table cols-6">
+                <thead>
+                  <tr>
+                    <th class="views-field views-field-line-item-title" scope="col">Product</th>
+                    <!--<th class="views-field views-field-edit-quantity" scope="col">Quantity</th>-->
+                    <th class="views-field views-field-commerce-total" scope="col">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="odd views-row-first views-row-last">
+                    <td class="views-field views-field-line-item-title">
+                      <div class="product-name">Disto S910</div>
+                    </td>
+                    <!--<td class="views-field views-field-edit-quantity">
+                      <div class="form-item form-type-textfield form-item-edit-quantity-0"><input title="Quantity" type="text" id="edit-edit-quantity-0" name="edit_quantity[0]" value="1" size="4" maxlength="4" class="form-text"></div>
+                    </td>-->
+                    <td class="views-field views-field-commerce-total price">$1,499.00</td>
+                  </tr>
+                  <tr class="even views-row-last">
+                    <td class="views-field views-field-line-item-title">TA360 Disto 360 tripod adapter</td>
+                    <!--<td class="views-field views-field-edit-quantity"><div class="form-item form-type-textfield form-item-edit-quantity-1"><input title="Quantity" type="text" id="edit-edit-quantity-1" name="edit_quantity[1]" value="1" size="4" maxlength="4" class="form-text"></div></td>-->
+                    <td class="views-field views-field-commerce-total price">$149.00</td>
+                  </tr>
+                  <tr class="odd views-row-last">
+                    <td class="views-field views-field-line-item-title">Laser Glasses GLB30</td>
+                    <!--<td class="views-field views-field-edit-quantity"><div class="form-item form-type-textfield form-item-edit-quantity-2"><input title="Quantity" type="text" id="edit-edit-quantity-2" name="edit_quantity[2]" value="1" size="4" maxlength="4" class="form-text"></div></td>-->
+                    <td class="views-field views-field-commerce-total price">$35.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="checkout--shipping">
+              <h4>Select a Shipping option</h4>
+              <table class="checkout--shipping--table">
+                <tbody>
+                  <tr>
+                    <td class="form-item"><label for="radio1"><input type="radio" id="radio1" name="radio_group1" value="Free" checked><span>Free Ground Shipping</span></label></td>
+                    <td class="checkout--shipping--price">$0.00</td>
+                  </tr>
+                  <tr>
+                    <td class="form-item"><label for="radio2"><input type="radio" id="radio2" name="radio_group1" value="2-day"><span>Express 2-day Air</span></label></td>
+                    <td class="checkout--shipping--price">$12.95</td>
+                  </tr>
+                  <tr>
+                    <td class="form-item"><label for="radio3"><input type="radio" id="radio3" name="radio_group1" value="1-day"><span>Express 1-Day Air</span></label></td>
+                    <td class="checkout--shipping--price">$19.95</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="checkout--summary">
+              <div class="line-item-total"><span class="line-item-total-label">Order Total:</span> <span class="line-item-total-raw">$1,683.00</span></div>
+            </div>
+            
+            <fieldset class="checkout-buttons form-wrapper" id="edit-buttons"><div class="fieldset-wrapper"><input class="checkout-continue form-submit" type="submit" id="edit-continue" name="op" value="Continue"><span class="checkout-processing element-invisible"></span><span class="button-operator">or</span><input class="checkout-back form-submit" type="submit" id="edit-back" name="op" value="Go Back"></div></fieldset>
+          
+          </div>
+        </aside>
+      </div><!-- end grid--rightrail -->
+        
+    </div>
+  </div><!-- end .block.block-system -->
+
+</div><!-- end .region--content -->
