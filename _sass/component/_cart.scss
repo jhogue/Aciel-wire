@@ -1,12 +1,42 @@
 // Stuff from Drupal core stylesheets that we need here
+label {
+  display: block;
+
+  &.option {
+    display: inline;
+    font-weight: normal;
+  }
+}
+
+.marker,
+.form-required {
+  color: #f00;
+}
+
+.form-item,
 .form-actions {
   margin-top: 1em;
   margin-bottom: 1em;
 }
 
+.form-checkboxes .form-item,
+.form-radios .form-item {
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+}
+
 tr.even,
 tr.odd {
   border-bottom: 1px solid #ccc;
+}
+
+.form-item-commerce-payment-payment-details-credit-card-exp,
+.form-item-commerce-payment-payment-details-credit-card-cvc {
+  float: left;
+  width: 48%;
+}
+.form-item-commerce-payment-payment-details-credit-card-cvc {
+  float: right;
 }
 
 
@@ -21,9 +51,9 @@ tr.odd {
 
   th,
   td {
-    padding: .5em .75em 0;
+    padding: .5em .75em;
     text-align: left;
-    vertical-align: middle;
+    vertical-align: top;
     width: auto;
   }
 
@@ -215,7 +245,6 @@ tr.odd {
 //      <th class="views-field views-field-line-item-title" scope="col">Product</th>
 //      <th class="views-field views-field-commerce-unit-price" scope="col">Price</th>
 //      <th class="views-field views-field-edit-quantity" scope="col">Quantity</th>
-//      <th class="views-field views-field-edit-delete" scope="col">Remove</th>
 //      <th class="views-field views-field-commerce-total" scope="col">Total</th>
 //    </tr>
 //  </thead>
@@ -229,7 +258,6 @@ tr.odd {
 //          <input title="Quantity" type="text" id="edit-edit-quantity-0" name="edit_quantity[0]" value="1" size="4" maxlength="4" class="form-text">
 //        </div>
 //      </td>
-//      <td class="views-field views-field-edit-delete"><input class="delete-line-item form-submit ajax-processed" type="submit" id="edit-edit-delete-0" name="delete-line-item-0" value="Remove"></td>
 //      <td class="views-field views-field-commerce-total price">$1,499.00</td>
 //    </tr>
 //  </tbody>
@@ -247,26 +275,21 @@ tr.odd {
 
   .views-field-field-product-thumbnail- {
     background-color: palette(mono, white);
+    padding-left: 0;
+    padding-right: 0;
+
+    @media (min-width: bppx(small)) and (max-width: 880px) {
+      display: none;
+    }
   }
 
   .views-field-commerce-total {
     text-align: right;
   }
 
-  input.delete-line-item {
-    font-size: 1rem;
-    padding: .25em .5em .125em;
-    width: auto;
-
-    @include touch-hover(hover) {
-      background-color: palette(brand);
-      color: palette(mono, white);
-      cursor: pointer;
-    }
-  }
-
 
   // Media 
+  // Small screens: display the table more like a list
   @media (max-width: bp(smallish)) {
 
     table,
@@ -284,7 +307,10 @@ tr.odd {
       display: none;
     }
 
-    tr { @include clearfix; }
+    tr {
+      @include clearfix;
+      text-align: right;
+    }
 
     td {
       border-top: 0;
@@ -297,19 +323,17 @@ tr.odd {
       width: 40%;
     }
 
-    td.views-field-edit-quantity {
-      width: 20%;
-      padding-right: 0;
-    }
-
-    td.views-field-edit-delete {
-      width: 40%;
-    }
-
-    .views-field-commerce-total.price {
+    td.views-field-commerce-unit-price {
       border-bottom: 1px solid $color-borders;
+      padding-bottom: .375em;
+    }
+
+    td.views-field-edit-quantity,
+    td.views-field-commerce-total.price {
+      display: inline-block;
+      float: none;
       padding-bottom: .5em;
-      width: 100%;
+      width: auto;
     }
   }
 }
@@ -321,8 +345,8 @@ tr.odd {
 #commerce-checkout-form-review,
 #commerce-checkout-form-payment-info,
 #commerce-checkout-form-complete {
-  margin: 0 auto;
-  max-width: bp(smallish);
+  //margin: 0 auto;
+  //max-width: bp(smallish);
 
   .messages {
     
@@ -336,37 +360,42 @@ tr.odd {
   input.form-radio {
     width: 1.5em;
   }
+}
 
-  // The Checkout button
-  .checkout-buttons {
-    padding-top: $vert-line-height;
-    text-align: center; 
 
-    .checkout-continue {
-      @extend .button;
-    }
+// The Checkout buttons
+.checkout-buttons {
+  padding-top: $vert-line-height;
 
-    .button-operator {
-      display: inline-block;
-      padding: 1em .75em;
-    }
+  input.checkout-continue {
+    @extend .button;
+  }
 
-    .checkout-cancel,
-    .checkout-back {
-      cursor: pointer;
-      
-      @include touch-hover(hover) {
-        background-color: palette(mono, 25);
-      }
-    }
+  .button-operator {
+    display: inline-block;
+    padding: 1em .75em;
+  }
+
+  input.checkout-cancel,
+  input.checkout-back {
+    cursor: pointer;
     
-    @include media($smallish-up) {
+    @include touch-hover(hover) {
+      background-color: palette(mono, 25);
+    }
+  }
 
-      .checkout-continue,
-      .checkout-cancel,
-      .checkout-back {
-        width: auto;
-      }
+  .checkout-warning {
+    color: palette(mono, 90);
+    font-weight: $font-custom-bold;
+  }
+
+  @include media($smallish-up) {
+
+    input.checkout-continue,
+    input.checkout-cancel,
+    input.checkout-back {
+      width: auto;
     }
   }
 }
@@ -469,10 +498,6 @@ tr.odd {
 }
 
 
-// Checkout form shipping options
-#commerce-checkout-form-shipping {}
-
-
 // Checkout Review
 #commerce-checkout-form-shipping,
 #commerce-checkout-form-review {
@@ -538,29 +563,6 @@ tr.odd {
 }
 
 
-//<div class="line-item-summary">
-//  <div class="line-item-total">
-//    <span class="line-item-total-label">Total:</span> <span class="line-item-total-raw">$1,499.00</span>
-//  </div>
-//</div>
-.line-item-summary {
-  padding: $vert-line-height/2 .75em;
-  text-align: center;
-
-  @include media($smallish-up) {
-    text-align: right;
-  }
-}
-
-.line-item-total {
-  @include one-element-size( h4 );
-}
-
-.line-item-total-raw {
-  color: palette(mono, 90);
-  font-weight: bold;
-}
-
 //<div class="form-actions commerce-line-item-actions form-wrapper" id="edit-actions">
 //  <input type="submit" id="edit-submit" name="op" value="Update cart" class="form-submit ajax-processed">
 //  <input type="submit" id="edit-checkout" name="op" value="Checkout" class="form-submit">
@@ -603,6 +605,22 @@ tr.odd {
 
 
 // NEW elements for the updated cart design
+/*body*/ .page-cart {
+
+  .grid--column--main {
+
+    @include media($medium-up) {
+      padding-right: 2rem;
+    }
+    @include media($large-up) {
+      padding-right: 3rem;
+    }
+    @include media($xlarge-up) {
+      padding-right: 4rem;
+    }
+  }
+}
+
 .product-name {}
 
 .product-description {
@@ -617,35 +635,131 @@ tr.odd {
   font-weight: bold;
 }
 
-.shipping-options {
-  padding-top: $vert-line-height;
-  padding-bottom: $vert-line-height;
+// New sidebar/aside
+//<div class="checkout--list">
+//  <div class="checkout--shipping">
+//    <h4>Select a Shipping option</h4>
+//    <table class="checkout--shipping--table">
+//      <tbody>
+//        <tr>
+//          <td class="form-item"><label for="radio1"><input type="radio" id="radio1" name="radio_group1" value="Free" checked><span>Free Ground Shipping</span></label></td>
+//          <td class="checkout--shipping--price">$0.00</td>
+//        </tr>
+//      </tbody>
+//    </table>
+//    </div>
+//    <div class="checkout--account">
+//      <h4>Have an Account?</h4>
+.checkout {
 
-  table {
+  &--list {
 
-    tbody {
+    h4 {
+      padding-bottom: .5em;
+      position: relative;
 
-      tr:nth-of-type(odd),
-      tr:nth-of-type(even) {
-        background-color: transparent;
-        border-bottom: 1px solid #ccc;
+      .back-to-step {
+        color: palette(brand, blue);
+        font-size: 75%;
+        position: absolute;
+          top: .25rem; right: 0;
+
+        @include touch-hover('hover') {
+          color: palette(brand);
+        }
+      }
+    }
+
+    .form-actions {
+
+      input[type="submit"] {
+        margin-bottom: .5em;
       }
     }
   }
 
-  label {
-    cursor: pointer;
-  }
+  &--mini-cart {
+    @extend .commerce-line-item-views-form;
+    padding-bottom: $vert-line-height;
 
-  input[type='radio'] {
-
-    & + span {
-      margin-left: .75em;
+    .views-field-commerce-total.price {
+      font-weight: $font-custom-normal;
     }
   }
 
-  .price {
-    font-weight: bold;
-    text-align: right;
+  &--shipping,
+  &--account {
+    padding-top: .25rem;
+    padding-bottom: $vert-line-height;
+
+    table {
+
+      tbody {
+
+        tr:nth-of-type(odd),
+        tr:nth-of-type(even) {
+          background-color: transparent;
+          border-bottom: 1px solid #ccc;
+        }
+      }
+    }
+
+    label {
+      cursor: pointer;
+    }
+
+    input[type='radio'] {
+
+      & + span {
+        margin-left: .5em;
+      }
+    }
+
+    input[checked] + span,
+    input[checked="true"] + span,
+    input[checked="checked"] + span {
+      color: palette(mono, 90);
+    }
+
+    &--price {
+      font-weight: bold;
+      text-align: right;
+    }
+  }
+
+  &--account {
+
+    .form-item {
+      display: inline-block;
+      padding-right: 1em;
+    }
+  }
+  
+  //<div class="checkout--summary">
+  //  <div class="line-item-total">
+  //    <span class="line-item-total-label">Total:</span> <span class="line-item-total-raw">$1,499.00</span>
+  //  </div>
+  //</div>
+  &--summary {
+    border-top: 2px solid palette(brand, blue);
+    padding: ($vert-line-height/2) .75em;
+    text-align: center;
+
+    @include media($smallish-up) {
+      text-align: right;
+    }
+
+    .line-item-total-label {
+      color: palette(mono, 90);
+  }
+
+    .line-item-total {
+      @include one-element-size( h4 );
+    }
+
+    .line-item-total-raw {
+      color: palette(brand);
+      font-weight: bold;
+    }
   }
 }

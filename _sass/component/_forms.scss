@@ -8,12 +8,7 @@ $form-input-placeholder-color: palette(mono, 33);
 $form-input-color: palette(mono, 66);
 $form-input-padding: .25em .5em .125em;
 
-fieldset {
-	border: $form-input-border-width solid $form-input-border-color;
-	border-radius: $form-input-border-radius;
-	margin-bottom: 1em;
-	padding: 1em;
-}
+fieldset {}
 
 label {}
 
