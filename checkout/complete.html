@@ -3,6 +3,7 @@ layout: page
 title: Complete
 permalink: checkout/complete/
 bodyclass: 'page-cart'
+active: complete
 ---
 
 <!-- We are in .content-/-main -->
@@ -24,104 +25,39 @@ bodyclass: 'page-cart'
           
           <!-- Start paste from existing cart -->
           <header class="typography">
-            <h2>Thank you for your Order</h2>
-            <p>You may print this page for your records.</p>
+            <h2 class="checkout--thanks--title">Thank you!</h2>
           </header>
+          <div class="checkout--thanks">
+            <p>Your order number is <a href="#">US-2016-XXX</a>.</p>
+            <p>You will be receiving a confirmation email shortly. Please check your spam folder if you do not see one within 30 minutes.</p>
+          </div>
           
-          <form action="/checkout/993/review" method="post" id="commerce-checkout-form-review" accept-charset="UTF-8"><div>
-<div class="checkout_review form-wrapper" id="edit-checkout-review"><table class="checkout-review">
-<tbody>
- <tr class="pane-title odd odd"><td colspan="2">Shopping cart contents</td> </tr>
- <tr class="pane-data even even"><td colspan="2" class="pane-data-full"><div class="view view-commerce-cart-summary view-id-commerce_cart_summary view-display-id-default view-dom-id-7b901c48a789e3b558935d30206efd6f">
-        
-  
-  
-      <div class="view-content">
-      <table class="views-table cols-4">
-         <thead>
-      <tr>
-                  <th class="views-field views-field-line-item-title" scope="col">
-            Product          </th>
-                  <th class="views-field views-field-commerce-unit-price" scope="col">
-            Price          </th>
-                  <th class="views-field views-field-quantity" scope="col">
-            Quantity          </th>
-                  <th class="views-field views-field-commerce-total views-align-right" scope="col">
-            Total          </th>
-              </tr>
-    </thead>
-    <tbody>
-          <tr class="odd views-row-first">
-                  <td class="views-field views-field-line-item-title">
-            S910          </td>
-                  <td class="views-field views-field-commerce-unit-price price">
-            $1,499.00          </td>
-                  <td class="views-field views-field-quantity">
-            1          </td>
-                  <td class="views-field views-field-commerce-total views-align-right price">
-            $1,499.00          </td>
-              </tr>
-          <tr class="even">
-                  <td class="views-field views-field-line-item-title">
-            TA360 Disto 360 tripod adapter          </td>
-                  <td class="views-field views-field-commerce-unit-price price">
-            $149.00          </td>
-                  <td class="views-field views-field-quantity">
-            1          </td>
-                  <td class="views-field views-field-commerce-total views-align-right price">
-            $149.00          </td>
-              </tr>
-          <tr class="odd views-row-last">
-                  <td class="views-field views-field-line-item-title">
-            Laser Glasses GLB30          </td>
-                  <td class="views-field views-field-commerce-unit-price price">
-            $35.00          </td>
-                  <td class="views-field views-field-quantity">
-            1          </td>
-                  <td class="views-field views-field-commerce-total views-align-right price">
-            $35.00          </td>
-              </tr>
-      </tbody>
-</table>
-    </div>
-  
-  
-  
-  
-      <div class="view-footer">
-      <div class="commerce-order-handler-area-order-total"><div class="field field-name-commerce-order-total field-type-commerce-price field-label-hidden"><div class="field-items"><div class="field-item even"><table class="commerce-price-formatted-components">
-<tbody>
- <tr class="component-type-base-price odd"><td class="component-title">Subtotal</td><td class="component-total">$1,683.00</td> </tr>
- <tr class="component-type-flat-rate-free-ground-shipping even"><td class="component-title">Free Ground Shipping</td><td class="component-total">$0.00</td> </tr>
- <tr class="component-type-avatax odd"><td class="component-title">Sales tax</td><td class="component-total">$117.81</td> </tr>
- <tr class="component-type-commerce-price-formatted-amount even"><td class="component-title">Order total</td><td class="component-total">$1,800.81</td> </tr>
-</tbody>
-</table>
-</div></div></div></div>    </div>
-  
-  
-</div></td> </tr>
-<tr class="pane-title odd odd"><td colspan="2">Account information</td> </tr>
- <tr class="pane-data even even"><td colspan="2" class="pane-data-full"><div class="form-item form-type-item">
-  <label>E-mail address </label> jhogue@oomphinc.com</div>
-</td> </tr>
- <tr class="pane-title odd odd"><td colspan="2">Shipping information</td> </tr>
- <tr class="pane-data even even"><td colspan="2" class="pane-data-full"><div class="field field-name-commerce-customer-address field-type-addressfield field-label-hidden"><div class="field-items"><div class="field-item even"><div class="addressfield-container-inline name-block"><div class="name-block">J. Hogue</div></div><div class="street-block"><div class="thoroughfare">72 Clifford Street</div></div><div class="addressfield-container-inline locality-block country-US"><span class="locality">Providence</span>, <span class="state">RI</span> <span class="postal-code">02906</span></div><span class="country">United States</span></div></div></div><div class="field field-name-commerce-firstdata-billing-phone field-type-text field-label-hidden"><div class="field-items"><div class="field-item even">4018311963</div></div></div></td> </tr>
- <tr class="pane-title odd odd"><td colspan="2">Billing information</td> </tr>
- <tr class="pane-data even even"><td colspan="2" class="pane-data-full"><div class="field field-name-commerce-customer-address field-type-addressfield field-label-hidden"><div class="field-items"><div class="field-item even"><div class="addressfield-container-inline name-block"><div class="name-block">J. Hogue</div></div><div class="street-block"><div class="thoroughfare">72 Clifford Street</div></div><div class="addressfield-container-inline locality-block country-US"><span class="locality">Providence</span>, <span class="state">RI</span> <span class="postal-code">02906</span></div><span class="country">United States</span></div></div></div><div class="field field-name-commerce-firstdata-billing-phone field-type-text field-label-hidden"><div class="field-items"><div class="field-item even">4018311963</div></div></div></td> </tr>
-</tbody>
-</table>
-</div>
-</div></form>
+          
           <!-- end #commerce-checkout-form-review -->
 
 
         </div>
         <aside class="grid--column grid--column--rail">
-          <div class="checkout--list"></div>
+          <div class="checkout--create-account">
+            <h3>Create an Account</h3>
+            <p>You&rsquo;ve already created an account, just choose a password! Keep contact information up to date and manage your history. </p>
+            <div class="form-item">
+              <label class="option">Create Password</label>
+              <input type="password">
+            </div>
+            <div class="form-item">
+              <label class="option">Confirm Password</label>
+              <input type="password">
+            </div>
+            <div class="form-actions">
+              <a href="#" class="button button--primary">Log In</a>
+            </div>
+          </div>
         </aside>
       </div><!-- end grid--rightrail -->
-        
+      
+      {% include partials/trust-logos.html %}
+      
     </div>
   </div><!-- end .block.block-system -->
 

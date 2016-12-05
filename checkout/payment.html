@@ -3,6 +3,7 @@ layout: page
 title: Payment Details
 permalink: checkout/payment/
 bodyclass: 'page-cart'
+active: payment
 ---
 
 <!-- We are in .content-/-main -->
@@ -21,15 +22,43 @@ bodyclass: 'page-cart'
       <div class="grid grid--rightrail">
     		<div class="grid--column grid--column--main">
       
-          
-          <!-- Start paste from existing cart -->
-          <form action="/checkout/993/payment_info" method="post" id="commerce-checkout-form-payment-info" accept-charset="UTF-8"><div><div class="checkout-help">
-  Please enter your payment information below. </div>
-<fieldset class="commerce_payment form-wrapper" id="edit-commerce-payment"><legend><span class="fieldset-legend">Payment</span></legend><div class="fieldset-wrapper"><div id="edit-commerce-payment-payment-method" class="form-radios"><div class="form-item form-type-radio form-item-commerce-payment-payment-method">
- <input type="radio" id="edit-commerce-payment-payment-method-shopatroncommerce-payment-shopatron" name="commerce_payment[payment_method]" value="shopatron|commerce_payment_shopatron" checked="checked" class="form-radio">  <label class="option" for="edit-commerce-payment-payment-method-shopatroncommerce-payment-shopatron">Credit Card </label>
 
-</div>
-</div><div id="payment-details"><div class="form-item form-type-textfield form-item-commerce-payment-payment-details-credit-card-number">
+<!-- Start paste from existing cart -->
+<form action="/checkout/993/payment_info" method="post" id="commerce-checkout-form-payment-info" accept-charset="UTF-8">
+  <div id="customer-profile-billing-ajax-wrapper">
+    <fieldset class="customer_profile_billing form-wrapper" id="edit-customer-profile-billing">
+      <legend><span class="fieldset-legend">Billing address</span></legend>
+      <div class="fieldset-wrapper">
+        <div class="commerce-customer-profile-copy">
+          <div class="form-item form-type-checkbox form-item-customer-profile-billing-commerce-customer-profile-copy">
+            <input type="checkbox" id="edit-customer-profile-billing-commerce-customer-profile-copy" name="customer_profile_billing[commerce_customer_profile_copy]" value="1" checked="checked" class="form-checkbox ajax-processed">
+            <label class="option" for="edit-customer-profile-billing-commerce-customer-profile-copy">My <em class="placeholder">Billing information</em> is the same as my <em class="placeholder">Shipping information</em>. </label>
+          </div>
+        </div>
+        <div class="field-type-addressfield field-name-commerce-customer-address field-widget-addressfield-standard form-wrapper" id="edit-customer-profile-billing-commerce-customer-address"></div>
+        <div class="field-type-text field-name-commerce-firstdata-billing-phone field-widget-text-textfield form-wrapper" id="edit-customer-profile-billing-commerce-firstdata-billing-phone"></div>
+      </div>
+    </fieldset>
+  </div>
+  <div>
+    <fieldset class="commerce_payment form-wrapper" id="edit-commerce-payment">
+      <legend><span class="fieldset-legend">Payment options</span></legend>
+      <div class="fieldset-wrapper">
+        <div id="edit-commerce-payment-payment-method" class="form-radios">
+          <div class="form-item form-type-radio form-item-commerce-payment-payment-method">
+            <input type="radio" id="edit-commerce-payment-payment-method-shopatroncommerce-payment-shopatron" name="commerce_payment[payment_method]" value="shopatron|commerce_payment_shopatron" checked="checked" class="form-radio">
+            <label class="option" for="edit-commerce-payment-payment-method-shopatroncommerce-payment-shopatron">Credit Card </label>
+          </div>
+          <div class="form-item form-type-radio form-item-commerce-payment-payment-method">
+            <input type="radio" id="edit-commerce-payment-payment-method-shopatroncommerce-payment-shopatron" name="commerce_payment[payment_method]" value="shopatron|commerce_payment_shopatron" class="form-radio">
+            <label class="option" for="edit-commerce-payment-payment-method-shopatroncommerce-payment-shopatron">PayPal </label>
+          </div>
+          <div class="form-item form-type-radio form-item-commerce-payment-payment-method">
+            <input type="radio" id="edit-commerce-payment-payment-method-shopatroncommerce-payment-shopatron" name="commerce_payment[payment_method]" value="shopatron|commerce_payment_shopatron" class="form-radio">
+            <label class="option option__disabled" for="edit-commerce-payment-payment-method-shopatroncommerce-payment-shopatron">Lease </label>
+          </div>
+        </div>
+        <div id="payment-details"><div class="form-item form-type-textfield form-item-commerce-payment-payment-details-credit-card-number">
   <label for="edit-commerce-payment-payment-details-credit-card-number">Number <span class="form-required" title="This field is required.">*</span></label>
  <input type="tel" autocomplete="cc-number" class="cc-number form-text form-text-tel required" id="edit-commerce-payment-payment-details-credit-card-number" name="commerce_payment[payment_details][credit_card][number]" value="" size="60" maxlength="128">
 </div>
@@ -42,80 +71,76 @@ bodyclass: 'page-cart'
  <input type="tel" autocomplete="off" class="cc-cvc form-text form-text-tel required" id="edit-commerce-payment-payment-details-credit-card-cvc" name="commerce_payment[payment_details][credit_card][cvc]" value="" size="" maxlength="128">
 </div>
 </div></div></div></fieldset>
-<fieldset class="checkout-buttons form-wrapper" id="edit-buttons"><div class="fieldset-wrapper"><input class="checkout-continue form-submit" type="submit" id="edit-continue" name="op" value="Continue to next step"><span class="checkout-processing element-invisible"></span><span class="button-operator">or</span><input class="checkout-back form-submit" type="submit" id="edit-back" name="op" value="Go back"></div></fieldset>
-<input type="hidden" name="form_build_id" value="form-azQ5Y93c5eXvXUj6ZeH7TESGpX0v0-UEa-zFidaYnaA">
-<input type="hidden" name="form_id" value="commerce_checkout_form_payment_info">
 </div></form>
           <!-- end #commerce-checkout-form-payment-info -->
-        
+          
+          
+          <div class="checkout--actions checkout--actions__secondary">
+            <a href="{{ '/checkout/checkout' | prepend: site.baseurl }}" class="back"><span class="fa fa-arrow-circle-o-left" aria-hidden="true"></span>Back</a>
+            <a href="{{ '/checkout/review' | prepend: site.baseurl }}" class="button button--primary">Review Order</a>
+          </div>
+          
         </div>
         <aside class="grid--column grid--column--rail">
           <div class="checkout--list">
-          
+            
+            <div class="checkout--actions checkout--actions__primary">
+              <a href="{{ '/checkout/checkout' | prepend: site.baseurl }}" class="back"><span class="fa fa-arrow-circle-o-left" aria-hidden="true"></span>Back</a>
+              <a href="{{ '/checkout/review' | prepend: site.baseurl }}" class="button button--primary">Review Order</a>
+            </div>
+            
             <div class="checkout--mini-cart">
-              <h4>Cart Contents <a class="back-to-step" href="{ '/checkout/cart' | prepend: site.baseurl }}">Back to Cart</a></h4>
+              <h4>Your Cart</h4>
               <table class="views-table cols-6">
-                <thead>
-                  <tr>
-                    <th class="views-field views-field-line-item-title" scope="col">Product</th>
-                    <!--<th class="views-field views-field-edit-quantity" scope="col">Quantity</th>-->
-                    <th class="views-field views-field-commerce-total" scope="col">Total</th>
-                  </tr>
-                </thead>
                 <tbody>
                   <tr class="odd views-row-first views-row-last">
                     <td class="views-field views-field-line-item-title">
                       <div class="product-name">Disto S910</div>
                     </td>
-                    <!--<td class="views-field views-field-edit-quantity">
-                      <div class="form-item form-type-textfield form-item-edit-quantity-0"><input title="Quantity" type="text" id="edit-edit-quantity-0" name="edit_quantity[0]" value="1" size="4" maxlength="4" class="form-text"></div>
-                    </td>-->
                     <td class="views-field views-field-commerce-total price">$1,499.00</td>
                   </tr>
                   <tr class="even views-row-last">
                     <td class="views-field views-field-line-item-title">TA360 Disto 360 tripod adapter</td>
-                    <!--<td class="views-field views-field-edit-quantity"><div class="form-item form-type-textfield form-item-edit-quantity-1"><input title="Quantity" type="text" id="edit-edit-quantity-1" name="edit_quantity[1]" value="1" size="4" maxlength="4" class="form-text"></div></td>-->
                     <td class="views-field views-field-commerce-total price">$149.00</td>
                   </tr>
                   <tr class="odd views-row-last">
                     <td class="views-field views-field-line-item-title">Laser Glasses GLB30</td>
-                    <!--<td class="views-field views-field-edit-quantity"><div class="form-item form-type-textfield form-item-edit-quantity-2"><input title="Quantity" type="text" id="edit-edit-quantity-2" name="edit_quantity[2]" value="1" size="4" maxlength="4" class="form-text"></div></td>-->
                     <td class="views-field views-field-commerce-total price">$35.00</td>
                   </tr>
-                </tbody>
-              </table>
-            </div>
-            
-            <div class="checkout--shipping">
-              <h4>Select a Shipping option</h4>
-              <table class="checkout--shipping--table">
-                <tbody>
-                  <tr>
-                    <td class="form-item"><label for="radio1"><input type="radio" id="radio1" name="radio_group1" value="Free" checked><span>Free Ground Shipping</span></label></td>
-                    <td class="checkout--shipping--price">$0.00</td>
+                  <tr class="even views-row-last">
+                    <td class="views-field-subtotal-label">Sub-total:</td>
+                    <td class="views-field-subtotal">$1,683.00</td>
                   </tr>
-                  <tr>
-                    <td class="form-item"><label for="radio2"><input type="radio" id="radio2" name="radio_group1" value="2-day"><span>Express 2-day Air</span></label></td>
-                    <td class="checkout--shipping--price">$12.95</td>
+                  <tr class="odd views-row-last">
+                    <td class="views-field-shipping-label">Shipping:</td>
+                    <td class="views-field-shipping">Free</td>
                   </tr>
-                  <tr>
-                    <td class="form-item"><label for="radio3"><input type="radio" id="radio3" name="radio_group1" value="1-day"><span>Express 1-Day Air</span></label></td>
-                    <td class="checkout--shipping--price">$19.95</td>
+                  <tr class="even views-row-last">
+                    <td class="views-field-total-label">Order Total:</td>
+                    <td class="views-field-total">$1,683.00</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             
-            <div class="checkout--summary">
-              <div class="line-item-total"><span class="line-item-total-label">Order Total:</span> <span class="line-item-total-raw">$1,683.00</span></div>
+            <div class="checkout--coupon" style="text-align: right">
+              <div class="form-item form-type-radio form-item-commerce-payment-payment-method">
+                <input type="checkbox" id="" name="" value="" class="form-checkbox">
+                <label class="option" for="">I have a discount code</label>
+              </div>
+              <div class="form-item form-type-textfield">
+                <label for="" class="screen-reader-text">Coupon</label>
+                <input class="form-text" type="text" id="" name="" value="" size="" maxlength="128" style="width: auto">
+                <button class="button button--secondary">Apply</button>
+              </div>
             </div>
-            
-            <fieldset class="checkout-buttons form-wrapper" id="edit-buttons"><div class="fieldset-wrapper"><input class="checkout-continue form-submit" type="submit" id="edit-continue" name="op" value="Continue"><span class="checkout-processing element-invisible"></span><span class="button-operator">or</span><input class="checkout-back form-submit" type="submit" id="edit-back" name="op" value="Go Back"></div></fieldset>
           
           </div>
         </aside>
       </div><!-- end grid--rightrail -->
-        
+      
+      {% include partials/trust-logos.html %}
+      
     </div>
   </div><!-- end .block.block-system -->
 

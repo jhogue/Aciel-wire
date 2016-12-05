@@ -5,6 +5,10 @@ label {
   &.option {
     display: inline;
     font-weight: normal;
+    
+    &__disabled {
+      color: palette(mono);
+    }
   }
 }
 
@@ -39,6 +43,13 @@ tr.odd {
   float: right;
 }
 
+.page-cart .content--title {
+  
+  @include media($smallish-up) {
+    @include hide;
+  }
+}
+
 
 // Placeholder mixins
 %shared-checkout-table {
@@ -51,9 +62,8 @@ tr.odd {
 
   th,
   td {
-    padding: .5em .75em;
     text-align: left;
-    vertical-align: top;
+    vertical-align: middle;
     width: auto;
   }
 
@@ -67,11 +77,13 @@ tr.odd {
     color: palette(mono, 90);
     font-weight: bold;
     letter-spacing: .0625em;
+    padding: 1.125em .75em .875em;
     text-transform: uppercase;
   }
 
   td {
-    color: palette(mono, 66);
+    color: palette(mono, 75);
+    padding: .5em .75em;
   }
 }
 
@@ -199,6 +211,7 @@ tr.odd {
   .review:before { content: '\f03a'; } // list
   .complete:before { content: '\f046'; } // check-square-o
 
+
   // Just for the wireframes
   a {
     color: palette(mono, white);
@@ -207,6 +220,15 @@ tr.odd {
       color: palette(mono, black);
     }
   }
+
+  li.active a {
+    color: palette(brand, denim);
+
+    @include touch-hover('hover') {
+      color: palette(brand, denim);
+    }
+  }
+  // End special
 
   
   // Media
@@ -236,7 +258,8 @@ tr.odd {
       font-size: rem(20);
     }
   }
-}
+} // end .commerce-checkout-progress
+
 
 //<table class="views-table cols-6">
 //  <thead>
@@ -267,24 +290,76 @@ tr.odd {
 .commerce-line-item-views-form {
   @extend %shared-checkout-table;
 
-  .views-field-line-item-title,
-  .views-field-commerce-total.price {
-    color: palette(mono, 75);
-    font-weight: bold;
+  thead th {
+    background-color: palette(mono, 10);
+    border-bottom-color: palette(mono, 90);
   }
 
-  .views-field-field-product-thumbnail- {
+  tr.odd,
+  tr.even {
     background-color: palette(mono, white);
-    padding-left: 0;
-    padding-right: 0;
+  }
+
+  tr:last-child {
+    border-bottom: 0;
+  }
+
+  td.views-field-line-item-title,
+  td.views-field-commerce-total.price {
+    color: palette(mono, 75);
+  }
+
+  td.views-field-field-product-thumbnail- {
+    background-color: palette(mono, white);
+    padding: 0;
 
     @media (min-width: bppx(small)) and (max-width: 880px) {
       display: none;
     }
   }
 
-  .views-field-commerce-total {
+  td.views-field-commerce-total {
     text-align: right;
+  }
+
+
+  //<tr class="even views-row-last">
+  //  <td colspan="4" class="views-field-subtotal-label">Sub-total:</td>
+  //  <td class="views-field-subtotal">$1,683.00</td>
+  //</tr>
+  //<tr class="odd views-row-last">
+  //  <td colspan="4" class="views-field-shipping-label">Shipping:</td>
+  //  <td class="views-field-shipping">Free</td>
+  //</tr>
+  //<tr class="even views-row-last">
+  //  <td colspan="4" class="views-field-total-label">Order Total:</td>
+  //  <td class="views-field-total">$1,683.00</td>
+  //</tr>
+  td.views-field-subtotal-label,
+  td.views-field-subtotal,
+  td.views-field-shipping-label,
+  td.views-field-shipping {
+    background-color: palette(mono, 10);
+    border-bottom-color: palette(mono, 66);
+    text-align: right;
+  }
+
+  td.views-field-total-label,
+  td.views-field-total {
+    border-bottom: 0;
+    text-align: right;
+  }
+
+  td.views-field-subtotal,
+  td.views-field-shipping,
+  td.views-field-total {
+    color: palette(mono, 90);
+    font-weight: $font-custom-bold;
+  }
+
+  td.views-field-total {
+    @include one-element-size(h4);
+    color: palette(brand);
   }
 
 
@@ -336,7 +411,7 @@ tr.odd {
       width: auto;
     }
   }
-}
+} // end .commerce-line-item-views-form
 
 
 // Shared styles for max-width and checkout buttons
@@ -347,7 +422,16 @@ tr.odd {
 #commerce-checkout-form-complete {
   //margin: 0 auto;
   //max-width: bp(smallish);
+  padding-bottom: $vert-line-height;
 
+  .commerce_mailchimp.form-wrapper {
+    padding-bottom: $vert-line-height/2;
+  }
+
+  .industry-form-wrapper.form-wrapper {
+    padding-bottom: $vert-line-height/2;
+  }
+  
   .messages {
     
     li {
@@ -446,7 +530,7 @@ tr.odd {
   // Override default Drupal addressfield handling
   div.addressfield-container-inline > div.form-item {
     float: none;
-    margin-right: 0;
+    //margin-right: 0;
   }
 
   // The state drop down
@@ -635,6 +719,30 @@ tr.odd {
   font-weight: bold;
 }
 
+@include media($medium-up) {
+
+  .addressfield-container-inline.name-block {
+    @include align-items(stretch);
+    @include display(flex);
+    @include flex-flow(row wrap);
+  
+    & > div {
+      width: 50%;
+    }
+
+    div:nth-child(1),
+    div:nth-child(3) {
+      padding-right: .5em;
+    }
+
+    div:nth-child(2),
+    div:nth-child(4) {
+      padding-left: .5em;
+    }
+  }
+}
+
+
 // New sidebar/aside
 //<div class="checkout--list">
 //  <div class="checkout--shipping">
@@ -652,22 +760,23 @@ tr.odd {
 //      <h4>Have an Account?</h4>
 .checkout {
 
+  &--guest-or-signin {
+    background-color: palette(mono, 10);
+    border-bottom: 2px solid $color-borders;
+    color: palette(mono);
+    padding: .875em 0 .625em;
+    text-align: center;
+
+    a {
+      text-decoration: underline;
+    }
+  }
+
   &--list {
 
     h4 {
       padding-bottom: .5em;
       position: relative;
-
-      .back-to-step {
-        color: palette(brand, blue);
-        font-size: 75%;
-        position: absolute;
-          top: .25rem; right: 0;
-
-        @include touch-hover('hover') {
-          color: palette(brand);
-        }
-      }
     }
 
     .form-actions {
@@ -677,6 +786,76 @@ tr.odd {
       }
     }
   }
+
+  //<div class="checkout--actions checkout--actions__secondary">
+  //  <a href="{{ '/checkout/checkout' | prepend: site.baseurl }}" class="button button--primary">Checkout</a>
+  //</div>
+  &--actions {
+    text-align: right;
+
+    .button {
+      padding-left: 1em;
+      padding-right: 1em;
+
+      .review-checkout & {
+        padding-top: .75em;
+        padding-bottom: .625em;
+      }
+    }
+
+    &__primary {
+      background-color: palette(mono, white);
+      border-bottom: 2px solid palette(mono, 90);
+      margin-bottom: $vert-line-height;
+      padding: .5em 0;
+    }
+
+    &__secondary {
+      border-top: 2px solid palette(mono, 90);
+      padding: .5em 0 $vert-line-height;
+    }
+
+    a {
+      
+      .fa {
+        @include transition( transform 250ms ease );
+        @include transform( translate3d(0,0,0) );
+        font-size: 125%;
+        margin-right: .5em;
+        vertical-align: text-top;
+      }
+      
+      @include touch-hover('hover') {
+        
+        .fa {
+          @include transform( translate3d(-4px,0,0) );
+        }
+      }
+    }
+
+    .back {
+      color: palette(brand, denim);
+      margin-right: 1em;
+    }
+
+    &__update {
+      padding-top: $vert-line-height/2;
+      text-align: right;
+
+      .button {
+        background-color: palette(mono, white);
+        border: 1px solid palette(mono, 25);
+        font-size: 87.5%;
+      }
+    }
+  }
+
+  &--next-steps {
+    @extend .micro;
+    color: palette(brand, denim);
+    margin-right: .5em;
+  }
+
 
   &--mini-cart {
     @extend .commerce-line-item-views-form;
@@ -699,7 +878,7 @@ tr.odd {
         tr:nth-of-type(odd),
         tr:nth-of-type(even) {
           background-color: transparent;
-          border-bottom: 1px solid #ccc;
+          border-bottom: 1px solid $color-borders;
         }
       }
     }
@@ -760,6 +939,104 @@ tr.odd {
     .line-item-total-raw {
       color: palette(brand);
       font-weight: bold;
+    }
+  }
+  
+  &--thanks {
+    padding-bottom: $vert-line-height*2;
+
+    &--title {
+      @extend .mega;
+    }
+
+    @include media($medium-up) {
+      padding-bottom: $vert-line-height*3;
+    }
+  }
+}
+
+
+//<div class="trust-security">
+//  <div class="trust-security--kibo">
+//    <p><strong>Need order help?</strong> Call toll-free <a href="tel:8553287773">(8755) 328-7773</a></p>
+//  </div>
+//  <ul class="trust-security--logos">
+//    <li><img src="{{ '/files/mcafee.png' | prepend: site.baseurl }}" alt="McAfee Secure"></li>
+//  </ul>
+//</div>
+.trust-security {
+  @include clearfix;
+  background-color: palette(mono, 10);
+  border-top: 1px solid $color-borders;
+  margin-top: $vert-line-height;
+  padding: $vert-line-height $page-gutter;
+  text-align: center;
+
+  &--kibo {
+    padding-bottom: $vert-line-height/2;
+    
+    p {
+      padding-bottom: $vert-line-height/2;
+    }
+  }
+
+  &--logos {
+    @include list-reset();
+    margin-bottom: - $vert-line-height;
+    text-align: center;
+    
+    li {
+      display: block;
+      padding-bottom: $vert-line-height;
+      
+      img {
+        display: inline-block;
+        max-height: 67px;
+      }
+    }
+  }
+
+
+  // Media 
+  @include media($small-up) {
+    padding-bottom: 0;
+    text-align: left;
+
+    &--kibo {
+      float: left;
+      width: flex-grid(6);
+    }
+
+    &--logos {
+      float: left;
+      text-align: right;
+      width: flex-grid(6);
+
+      li {
+        display: inline-block;
+      }
+    }
+  }
+
+  @include media($medium-up) {
+
+    &--kibo {
+      width: flex-grid(5);
+    }
+
+    &--logos {
+      width: flex-grid(7);
+    }
+  }
+
+  @include media($xlarge-up) {
+
+    &--kibo {
+      width: flex-grid(4);
+    }
+
+    &--logos {
+      width: flex-grid(8);
     }
   }
 }
